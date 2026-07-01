@@ -1,0 +1,68 @@
+{
+  "name": "CaseStudy",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "clientName": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "string"
+    },
+    "heroMetricValue": {
+      "type": "string",
+      "description": "e.g. '+320%'"
+    },
+    "heroMetricLabel": {
+      "type": "string",
+      "description": "e.g. 'ROI Growth'"
+    },
+    "challenge": {
+      "type": "string"
+    },
+    "approach": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "testimonialQuote": {
+      "type": "string"
+    },
+    "testimonialAuthor": {
+      "type": "string"
+    },
+    "clientWebsite": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "slug",
+    "clientName",
+    "heroMetricValue",
+    "heroMetricLabel"
+  ]
+}

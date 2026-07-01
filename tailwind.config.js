@@ -59,7 +59,12 @@ module.exports = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+  			ink: '#050505',
+  			pearl: '#F8FAFC',
+  			'indigo-accent': '#6366F1',
+  			'emerald-accent': '#10B981',
+  			'slate-sub': '#94A3B8'
   		},
   		fontFamily: {
   			heading: ['var(--font-heading)'],

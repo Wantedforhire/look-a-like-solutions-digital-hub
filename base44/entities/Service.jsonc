@@ -1,0 +1,101 @@
+{
+  "name": "Service",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string",
+      "description": "URL slug e.g. seo-services"
+    },
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Search & Discovery",
+        "Social & Engagement",
+        "Performance & Paid",
+        "Creative & Brand",
+        "Technical & Development",
+        "Content & Strategy",
+        "Reputation & Trust",
+        "AI & Emerging"
+      ]
+    },
+    "icon": {
+      "type": "string",
+      "description": "lucide-react icon name"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "heroHeadline": {
+      "type": "string"
+    },
+    "heroSubtext": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "string"
+    },
+    "metricLabel": {
+      "type": "string",
+      "description": "e.g. '300% traffic growth'"
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "process": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "step": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "faqs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "keywordTargets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "slug",
+    "title",
+    "shortDescription"
+  ]
+}
