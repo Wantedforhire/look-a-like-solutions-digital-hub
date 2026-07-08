@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "name": "MediaImage",
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "filename": {
+      "type": "string"
+    },
+    "size": {
+      "type": "number",
+      "description": "bytes"
+    },
+    "contentType": {
+      "type": "string"
+    },
+    "uploadedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "url",
+    "filename"
+  ]
+}

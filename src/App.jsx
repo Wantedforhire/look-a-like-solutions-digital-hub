@@ -20,6 +20,26 @@ import GrowthAudit from '@/pages/GrowthAudit';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import Terms from '@/pages/Terms';
 import NotFound from '@/pages/NotFound';
+import WorkWithUs from '@/pages/WorkWithUs';
+import AdminRoute from '@/components/admin/AdminRoute';
+import AdminLayout from '@/components/admin/AdminLayout';
+import Dashboard from '@/pages/admin/Dashboard';
+import PagesManagement from '@/pages/admin/PagesManagement';
+import BlogManagement from '@/pages/admin/BlogManagement';
+import BlogEditor from '@/pages/admin/BlogEditor';
+import CaseStudyManagement from '@/pages/admin/CaseStudyManagement';
+import CaseStudyEditor from '@/pages/admin/CaseStudyEditor';
+import ServiceManagement from '@/pages/admin/ServiceManagement';
+import ServiceEditor from '@/pages/admin/ServiceEditor';
+import IndustryManagement from '@/pages/admin/IndustryManagement';
+import LeadManagement from '@/pages/admin/LeadManagement';
+import TalentManagement from '@/pages/admin/TalentManagement';
+import TestimonialManagement from '@/pages/admin/TestimonialManagement';
+import TeamManagement from '@/pages/admin/TeamManagement';
+import MediaLibrary from '@/pages/admin/MediaLibrary';
+import SeoSettings from '@/pages/admin/SeoSettings';
+import NavigationSettings from '@/pages/admin/NavigationSettings';
+import AdminSettings from '@/pages/admin/AdminSettings';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -60,9 +80,36 @@ const AuthenticatedApp = () => {
         <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/growth-audit" element={<GrowthAudit />} />
+        <Route path="/work-with-us" element={<WorkWithUs />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />
+      </Route>
+
+      {/* Admin routes — separate from public SiteLayout */}
+      <Route element={<AdminRoute />}>
+        <Route element={<AdminLayout />}>
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/pages" element={<PagesManagement />} />
+          <Route path="/admin/blog" element={<BlogManagement />} />
+          <Route path="/admin/blog/new" element={<BlogEditor />} />
+          <Route path="/admin/blog/edit/:id" element={<BlogEditor />} />
+          <Route path="/admin/case-studies" element={<CaseStudyManagement />} />
+          <Route path="/admin/case-studies/new" element={<CaseStudyEditor />} />
+          <Route path="/admin/case-studies/edit/:id" element={<CaseStudyEditor />} />
+          <Route path="/admin/services" element={<ServiceManagement />} />
+          <Route path="/admin/services/new" element={<ServiceEditor />} />
+          <Route path="/admin/services/edit/:id" element={<ServiceEditor />} />
+          <Route path="/admin/industries" element={<IndustryManagement />} />
+          <Route path="/admin/leads" element={<LeadManagement />} />
+          <Route path="/admin/talent" element={<TalentManagement />} />
+          <Route path="/admin/testimonials" element={<TestimonialManagement />} />
+          <Route path="/admin/team" element={<TeamManagement />} />
+          <Route path="/admin/media" element={<MediaLibrary />} />
+          <Route path="/admin/seo" element={<SeoSettings />} />
+          <Route path="/admin/navigation" element={<NavigationSettings />} />
+          <Route path="/admin/settings" element={<AdminSettings />} />
+        </Route>
       </Route>
     </Routes>
   );

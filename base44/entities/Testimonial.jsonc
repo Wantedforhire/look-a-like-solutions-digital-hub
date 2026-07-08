@@ -1,6 +1,6 @@
 {
-  "name": "Testimonial",
   "type": "object",
+  "name": "Testimonial",
   "properties": {
     "name": {
       "type": "string"
@@ -20,6 +20,13 @@
     },
     "avatar": {
       "type": "string"
+    },
+    "relatedService": {
+      "type": "string"
+    },
+    "visible": {
+      "type": "boolean",
+      "default": true
     }
   },
   "required": [

@@ -32,7 +32,7 @@ export default function Home() {
   });
   const { data: testimonials = [] } = useQuery({
     queryKey: ["testimonials", "home"],
-    queryFn: () => base44.entities.Testimonial.list()
+    queryFn: () => base44.entities.Testimonial.filter({ visible: true })
   });
 
   return (

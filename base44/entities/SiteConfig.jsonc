@@ -1,0 +1,95 @@
+{
+  "type": "object",
+  "name": "SiteConfig",
+  "properties": {
+    "configKey": {
+      "type": "string",
+      "description": "Singleton key e.g. 'main'"
+    },
+    "navLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "serviceLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "footerColumns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "socialLinks": {
+      "type": "object",
+      "properties": {
+        "instagram": {
+          "type": "string"
+        },
+        "linkedin": {
+          "type": "string"
+        },
+        "youtube": {
+          "type": "string"
+        },
+        "whatsapp": {
+          "type": "string"
+        },
+        "facebook": {
+          "type": "string"
+        }
+      }
+    },
+    "ctaButtonLabel": {
+      "type": "string"
+    },
+    "ctaButtonUrl": {
+      "type": "string"
+    },
+    "clientLoginUrl": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "configKey"
+  ]
+}

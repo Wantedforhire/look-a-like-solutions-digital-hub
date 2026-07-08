@@ -1,6 +1,6 @@
 {
-  "name": "BlogPost",
   "type": "object",
+  "name": "BlogPost",
   "properties": {
     "slug": {
       "type": "string"
@@ -16,7 +16,7 @@
     },
     "content": {
       "type": "string",
-      "description": "Markdown content"
+      "description": "Markdown / HTML content"
     },
     "coverImage": {
       "type": "string"
@@ -34,11 +34,31 @@
     "metaDescription": {
       "type": "string"
     },
+    "ogImage": {
+      "type": "string"
+    },
+    "noindex": {
+      "type": "boolean",
+      "default": false
+    },
     "tags": {
       "type": "array",
       "items": {
         "type": "string"
       }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published",
+        "scheduled"
+      ],
+      "default": "draft"
+    },
+    "scheduledDate": {
+      "type": "string",
+      "format": "date-time"
     }
   },
   "required": [

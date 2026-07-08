@@ -12,6 +12,7 @@ const services = [
 
 const company = [
   { label: "About Us", to: "/about" },
+  { label: "Work With Us", to: "/work-with-us" },
   { label: "Case Studies", to: "/case-studies" },
   { label: "Industries Served", to: "/industries" },
   { label: "Blog / Insights", to: "/blog" },

@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "name": "TalentApplication",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "skillArea": {
+      "type": "string",
+      "enum": [
+        "Google Ads",
+        "Meta Ads",
+        "SEO",
+        "Content Writing",
+        "Graphic Design",
+        "Video Editing",
+        "Website Development",
+        "Landing Page Design",
+        "Social Media Management",
+        "Analytics and Tracking",
+        "Client Coordination",
+        "Student Internship",
+        "Other"
+      ]
+    },
+    "experienceLevel": {
+      "type": "string",
+      "enum": [
+        "Student",
+        "Fresher",
+        "1 to 2 Years",
+        "3 to 5 Years",
+        "5+ Years"
+      ]
+    },
+    "portfolioUrl": {
+      "type": "string"
+    },
+    "availability": {
+      "type": "string"
+    },
+    "expectedPay": {
+      "type": "string"
+    },
+    "whyNote": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "New",
+        "Shortlisted",
+        "Interview Scheduled",
+        "Hired For Project",
+        "Rejected",
+        "Future Consideration"
+      ],
+      "default": "New"
+    },
+    "adminNotes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "skillArea",
+    "experienceLevel"
+  ]
+}

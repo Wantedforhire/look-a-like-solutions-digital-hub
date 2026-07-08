@@ -9,7 +9,7 @@ import CTABand from "@/components/ui-custom/CTABand";
 export default function Blog() {
   const { data: posts = [], isLoading } = useQuery({
     queryKey: ["blogPosts", "all"],
-    queryFn: () => base44.entities.BlogPost.list("-publishDate")
+    queryFn: () => base44.entities.BlogPost.filter({ status: "published" }, "-publishDate")
   });
 
   return (

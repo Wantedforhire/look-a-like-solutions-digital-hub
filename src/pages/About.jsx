@@ -7,6 +7,7 @@ import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import AnimatedCounter from "@/components/ui-custom/AnimatedCounter";
 import TeamMemberCard from "@/components/shared/TeamMemberCard";
 import CTABand from "@/components/ui-custom/CTABand";
+import CTAButton from "@/components/ui-custom/CTAButton";
 import { Target, Users2, Sparkles, ShieldCheck, Award } from "lucide-react";
 
 const values = [
@@ -115,6 +116,31 @@ export default function About() {
                 </div>
               </ScrollReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Work With Us */}
+      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="glass-cell rounded-3xl p-8 sm:p-12 grid lg:grid-cols-2 gap-8 items-center">
+            <ScrollReveal>
+              <p className="text-xs uppercase tracking-[0.2em] text-indigo-accent font-semibold mb-3">Work With Us</p>
+              <h2 className="text-3xl font-extrabold text-pearl mb-4">Join Our Project Network</h2>
+              <p className="text-slate-sub leading-relaxed mb-6">
+                We're a founder-led, project-based agency. We bring together trained specialists for each
+                engagement — no rigid hierarchy, no false promises. If you're skilled and hungry for real work,
+                there's a place for you in our network.
+              </p>
+              <CTAButton to="/work-with-us" variant="primary">Apply to Join Our Network</CTAButton>
+            </ScrollReveal>
+            <ScrollReveal delay={0.12} className="grid grid-cols-2 gap-3">
+              {["Google Ads", "Meta Ads", "SEO", "Content Writing", "Web Development", "Graphic Design", "Video Editing", "Analytics"].map((skill) => (
+                <div key={skill} className="glass-cell rounded-xl p-4 text-center">
+                  <span className="text-sm font-semibold text-slate-700">{skill}</span>
+                </div>
+              ))}
+            </ScrollReveal>
           </div>
         </div>
       </section>

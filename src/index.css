@@ -119,6 +119,20 @@
   }
 }
 
+.admin-quill .ql-editor {
+  min-height: 200px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.admin-quill .ql-toolbar.ql-snow {
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-color: rgb(203 213 225);
+}
+.admin-quill .ql-container.ql-snow {
+  border-radius: 0 0 0.5rem 0.5rem;
+  border-color: rgb(203 213 225);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
