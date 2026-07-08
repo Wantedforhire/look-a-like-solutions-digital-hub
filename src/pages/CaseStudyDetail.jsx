@@ -30,16 +30,16 @@ export default function CaseStudyDetail() {
 
   return (
     <div>
-      <MetaTags title={`${cs.clientName} Case Study`} description={cs.challenge} path={`/case-studies/${cs.slug}`} image={cs.thumbnail} />
+      <MetaTags title={`${cs.industry} · ${cs.service} Case Study`} description={cs.challenge} path={`/case-studies/${cs.slug}`} image={cs.thumbnail} />
       <SchemaMarkup
-        schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }, { name: cs.clientName, path: `/case-studies/${cs.slug}` }])}
+        schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }, { name: `${cs.industry} · ${cs.service}`, path: `/case-studies/${cs.slug}` }])}
         id="schema-breadcrumb"
       />
 
       <nav aria-label="Breadcrumb" className="pt-28 px-6 max-w-6xl mx-auto text-xs text-slate-sub flex items-center gap-2">
         <Link to="/" className="hover:text-indigo-accent">Home</Link><ChevronRight className="w-3 h-3" />
         <Link to="/case-studies" className="hover:text-indigo-accent">Case Studies</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-pearl">{cs.clientName}</span>
+        <span className="text-pearl">{cs.industry} &middot; {cs.service}</span>
       </nav>
 
       <section className="py-10 px-6 bg-ink">
@@ -47,9 +47,9 @@ export default function CaseStudyDetail() {
           <div className="lg:col-span-2">
             <ScrollReveal>
               <p className="text-xs uppercase tracking-wider text-indigo-accent mb-3">{cs.industry} &middot; {cs.service}</p>
-              <h1 className="text-3xl md:text-5xl font-extrabold text-pearl tracking-tight mb-8">{cs.clientName}</h1>
+              <h1 className="text-3xl md:text-5xl font-extrabold text-pearl tracking-tight mb-8">{cs.industry} &middot; {cs.service}</h1>
               {cs.thumbnail && (
-                <img src={cs.thumbnail} alt={`${cs.clientName} results`} loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
+                <img src={cs.thumbnail} alt="Case study results" loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
               )}
 
               <h2 className="text-xl font-bold text-pearl mb-3">The Challenge</h2>

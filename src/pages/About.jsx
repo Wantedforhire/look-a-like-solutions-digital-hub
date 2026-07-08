@@ -1,11 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import { base44 } from "@/api/base44Client";
 import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
 import SectionHeading from "@/components/ui-custom/SectionHeading";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import AnimatedCounter from "@/components/ui-custom/AnimatedCounter";
-import TeamMemberCard from "@/components/shared/TeamMemberCard";
 import CTABand from "@/components/ui-custom/CTABand";
 import CTAButton from "@/components/ui-custom/CTAButton";
 import { Target, Users2, Sparkles, ShieldCheck, Award } from "lucide-react";
@@ -25,11 +22,6 @@ const awards = [
 ];
 
 export default function About() {
-  const { data: team = [] } = useQuery({
-    queryKey: ["team"],
-    queryFn: () => base44.entities.TeamMember.list("order")
-  });
-
   return (
     <div>
       <MetaTags
@@ -91,17 +83,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {team.length > 0 && (
-        <section id="team" className="py-24 px-6 bg-slate-50 border-y border-slate-100">
-          <div className="max-w-7xl mx-auto">
-            <SectionHeading eyebrow="Our Team" title="Meet the Experts Behind Your Success" subtitle="Specialists in SEO, social, development, and analytics — all dedicated to your growth." />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-              {team.map((m, i) => <TeamMemberCard key={m.id} member={m} index={i} />)}
-            </div>
-          </div>
-        </section>
-      )}
 
       <section className="py-24 px-6 bg-ink">
         <div className="max-w-7xl mx-auto">

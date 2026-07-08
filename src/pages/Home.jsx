@@ -12,7 +12,6 @@ import ProcessTimeline from "@/components/home/ProcessTimeline";
 import CaseStudyStrip from "@/components/home/CaseStudyStrip";
 import IndustriesStrip from "@/components/home/IndustriesStrip";
 import GrowthAuditSection from "@/components/home/GrowthAuditSection";
-import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import GeoReadiness from "@/components/home/GeoReadiness";
 import FAQSection from "@/components/home/FAQSection";
 import CTABand from "@/components/ui-custom/CTABand";
@@ -30,11 +29,6 @@ export default function Home() {
     queryKey: ["clients", "home"],
     queryFn: () => base44.entities.Client.list()
   });
-  const { data: testimonials = [] } = useQuery({
-    queryKey: ["testimonials", "home"],
-    queryFn: () => base44.entities.Testimonial.filter({ visible: true })
-  });
-
   return (
     <div>
       <MetaTags
@@ -54,7 +48,6 @@ export default function Home() {
       <CaseStudyStrip caseStudies={caseStudies} />
       <IndustriesStrip industries={industries} />
       <GrowthAuditSection />
-      <TestimonialsCarousel testimonials={testimonials} />
       <GeoReadiness />
       <FAQSection />
       <CTABand />

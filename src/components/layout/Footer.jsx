@@ -25,8 +25,11 @@ export default function Footer() {
     <footer className="bg-slate-900 border-t border-slate-800 text-slate-400">
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-5 gap-12">
         <div className="md:col-span-2">
-          <Link to="/" className="text-xl font-extrabold text-white tracking-tight">
-            Look A Like <span className="text-indigo-accent">Solutions</span>
+          <Link to="/" className="flex items-center">
+            <img src="https://media.base44.com/images/public/6a45332a796cb5a887717912/54bfc626b_LookalikeSolutionsIconJPG.JPG" alt="Look A Like Solutions" className="h-8 w-8 object-contain mr-2" />
+            <span className="text-xl font-extrabold text-white tracking-tight">
+              Look A Like <span className="text-indigo-accent">Solutions</span>
+            </span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed max-w-xs text-slate-400">
             Bengaluru's performance marketing agency — building revenue engines with Google Ads, Meta Ads, SEO, and AI-powered growth for 100+ businesses.
