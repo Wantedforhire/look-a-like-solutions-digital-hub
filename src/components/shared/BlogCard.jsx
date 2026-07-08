@@ -7,9 +7,9 @@ export default function BlogCard({ post, index = 0 }) {
     <ScrollReveal delay={index * 0.06} className="h-full">
       <Link
         to={`/blog/${post.slug}`}
-        className="group flex flex-col h-full rounded-2xl overflow-hidden glass-cell hover:border-indigo-accent/50 transition-all duration-300"
+        className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-lg hover:border-indigo-accent/30 transition-all duration-300"
       >
-        <div className="h-44 overflow-hidden bg-white/5">
+        <div className="h-44 overflow-hidden bg-slate-100">
           {post.coverImage && (
             <img
               src={post.coverImage}
@@ -23,10 +23,10 @@ export default function BlogCard({ post, index = 0 }) {
           {post.category && (
             <span className="text-xs font-semibold uppercase tracking-wider text-indigo-accent mb-2">{post.category}</span>
           )}
-          <h3 className="text-base font-bold text-pearl leading-snug mb-2">{post.title}</h3>
-          <p className="text-sm text-slate-sub leading-relaxed line-clamp-3">{post.excerpt}</p>
+          <h3 className="text-base font-bold text-slate-900 leading-snug mb-2">{post.title}</h3>
+          <p className="text-sm text-slate-500 leading-relaxed line-clamp-3">{post.excerpt}</p>
           {post.publishDate && (
-            <p className="text-xs text-slate-sub mt-4">{format(new Date(post.publishDate), "MMM d, yyyy")}</p>
+            <p className="text-xs text-slate-400 mt-4">{format(new Date(post.publishDate), "MMM d, yyyy")}</p>
           )}
         </div>
       </Link>

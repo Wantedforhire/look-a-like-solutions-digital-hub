@@ -8,7 +8,7 @@ export default function FAQAccordion({ faqs = [] }) {
         <AccordionItem
           key={idx}
           value={`item-${idx}`}
-          className="glass-cell rounded-xl px-6 border-0"
+          className="rounded-xl px-6 bg-white border border-slate-200 shadow-sm"
         >
           <AccordionTrigger className="text-left text-pearl font-semibold hover:text-indigo-accent hover:no-underline">
             {faq.question}

@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="pt-40 pb-24 px-6 bg-ink">
       <MetaTags title="Privacy Policy" description="Privacy Policy for Look A Like Solutions — how we collect, use, and protect your information." path="/privacy-policy" />
-      <ScrollReveal className="max-w-3xl mx-auto prose prose-invert prose-p:text-slate-sub prose-headings:text-pearl">
+      <ScrollReveal className="max-w-3xl mx-auto prose prose-slate prose-p:text-slate-600 prose-headings:text-slate-900">
         <h1>Privacy Policy</h1>
         <p>Last updated: July 2026</p>
         <p>Look A Like Solutions ("we", "our", "us") respects your privacy and is committed to protecting the personal information you share with us through this website.</p>

@@ -60,11 +60,11 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-  			ink: '#050505',
-  			pearl: '#F8FAFC',
+  			ink: '#FFFFFF',
+  			pearl: '#0F172A',
   			'indigo-accent': '#6366F1',
   			'emerald-accent': '#10B981',
-  			'slate-sub': '#94A3B8'
+  			'slate-sub': '#64748B'
   		},
   		fontFamily: {
   			heading: ['var(--font-heading)'],

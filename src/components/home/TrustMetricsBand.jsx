@@ -11,7 +11,7 @@ const metrics = [
 
 export default function TrustMetricsBand() {
   return (
-    <section className="border-y border-white/10 bg-black/40 py-14 px-6">
+    <section className="border-y border-slate-100 bg-slate-50 py-14 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
         {metrics.map((m, i) => (
           <ScrollReveal key={m.label} delay={i * 0.05} className="text-center">

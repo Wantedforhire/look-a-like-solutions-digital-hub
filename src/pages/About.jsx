@@ -51,7 +51,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-black/40 border-y border-white/10">
+      <section className="py-20 px-6 bg-slate-50 border-y border-slate-100">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <ScrollReveal>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-accent mb-4">Our Story</p>
@@ -92,7 +92,7 @@ export default function About() {
       </section>
 
       {team.length > 0 && (
-        <section id="team" className="py-24 px-6 bg-black/40 border-y border-white/10">
+        <section id="team" className="py-24 px-6 bg-slate-50 border-y border-slate-100">
           <div className="max-w-7xl mx-auto">
             <SectionHeading eyebrow="Our Team" title="Meet the Experts Behind Your Success" subtitle="Specialists in SEO, social, development, and analytics — all dedicated to your growth." />
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -119,7 +119,7 @@ export default function About() {
         </div>
       </section>
 
-      <CTABand title="Book a Strategy Call With Our Founders" primaryLabel="Book Strategy Call" />
+      <CTABand title="Book a Strategy Call With Ramkumar" primaryLabel="Get A Free Growth Audit" primaryTo="/growth-audit" />
     </div>
   );
 }

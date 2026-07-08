@@ -4,7 +4,7 @@ import TestimonialCard from "@/components/shared/TestimonialCard";
 export default function TestimonialsCarousel({ testimonials = [] }) {
   if (!testimonials.length) return null;
   return (
-    <section className="py-24 px-6 bg-black/40 border-y border-white/10">
+    <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           eyebrow="Client Voices"

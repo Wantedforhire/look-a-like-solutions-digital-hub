@@ -16,13 +16,13 @@ export default function CaseStudyDetail() {
   const cs = results?.[0];
 
   if (isLoading) {
-    return <div className="pt-40 pb-24 text-center text-slate-sub min-h-screen bg-ink">Loading case study...</div>;
+    return <div className="pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading case study...</div>;
   }
 
   if (!cs) {
     return (
-      <div className="pt-40 pb-24 text-center min-h-screen bg-ink px-6">
-        <h1 className="text-3xl font-bold text-pearl mb-4">Case Study Not Found</h1>
+      <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
+        <h1 className="text-3xl font-bold text-slate-900 mb-4">Case Study Not Found</h1>
         <CTAButton to="/case-studies" variant="primary">Browse All Case Studies</CTAButton>
       </div>
     );
@@ -75,7 +75,7 @@ export default function CaseStudyDetail() {
               {cs.results?.length > 0 && (
                 <div className="space-y-4 mb-8">
                   {cs.results.map((r, i) => (
-                    <div key={i} className="flex items-center justify-between border-t border-white/10 pt-4 first:border-0 first:pt-0">
+                    <div key={i} className="flex items-center justify-between border-t border-slate-100 pt-4 first:border-0 first:pt-0">
                       <span className="text-sm text-slate-sub">{r.label}</span>
                       <span className="text-lg font-bold text-pearl">{r.value}</span>
                     </div>
@@ -83,7 +83,7 @@ export default function CaseStudyDetail() {
                 </div>
               )}
 
-              <CTAButton to="/contact" variant="primary" className="w-full">Contact Us</CTAButton>
+              <CTAButton to="/growth-audit" variant="primary" className="w-full">Get A Free Growth Audit</CTAButton>
             </ScrollReveal>
           </div>
         </div>

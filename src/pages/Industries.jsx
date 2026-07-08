@@ -46,7 +46,7 @@ export default function Industries() {
         </div>
       </section>
 
-      <CTABand title="Don't See Your Industry?" subtitle="We tailor strategies for any vertical — reach out and let's talk about your specific growth goals." primaryLabel="Talk to Us" />
+      <CTABand title="Don't See Your Industry?" subtitle="We tailor strategies for any vertical — reach out and let's talk about your specific growth goals." primaryLabel="Get A Free Growth Audit" primaryTo="/growth-audit" />
     </div>
   );
 }

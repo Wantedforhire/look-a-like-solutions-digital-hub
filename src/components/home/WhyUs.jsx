@@ -11,7 +11,7 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="py-24 px-6 bg-black/40 border-y border-white/10">
+    <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           eyebrow="Why Look A Like Solutions"

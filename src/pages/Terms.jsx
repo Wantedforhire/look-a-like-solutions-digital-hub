@@ -5,7 +5,7 @@ export default function Terms() {
   return (
     <div className="pt-40 pb-24 px-6 bg-ink">
       <MetaTags title="Terms &amp; Conditions" description="Terms and Conditions for using the Look A Like Solutions website and services." path="/terms" />
-      <ScrollReveal className="max-w-3xl mx-auto prose prose-invert prose-p:text-slate-sub prose-headings:text-pearl">
+      <ScrollReveal className="max-w-3xl mx-auto prose prose-slate prose-p:text-slate-600 prose-headings:text-slate-900">
         <h1>Terms &amp; Conditions</h1>
         <p>Last updated: July 2026</p>
         <p>By accessing this website, you agree to be bound by these Terms &amp; Conditions. Please read them carefully.</p>

@@ -10,7 +10,7 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section className="py-24 px-6 bg-black/40 border-y border-white/10">
+    <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
       <div className="max-w-3xl mx-auto">
         <SectionHeading eyebrow="Frequently Asked Questions" title="Answers Before You Ask" align="center" />
         <FAQAccordion faqs={faqs} />

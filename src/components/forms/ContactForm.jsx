@@ -50,8 +50,8 @@ export default function ContactForm({ defaultService = "" }) {
     return (
       <div className="glass-cell rounded-2xl p-10 text-center">
         <CheckCircle2 className="w-12 h-12 text-emerald-accent mx-auto mb-4" />
-        <h3 className="text-xl font-bold text-pearl mb-2">Thank You — We've Got It!</h3>
-        <p className="text-slate-sub">Our strategy team will reach out within one business day with your personalized roadmap.</p>
+        <h3 className="text-xl font-bold text-slate-900 mb-2">Thank You — We've Got It!</h3>
+        <p className="text-slate-500">Our strategy team will reach out within one business day with your personalized roadmap.</p>
       </div>
     );
   }
@@ -71,12 +71,12 @@ export default function ContactForm({ defaultService = "" }) {
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm text-slate-sub mb-2">Full Name *</label>
-          <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="bg-white/5 border-white/10 text-pearl" placeholder="Your name" />
+          <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="bg-slate-50 border-slate-200 text-slate-900" placeholder="Your name" />
           {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
         </div>
         <div>
           <label className="block text-sm text-slate-sub mb-2">Email *</label>
-          <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="bg-white/5 border-white/10 text-pearl" placeholder="you@company.com" />
+          <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="bg-slate-50 border-slate-200 text-slate-900" placeholder="you@company.com" />
           {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
         </div>
       </div>
@@ -84,24 +84,24 @@ export default function ContactForm({ defaultService = "" }) {
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm text-slate-sub mb-2">Phone</label>
-          <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="bg-white/5 border-white/10 text-pearl" placeholder="+91-" />
+          <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="bg-slate-50 border-slate-200 text-slate-900" placeholder="+91-" />
         </div>
         <div>
           <label className="block text-sm text-slate-sub mb-2">Company</label>
-          <Input value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="bg-white/5 border-white/10 text-pearl" placeholder="Company name" />
+          <Input value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="bg-slate-50 border-slate-200 text-slate-900" placeholder="Company name" />
         </div>
       </div>
 
       <div>
         <label className="block text-sm text-slate-sub mb-2">Website</label>
-        <Input value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} className="bg-white/5 border-white/10 text-pearl" placeholder="https://" />
+        <Input value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} className="bg-slate-50 border-slate-200 text-slate-900" placeholder="https://" />
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm text-slate-sub mb-2">Service Interest</label>
           <Select value={form.serviceInterest} onValueChange={(v) => setForm({ ...form, serviceInterest: v })}>
-            <SelectTrigger className="bg-white/5 border-white/10 text-pearl"><SelectValue placeholder="Select a service" /></SelectTrigger>
+            <SelectTrigger className="bg-slate-50 border-slate-200 text-slate-900"><SelectValue placeholder="Select a service" /></SelectTrigger>
             <SelectContent>
               {services.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
             </SelectContent>
@@ -110,7 +110,7 @@ export default function ContactForm({ defaultService = "" }) {
         <div>
           <label className="block text-sm text-slate-sub mb-2">Monthly Budget</label>
           <Select value={form.monthlyBudget} onValueChange={(v) => setForm({ ...form, monthlyBudget: v })}>
-            <SelectTrigger className="bg-white/5 border-white/10 text-pearl"><SelectValue placeholder="Select a range" /></SelectTrigger>
+            <SelectTrigger className="bg-slate-50 border-slate-200 text-slate-900"><SelectValue placeholder="Select a range" /></SelectTrigger>
             <SelectContent>
               {budgets.map((b) => <SelectItem key={b} value={b}>{b}</SelectItem>)}
             </SelectContent>
@@ -120,7 +120,7 @@ export default function ContactForm({ defaultService = "" }) {
 
       <div>
         <label className="block text-sm text-slate-sub mb-2">Tell Us About Your Project *</label>
-        <Textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={4} className="bg-white/5 border-white/10 text-pearl" placeholder="Goals, timeline, current challenges..." />
+        <Textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={4} className="bg-slate-50 border-slate-200 text-slate-900" placeholder="Goals, timeline, current challenges..." />
         {errors.message && <p className="text-xs text-red-400 mt-1">{errors.message}</p>}
       </div>
 

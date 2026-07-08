@@ -6,7 +6,7 @@ import ContactForm from "@/components/forms/ContactForm";
 
 const contactMethods = [
   { icon: Phone, label: "Call Us", value: "+91-9731588244", href: "tel:+919731588244" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+91-9731588244", href: "https://wa.me/919731588244" },
+  { icon: MessageCircle, label: "Strategy Call (WhatsApp)", value: "Chat with Ramkumar", href: "https://wa.me/919731588244" },
   { icon: Mail, label: "Email", value: "info@lookalikesolutions.com", href: "mailto:info@lookalikesolutions.com" },
   { icon: MapPin, label: "Location", value: "Bengaluru, Karnataka, India", href: null }
 ];
@@ -16,46 +16,47 @@ export default function Contact() {
     <div>
       <MetaTags
         title="Contact Us"
-        description="Get in touch with Look A Like Solutions — Bengaluru's digital marketing agency. Request a free strategy session, SEO audit, or proposal today."
+        description="Get in touch with Look A Like Solutions — Bengaluru's performance marketing agency. Share your growth challenge and we'll review whether we're the right fit."
         path="/contact"
       />
       <SchemaMarkup schema={localBusinessSchema()} id="schema-local" />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-16 px-6 bg-ink text-center">
+      <section className="pt-40 pb-16 px-6 bg-white text-center">
         <ScrollReveal className="max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-pearl">
-            Let's Build Your <span className="text-indigo-accent">Growth Story</span>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900">
+            Tell Us What You Are <span className="text-indigo-accent">Trying To Grow</span>
           </h1>
-          <p className="mt-6 text-lg text-slate-sub leading-relaxed">
-            Request a free strategy session, Google Ads audit, or website audit — no obligation, no credit card required.
+          <p className="mt-6 text-lg text-slate-500 leading-relaxed">
+            Share your current challenge, and we'll review whether we're the right fit before recommending a solution.
           </p>
+          <p className="mt-4 text-sm text-slate-400">We typically respond within 4 business hours.</p>
         </ScrollReveal>
       </section>
 
-      <section className="pb-24 px-6 bg-ink">
+      <section className="pb-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 space-y-4">
             {contactMethods.map((m, i) => (
               <ScrollReveal key={m.label} delay={i * 0.06}>
                 {m.href ? (
-                  <a href={m.href} target={m.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="flex items-center gap-4 glass-cell rounded-2xl p-5 hover:border-indigo-accent/50 transition-colors">
-                    <div className="w-11 h-11 rounded-xl bg-indigo-accent/10 flex items-center justify-center shrink-0">
+                  <a href={m.href} target={m.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="flex items-center gap-4 rounded-2xl p-5 bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-accent/30 transition-all">
+                    <div className="w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center shrink-0">
                       <m.icon className="w-5 h-5 text-indigo-accent" />
                     </div>
                     <div>
-                      <p className="text-xs text-slate-sub">{m.label}</p>
-                      <p className="text-sm font-semibold text-pearl">{m.value}</p>
+                      <p className="text-xs text-slate-400">{m.label}</p>
+                      <p className="text-sm font-semibold text-slate-900">{m.value}</p>
                     </div>
                   </a>
                 ) : (
-                  <div className="flex items-center gap-4 glass-cell rounded-2xl p-5">
-                    <div className="w-11 h-11 rounded-xl bg-indigo-accent/10 flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-4 rounded-2xl p-5 bg-white border border-slate-200 shadow-sm">
+                    <div className="w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center shrink-0">
                       <m.icon className="w-5 h-5 text-indigo-accent" />
                     </div>
                     <div>
-                      <p className="text-xs text-slate-sub">{m.label}</p>
-                      <p className="text-sm font-semibold text-pearl">{m.value}</p>
+                      <p className="text-xs text-slate-400">{m.label}</p>
+                      <p className="text-sm font-semibold text-slate-900">{m.value}</p>
                     </div>
                   </div>
                 )}

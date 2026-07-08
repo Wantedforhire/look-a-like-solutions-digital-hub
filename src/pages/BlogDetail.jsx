@@ -18,13 +18,13 @@ export default function BlogDetail() {
   const post = results?.[0];
 
   if (isLoading) {
-    return <div className="pt-40 pb-24 text-center text-slate-sub min-h-screen bg-ink">Loading article...</div>;
+    return <div className="pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading article...</div>;
   }
 
   if (!post) {
     return (
-      <div className="pt-40 pb-24 text-center min-h-screen bg-ink px-6">
-        <h1 className="text-3xl font-bold text-pearl mb-4">Article Not Found</h1>
+      <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
+        <h1 className="text-3xl font-bold text-slate-900 mb-4">Article Not Found</h1>
         <CTAButton to="/blog" variant="primary">Browse All Articles</CTAButton>
       </div>
     );
@@ -65,15 +65,15 @@ export default function BlogDetail() {
             {post.coverImage && (
               <img src={post.coverImage} alt={post.title} loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
             )}
-            <div className="prose prose-invert prose-p:text-slate-sub prose-headings:text-pearl prose-strong:text-pearl max-w-none">
+            <div className="prose prose-slate prose-p:text-slate-600 prose-headings:text-slate-900 prose-strong:text-slate-900 max-w-none">
               <ReactMarkdown>{post.content}</ReactMarkdown>
             </div>
           </ScrollReveal>
 
           <div className="mt-16 glass-cell rounded-2xl p-8 text-center">
-            <h3 className="text-xl font-bold text-pearl mb-3">Ready to Put This Into Action?</h3>
-            <p className="text-slate-sub mb-6">Talk to our team about applying these strategies to your business.</p>
-            <CTAButton to="/contact" variant="primary">Get Free Strategy Session</CTAButton>
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Ready to Put This Into Action?</h3>
+            <p className="text-slate-500 mb-6">Talk to our team about applying these strategies to your business.</p>
+            <CTAButton to="/growth-audit" variant="primary">Get A Free Growth Audit</CTAButton>
           </div>
         </div>
       </article>

@@ -46,7 +46,7 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      <CTABand title="Want Results Like These?" primaryLabel="Start Your Project" />
+      <CTABand title="Want Results Like These?" primaryLabel="Get A Free Growth Audit" primaryTo="/growth-audit" />
     </div>
   );
 }
