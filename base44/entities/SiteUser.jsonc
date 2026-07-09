@@ -28,7 +28,7 @@
   "rls": {
     "create": {
       "user_condition": {
-        "role": "admin"
+        "role": "__super_admin_guard_only__"
       }
     },
     "read": {
@@ -45,12 +45,12 @@
     },
     "update": {
       "user_condition": {
-        "role": "admin"
+        "role": "__super_admin_guard_only__"
       }
     },
     "delete": {
       "user_condition": {
-        "role": "admin"
+        "role": "__super_admin_guard_only__"
       }
     }
   }
