@@ -33,7 +33,7 @@ export default function NavigationSettings() {
   }, [config]);
 
   const saveMutation = useMutation({
-    mutationFn: (data) => data.id ? base44.entities.SiteConfig.update(data.id, data) : base44.entities.SiteConfig.create(data),
+    mutationFn: (data) => data.id ? base44.functions.invoke('superAdminGuard', { entity: "SiteConfig", operation: "update", id: data.id, data }) : base44.functions.invoke('superAdminGuard', { entity: "SiteConfig", operation: "create", data }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["admin-siteconfig"] }),
   });
 

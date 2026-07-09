@@ -45,8 +45,8 @@ export default function AdminSettings() {
       if (gtm && !/^GTM-[A-Z0-9]{4,}$/.test(gtm)) throw new Error("GTM ID must match format GTM-XXXXXX");
       if (ga && !/^G-[A-Z0-9]+$/.test(ga)) throw new Error("GA4 ID must match format G-XXXXXXXX");
       return configRecord
-        ? base44.entities.SiteConfig.update(configRecord.id, { gtmContainerId: gtm, gaId: ga })
-        : base44.entities.SiteConfig.create({ configKey: "main", gtmContainerId: gtm, gaId: ga });
+        ? base44.functions.invoke('superAdminGuard', { entity: "SiteConfig", operation: "update", id: configRecord.id, data: { gtmContainerId: gtm, gaId: ga } })
+        : base44.functions.invoke('superAdminGuard', { entity: "SiteConfig", operation: "create", data: { configKey: "main", gtmContainerId: gtm, gaId: ga } });
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["site-config"] });
@@ -66,8 +66,8 @@ export default function AdminSettings() {
         gscVerification: gscVerification.trim(),
       };
       return configRecord
-        ? base44.entities.SiteConfig.update(configRecord.id, payload)
-        : base44.entities.SiteConfig.create({ configKey: "main", ...payload });
+        ? base44.functions.invoke('superAdminGuard', { entity: "SiteConfig", operation: "update", id: configRecord.id, data: payload })
+        : base44.functions.invoke('superAdminGuard', { entity: "SiteConfig", operation: "create", data: { configKey: "main", ...payload } });
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["site-config"] });

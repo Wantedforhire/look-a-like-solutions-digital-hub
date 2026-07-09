@@ -25,6 +25,8 @@ export function resolveRole(siteUser, email) {
   return null;
 }
 
+// Super-admin-only paths. SiteConfig & SiteUser writes are enforced server-side
+// via the superAdminGuard backend function (RLS = false on those entities).
 const RESTRICTED_EDITOR_PATHS = [
   "/admin/settings",
   "/admin/roles",

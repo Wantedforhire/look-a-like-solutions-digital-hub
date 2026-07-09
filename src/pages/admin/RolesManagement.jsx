@@ -18,12 +18,12 @@ export default function RolesManagement() {
   });
 
   const saveMut = useMutation({
-    mutationFn: (data) => editing?.id ? base44.entities.SiteUser.update(editing.id, data) : base44.entities.SiteUser.create(data),
+    mutationFn: (data) => editing?.id ? base44.functions.invoke('superAdminGuard', { entity: "SiteUser", operation: "update", id: editing.id, data }) : base44.functions.invoke('superAdminGuard', { entity: "SiteUser", operation: "create", data }),
     onSuccess: () => { qc.invalidateQueries({ queryKey: ["admin-site-users"] }); setEditing(null); setForm(null); },
   });
 
   const delMut = useMutation({
-    mutationFn: (id) => base44.entities.SiteUser.delete(id),
+    mutationFn: (id) => base44.functions.invoke('superAdminGuard', { entity: "SiteUser", operation: "delete", id }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["admin-site-users"] }),
   });
 
