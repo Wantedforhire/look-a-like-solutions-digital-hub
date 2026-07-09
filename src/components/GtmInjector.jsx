@@ -12,7 +12,8 @@ export default function GtmInjector() {
   const gtmId = config?.[0]?.gtmContainerId;
 
   useEffect(() => {
-    if (!gtmId) return;
+    // Strict validation: only accept a valid GTM container ID (GTM-XXXXXX) to prevent stored XSS.
+    if (!gtmId || !/^GTM-[A-Z0-9]{6,}$/.test(gtmId)) return;
     const scriptId = "gtm-script";
     if (document.getElementById(scriptId)) return;
 

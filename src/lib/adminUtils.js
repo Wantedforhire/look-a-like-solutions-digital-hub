@@ -18,6 +18,8 @@ export function exportToCsv(filename, rows, columns) {
           let val = row[c.key];
           if (val && typeof val === "object") val = JSON.stringify(val);
           val = val == null ? "" : String(val);
+          // CSV formula injection: prefix a single quote if the cell starts with a formula trigger.
+          if (/^[=+\-@\t\r]/.test(val)) val = `'${val}`;
           return `"${val.replace(/"/g, '""')}"`;
         })
         .join(",")
