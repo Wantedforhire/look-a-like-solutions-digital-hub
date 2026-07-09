@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, Outlet, useLocation, useOutletContext } from "react-router-dom";
+import { setMeta } from "@/components/seo/MetaTags";
 import { useAuth } from "@/lib/AuthContext";
 import {
   LayoutDashboard, FileText, Newspaper, FolderKanban, Briefcase, Building2,
@@ -58,6 +59,10 @@ export default function AdminLayout() {
   const { role } = useOutletContext() || { role: "editor" };
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openGroups, setOpenGroups] = useState({ Content: true, Leads: true, Settings: true });
+
+  useEffect(() => {
+    setMeta("robots", "noindex,nofollow");
+  }, []);
 
   const isActive = (item) =>
     item.exact ? location.pathname === item.path : location.pathname.startsWith(item.path);

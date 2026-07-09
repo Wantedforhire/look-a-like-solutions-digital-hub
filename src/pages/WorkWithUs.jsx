@@ -37,7 +37,7 @@ export default function WorkWithUs() {
     <div>
       <MetaTags
         title="Work With Us — Join Our Project Network"
-        description="Look A Like Solutions is a founder-led, project-based digital marketing agency in Bengaluru. Join our talent network for flexible, real-work project collaborations."
+        description="Look A Like Solutions is a founder-led, project-based digital marketing agency serving businesses across India. Join our talent network for flexible, real-work project collaborations."
         path="/work-with-us"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Work With Us", path: "/work-with-us" }])} id="schema-breadcrumb" />

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail, ArrowLeft, Loader2 } from "lucide-react";
+import MetaTags from "@/components/seo/MetaTags";
 import AuthLayout from "@/components/AuthLayout";
 
 export default function ForgotPassword() {
@@ -36,6 +37,7 @@ export default function ForgotPassword() {
         </Link>
       }
     >
+      <MetaTags noindex />
       {sent ? (
         <p className="text-sm text-foreground text-center">
           If an account exists with that email, you'll receive a password reset link shortly.

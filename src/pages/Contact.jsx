@@ -16,7 +16,7 @@ export default function Contact() {
     <div>
       <MetaTags
         title="Contact Us"
-        description="Get in touch with Look A Like Solutions — Bengaluru's performance marketing agency. Share your growth challenge and we'll review whether we're the right fit."
+        description="Get in touch with Look A Like Solutions — a performance marketing agency serving businesses across India. Share your growth challenge and we'll review whether we're the right fit."
         path="/contact"
       />
       <SchemaMarkup schema={localBusinessSchema()} id="schema-local" />

@@ -21,7 +21,7 @@ export default function Careers() {
     <div>
       <MetaTags
         title="Careers & Work With Us"
-        description="Join Look A Like Solutions — a founder-led, project-based digital marketing agency in Bengaluru. Explore open roles or join our talent network."
+        description="Join Look A Like Solutions — a founder-led, project-based digital marketing agency serving businesses across India. Explore open roles or join our talent network."
         path="/careers"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Careers", path: "/careers" }])} id="schema-breadcrumb" />

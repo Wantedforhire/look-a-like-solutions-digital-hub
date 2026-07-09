@@ -22,6 +22,7 @@ export default function CaseStudyDetail() {
   if (!cs) {
     return (
       <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
+        <MetaTags noindex />
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Case Study Not Found</h1>
         <CTAButton to="/case-studies" variant="primary">Browse All Case Studies</CTAButton>
       </div>

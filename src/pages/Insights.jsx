@@ -16,7 +16,7 @@ export default function Insights() {
     <div>
       <MetaTags
         title="Marketing Insights"
-        description="Data-driven marketing insights, trend analysis, and growth strategies from Look A Like Solutions — Bengaluru's performance marketing agency."
+        description="Data-driven marketing insights, trend analysis, and growth strategies from Look A Like Solutions — a performance marketing agency serving businesses across India."
         path="/insights"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }])} id="schema-breadcrumb" />

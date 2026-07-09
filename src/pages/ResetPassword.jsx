@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, Loader2, AlertTriangle } from "lucide-react";
+import MetaTags from "@/components/seo/MetaTags";
 import AuthLayout from "@/components/AuthLayout";
 
 export default function ResetPassword() {
@@ -46,6 +47,7 @@ export default function ResetPassword() {
           </Link>
         }
       >
+        <MetaTags noindex />
         <p className="text-sm text-foreground text-center">
           The link you used appears to be incomplete. Please request a new password reset email.
         </p>
@@ -59,6 +61,7 @@ export default function ResetPassword() {
       title="New password"
       subtitle="Enter your new password below"
     >
+      <MetaTags noindex />
       {error && (
         <div className="mb-4 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
           {error}

@@ -24,6 +24,7 @@ export default function BlogDetail() {
   if (!post) {
     return (
       <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
+        <MetaTags noindex />
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Article Not Found</h1>
         <CTAButton to="/blog" variant="primary">Browse All Articles</CTAButton>
       </div>

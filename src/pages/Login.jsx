@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LogIn, Mail, Lock, Loader2 } from "lucide-react";
+import MetaTags from "@/components/seo/MetaTags";
 import AuthLayout from "@/components/AuthLayout";
 import GoogleIcon from "@/components/GoogleIcon";
 
@@ -46,6 +47,7 @@ export default function Login() {
         </>
       }
     >
+      <MetaTags noindex />
       <Button
         variant="outline"
         className="w-full h-12 text-sm font-medium mb-6"

@@ -16,7 +16,7 @@ export default function CaseStudies() {
     <div>
       <MetaTags
         title="Case Studies &amp; Results"
-        description="Real, verifiable results from Bengaluru businesses we've partnered with — SEO, PPC, social media, and web development case studies from Look A Like Solutions."
+        description="Real, verifiable results from businesses we've partnered with across India — SEO, PPC, social media, and web development case studies from Look A Like Solutions."
         path="/case-studies"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }])} id="schema-breadcrumb" />

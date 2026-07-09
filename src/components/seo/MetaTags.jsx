@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const SITE_URL = "https://www.lookalikesolutions.com";
 
-function setMeta(name, content, attr = "name") {
+export function setMeta(name, content, attr = "name") {
   if (!content) return;
   let el = document.head.querySelector(`meta[${attr}="${name}"]`);
   if (!el) {
@@ -23,11 +23,12 @@ function setLink(rel, href) {
   el.setAttribute("href", href);
 }
 
-export default function MetaTags({ title, description, path = "/", image }) {
+export default function MetaTags({ title, description, path = "/", image, noindex }) {
   useEffect(() => {
     const fullTitle = title ? `${title} | Look A Like Solutions` : "Look A Like Solutions | Digital Marketing Agency in Bangalore";
     document.title = fullTitle;
     setMeta("description", description);
+    setMeta("robots", noindex ? "noindex,nofollow" : "index,follow");
     setLink("canonical", `${SITE_URL}${path}`);
     setMeta("og:title", fullTitle, "property");
     setMeta("og:description", description, "property");
@@ -38,7 +39,7 @@ export default function MetaTags({ title, description, path = "/", image }) {
     setMeta("twitter:title", fullTitle);
     setMeta("twitter:description", description);
     if (image) setMeta("twitter:image", image);
-  }, [title, description, path, image]);
+  }, [title, description, path, image, noindex]);
 
   return null;
 }

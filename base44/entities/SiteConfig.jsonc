@@ -6,6 +6,26 @@
       "type": "string",
       "description": "Singleton key e.g. 'main'"
     },
+    "siteName": {
+      "type": "string",
+      "description": "Brand name used as title suffix across the site"
+    },
+    "defaultMetaDescription": {
+      "type": "string",
+      "description": "Fallback meta description for pages without a custom one"
+    },
+    "defaultOgImage": {
+      "type": "string",
+      "description": "Fallback Open Graph image URL"
+    },
+    "gaId": {
+      "type": "string",
+      "description": "Google Analytics 4 Measurement ID e.g. G-XXXXXXXX"
+    },
+    "gscVerification": {
+      "type": "string",
+      "description": "Google Search Console verification meta tag content value"
+    },
     "navLinks": {
       "type": "array",
       "items": {

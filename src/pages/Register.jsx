@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { UserPlus, Mail, Lock, Loader2 } from "lucide-react";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
+import MetaTags from "@/components/seo/MetaTags";
 import AuthLayout from "@/components/AuthLayout";
 import GoogleIcon from "@/components/GoogleIcon";
 import { toast } from "@/components/ui/use-toast";
@@ -77,6 +78,7 @@ export default function Register() {
         title="Verify your email"
         subtitle={`We sent a code to ${email}`}
       >
+        <MetaTags noindex />
         {error && (
           <div className="mb-4 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
             {error}
@@ -138,6 +140,7 @@ export default function Register() {
         </>
       }
     >
+      <MetaTags noindex />
       <Button
         variant="outline"
         className="w-full h-12 text-sm font-medium mb-6"

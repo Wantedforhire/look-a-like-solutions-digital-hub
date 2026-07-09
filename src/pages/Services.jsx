@@ -15,8 +15,8 @@ export default function Services() {
   return (
     <div>
       <MetaTags
-        title="Digital Marketing Services in Bangalore"
-        description="Explore Look A Like Solutions' full suite of digital marketing services in Bangalore: SEO, performance marketing, social media, branding, web development, content, ORM, lead generation and AI SEO."
+        title="Digital Marketing Services"
+        description="Explore Look A Like Solutions' full suite of digital marketing services: SEO, performance marketing, social media, branding, web development, content, ORM, lead generation and AI SEO for businesses across India."
         path="/services"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }])} id="schema-breadcrumb" />
@@ -27,7 +27,7 @@ export default function Services() {
             Our Digital Marketing <span className="text-indigo-accent">Services</span>
           </h1>
           <p className="mt-6 text-lg text-slate-sub leading-relaxed">
-            Comprehensive, outcome-focused solutions engineered to drive growth, visibility, and measurable ROI for Bengaluru businesses.
+            Comprehensive, outcome-focused solutions engineered to drive growth, visibility, and measurable ROI for businesses across India.
           </p>
         </ScrollReveal>
       </section>

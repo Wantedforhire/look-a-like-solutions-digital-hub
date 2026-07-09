@@ -26,7 +26,7 @@ export default function About() {
     <div>
       <MetaTags
         title="About Us"
-        description="Meet Look A Like Solutions — Bengaluru's growth-focused digital marketing agency. Our story, values, and the team behind 500+ client success stories."
+        description="Meet Look A Like Solutions — a growth-focused digital marketing agency serving businesses across India. Our story, values, and the team behind 500+ client success stories."
         path="/about"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} id="schema-breadcrumb" />
@@ -38,7 +38,7 @@ export default function About() {
               Transforming Businesses Through <span className="text-indigo-accent">Digital Excellence</span>
             </h1>
             <p className="mt-6 text-lg text-slate-sub max-w-2xl mx-auto leading-relaxed">
-              We're a passionate team of digital marketing experts based in Bengaluru, dedicated to helping businesses thrive through innovative strategies and data-driven results.
+              We're a passionate team of digital marketing experts dedicated to helping businesses across India thrive through innovative strategies and data-driven results.
             </p>
           </ScrollReveal>
         </div>

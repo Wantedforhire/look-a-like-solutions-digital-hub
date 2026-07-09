@@ -28,6 +28,7 @@ export default function ServiceDetail() {
   if (!service) {
     return (
       <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
+        <MetaTags noindex />
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Service Not Found</h1>
         <p className="text-slate-500 mb-8">This service page doesn't exist yet.</p>
         <CTAButton to="/services" variant="primary">Browse All Services</CTAButton>

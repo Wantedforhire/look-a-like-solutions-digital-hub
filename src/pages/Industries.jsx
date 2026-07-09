@@ -16,7 +16,7 @@ export default function Industries() {
     <div>
       <MetaTags
         title="Industries We Serve"
-        description="Look A Like Solutions delivers tailored digital marketing strategies across healthcare, education, real estate, e-commerce, hospitality and more — for Bengaluru businesses."
+        description="Look A Like Solutions delivers tailored digital marketing strategies across healthcare, education, real estate, e-commerce, hospitality and more — for businesses across India."
         path="/industries"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Industries", path: "/industries" }])} id="schema-breadcrumb" />
