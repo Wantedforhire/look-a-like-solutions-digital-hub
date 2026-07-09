@@ -14,6 +14,9 @@ export default function ServiceCard({ service, index = 0 }) {
         <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center mb-5 group-hover:bg-indigo-100 transition-colors">
           <Icon className="w-6 h-6 text-indigo-accent" />
         </div>
+        {service.category && (
+          <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-accent mb-1.5">{service.category}</p>
+        )}
         <h3 className="text-lg font-bold text-slate-900 mb-2">{service.title}</h3>
         <p className="text-sm text-slate-500 leading-relaxed mb-4">{service.shortDescription}</p>
         {service.metricLabel && (

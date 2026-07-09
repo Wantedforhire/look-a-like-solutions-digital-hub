@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "name": "Insight",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string",
+      "description": "Rich text / HTML content"
+    },
+    "coverImage": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "publishDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "slug",
+    "excerpt",
+    "content"
+  ]
+}

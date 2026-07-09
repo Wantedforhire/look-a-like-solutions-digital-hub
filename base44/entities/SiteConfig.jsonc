@@ -87,6 +87,17 @@
     },
     "clientLoginUrl": {
       "type": "string"
+    },
+    "gtmContainerId": {
+      "type": "string",
+      "description": "Google Tag Manager container ID e.g. GTM-XXXXXX"
+    },
+    "editorEmails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Editor-role email whitelist"
     }
   },
   "required": [

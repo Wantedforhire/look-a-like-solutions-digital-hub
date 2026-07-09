@@ -1,5 +1,6 @@
 import SectionHeading from "@/components/ui-custom/SectionHeading";
 import FAQAccordion from "@/components/shared/FAQAccordion";
+import CTAButton from "@/components/ui-custom/CTAButton";
 
 const faqs = [
   { question: "How quickly can I see results from digital marketing?", answer: "Most clients see measurable movement — improved rankings, traffic, or lead flow — within 60-90 days, with compounding gains over 6-12 months depending on the service and competitive landscape." },
@@ -14,6 +15,9 @@ export default function FAQSection() {
       <div className="max-w-3xl mx-auto">
         <SectionHeading eyebrow="Frequently Asked Questions" title="Answers Before You Ask" align="center" />
         <FAQAccordion faqs={faqs} />
+        <div className="mt-10 text-center">
+          <CTAButton to="/strategy-call" variant="primary">Book A Strategy Call</CTAButton>
+        </div>
       </div>
     </section>
   );

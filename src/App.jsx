@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
+import GtmInjector from './components/GtmInjector';
 import SiteLayout from '@/components/layout/SiteLayout';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
@@ -21,6 +22,13 @@ import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import Terms from '@/pages/Terms';
 import NotFound from '@/pages/NotFound';
 import WorkWithUs from '@/pages/WorkWithUs';
+import Resources from '@/pages/Resources';
+import Insights from '@/pages/Insights';
+import InsightDetail from '@/pages/InsightDetail';
+import StrategyCall from '@/pages/StrategyCall';
+import Gallery from '@/pages/Gallery';
+import Methodology from '@/pages/Methodology';
+import Careers from '@/pages/Careers';
 import AdminRoute from '@/components/admin/AdminRoute';
 import AdminLayout from '@/components/admin/AdminLayout';
 import Dashboard from '@/pages/admin/Dashboard';
@@ -40,6 +48,15 @@ import MediaLibrary from '@/pages/admin/MediaLibrary';
 import SeoSettings from '@/pages/admin/SeoSettings';
 import NavigationSettings from '@/pages/admin/NavigationSettings';
 import AdminSettings from '@/pages/admin/AdminSettings';
+import ResourceManagement from '@/pages/admin/ResourceManagement';
+import InsightManagement from '@/pages/admin/InsightManagement';
+import InsightEditor from '@/pages/admin/InsightEditor';
+import StrategyCallManagement from '@/pages/admin/StrategyCallManagement';
+import GalleryManagement from '@/pages/admin/GalleryManagement';
+import CareerManagement from '@/pages/admin/CareerManagement';
+import NewsletterManagement from '@/pages/admin/NewsletterManagement';
+import RolesManagement from '@/pages/admin/RolesManagement';
+import MethodologyManagement from '@/pages/admin/MethodologyManagement';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -80,6 +97,13 @@ const AuthenticatedApp = () => {
         <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/growth-audit" element={<GrowthAudit />} />
+        <Route path="/strategy-call" element={<StrategyCall />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/insights" element={<Insights />} />
+        <Route path="/insights/:slug" element={<InsightDetail />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/methodology" element={<Methodology />} />
+        <Route path="/careers" element={<Careers />} />
         <Route path="/work-with-us" element={<WorkWithUs />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<Terms />} />
@@ -92,6 +116,11 @@ const AuthenticatedApp = () => {
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/pages" element={<PagesManagement />} />
           <Route path="/admin/blog" element={<BlogManagement />} />
+          <Route path="/admin/insights" element={<InsightManagement />} />
+          <Route path="/admin/insights/new" element={<InsightEditor />} />
+          <Route path="/admin/insights/edit/:id" element={<InsightEditor />} />
+          <Route path="/admin/resources" element={<ResourceManagement />} />
+          <Route path="/admin/gallery" element={<GalleryManagement />} />
           <Route path="/admin/blog/new" element={<BlogEditor />} />
           <Route path="/admin/blog/edit/:id" element={<BlogEditor />} />
           <Route path="/admin/case-studies" element={<CaseStudyManagement />} />
@@ -102,12 +131,17 @@ const AuthenticatedApp = () => {
           <Route path="/admin/services/edit/:id" element={<ServiceEditor />} />
           <Route path="/admin/industries" element={<IndustryManagement />} />
           <Route path="/admin/leads" element={<LeadManagement />} />
+          <Route path="/admin/strategy-calls" element={<StrategyCallManagement />} />
+          <Route path="/admin/newsletter" element={<NewsletterManagement />} />
           <Route path="/admin/talent" element={<TalentManagement />} />
+          <Route path="/admin/careers" element={<CareerManagement />} />
           <Route path="/admin/testimonials" element={<TestimonialManagement />} />
           <Route path="/admin/team" element={<TeamManagement />} />
+          <Route path="/admin/methodology" element={<MethodologyManagement />} />
           <Route path="/admin/media" element={<MediaLibrary />} />
           <Route path="/admin/seo" element={<SeoSettings />} />
           <Route path="/admin/navigation" element={<NavigationSettings />} />
+          <Route path="/admin/roles" element={<RolesManagement />} />
           <Route path="/admin/settings" element={<AdminSettings />} />
         </Route>
       </Route>
@@ -123,6 +157,7 @@ function App() {
       <QueryClientProvider client={queryClientInstance}>
         <Router>
           <ScrollToTop />
+          <GtmInjector />
           <AuthenticatedApp />
         </Router>
         <Toaster />

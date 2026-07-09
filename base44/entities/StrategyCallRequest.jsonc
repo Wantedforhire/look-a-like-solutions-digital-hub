@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "name": "StrategyCallRequest",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "monthlyAdSpend": {
+      "type": "string"
+    },
+    "primaryGoal": {
+      "type": "string",
+      "enum": [
+        "More Leads",
+        "Better ROI",
+        "Brand Awareness",
+        "SEO Rankings",
+        "Other"
+      ]
+    },
+    "preferredCallTime": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "scheduled",
+        "completed",
+        "closed"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "primaryGoal"
+  ]
+}

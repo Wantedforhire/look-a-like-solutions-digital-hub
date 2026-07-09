@@ -1,6 +1,7 @@
 import { BarChart3, Users, Zap, ShieldCheck } from "lucide-react";
 import SectionHeading from "@/components/ui-custom/SectionHeading";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
+import CTAButton from "@/components/ui-custom/CTAButton";
 
 const reasons = [
   { icon: BarChart3, title: "Data-Driven Strategies", desc: "Every decision backed by analytics, market insight, and real-time performance dashboards." },
@@ -28,6 +29,10 @@ export default function WhyUs() {
               </div>
             </ScrollReveal>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <CTAButton to="/strategy-call" variant="primary">Book a Strategy Call</CTAButton>
         </div>
       </div>
     </section>

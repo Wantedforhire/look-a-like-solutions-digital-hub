@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "name": "MethodologyPhase",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "icon": {
+      "type": "string",
+      "description": "lucide-react icon name"
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "title",
+    "description"
+  ]
+}

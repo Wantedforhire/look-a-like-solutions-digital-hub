@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "name": "GalleryItem",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Logo Design",
+        "Social Media",
+        "Website",
+        "Ad Creative",
+        "Other"
+      ],
+      "default": "Other"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "clientIndustry": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "title",
+    "imageUrl",
+    "category"
+  ]
+}

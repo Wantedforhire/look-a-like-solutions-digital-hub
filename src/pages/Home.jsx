@@ -9,6 +9,7 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import FounderSection from "@/components/home/FounderSection";
 import WhyUs from "@/components/home/WhyUs";
 import ProcessTimeline from "@/components/home/ProcessTimeline";
+import HowWeWork from "@/components/home/HowWeWork";
 import CaseStudyStrip from "@/components/home/CaseStudyStrip";
 import IndustriesStrip from "@/components/home/IndustriesStrip";
 import GrowthAuditSection from "@/components/home/GrowthAuditSection";
@@ -45,6 +46,7 @@ export default function Home() {
       <FounderSection />
       <WhyUs />
       <ProcessTimeline />
+      <HowWeWork />
       <CaseStudyStrip caseStudies={caseStudies} />
       <IndustriesStrip industries={industries} />
       <GrowthAuditSection />

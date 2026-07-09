@@ -12,11 +12,17 @@ const services = [
 
 const company = [
   { label: "About Us", to: "/about" },
-  { label: "Work With Us", to: "/work-with-us" },
+  { label: "Our Methodology", to: "/methodology" },
   { label: "Case Studies", to: "/case-studies" },
   { label: "Industries Served", to: "/industries" },
-  { label: "Blog / Insights", to: "/blog" },
+  { label: "Blog", to: "/blog" },
+  { label: "Marketing Insights", to: "/insights" },
+  { label: "Resources", to: "/resources" },
+  { label: "Design Gallery", to: "/gallery" },
+  { label: "Book a Strategy Call", to: "/strategy-call" },
+  { label: "Careers", to: "/careers" },
   { label: "Free Growth Audit", to: "/growth-audit" },
+  { label: "Work With Us", to: "/work-with-us" },
   { label: "Contact", to: "/contact" }
 ];
 

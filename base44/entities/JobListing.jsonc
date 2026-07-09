@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "name": "JobListing",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "department": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Full-time",
+        "Part-time",
+        "Freelance",
+        "Internship"
+      ],
+      "default": "Full-time"
+    },
+    "description": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "isOpen": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "title",
+    "department"
+  ]
+}

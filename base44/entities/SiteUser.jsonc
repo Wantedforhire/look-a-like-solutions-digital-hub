@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "name": "SiteUser",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "super_admin",
+        "editor"
+      ],
+      "default": "editor"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "email",
+    "role"
+  ]
+}

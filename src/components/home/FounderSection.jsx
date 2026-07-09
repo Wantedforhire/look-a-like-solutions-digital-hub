@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
-import { User } from "lucide-react";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import EyebrowLabel from "@/components/ui-custom/EyebrowLabel";
 import CTAButton from "@/components/ui-custom/CTAButton";
@@ -11,6 +10,7 @@ export default function FounderSection() {
     queryFn: () => base44.entities.TeamMember.list("order")
   });
   const ramkumar = team.find((m) => m.name && m.name.toLowerCase().includes("ramkumar"));
+  const founderPhoto = ramkumar?.photo || "https://media.base44.com/images/public/6a45332a796cb5a887717912/b5f87c02a_WhatsAppImage2025-10-30at112027_e9d09851.jpg";
   const tags = ramkumar?.specialisms?.length
     ? ramkumar.specialisms
     : ["Google Ads", "Meta Ads", "SEO", "Performance Marketing", "Analytics & Tracking", "AI-Powered Marketing", "Training & Consulting", "Business Growth Strategy"];
@@ -28,18 +28,12 @@ export default function FounderSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal>
             {/* Admin note: If Ramkumar's photo field is set, it renders here. Otherwise, a clean placeholder is shown. */}
-            {ramkumar?.photo ? (
-              <img
-                src={ramkumar.photo}
-                alt={ramkumar.name}
-                loading="lazy"
-                className="w-full aspect-square object-cover rounded-3xl shadow-lg"
-              />
-            ) : (
-              <div className="w-full aspect-square rounded-3xl bg-slate-100 flex items-center justify-center border border-slate-200">
-                <User className="w-24 h-24 text-slate-300" />
-              </div>
-            )}
+            <img
+              src={founderPhoto}
+              alt={ramkumar?.name || "Ramkumar"}
+              loading="lazy"
+              className="w-full aspect-square object-cover rounded-3xl shadow-lg"
+            />
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>

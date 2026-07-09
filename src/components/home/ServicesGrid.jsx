@@ -2,6 +2,7 @@ import SectionHeading from "@/components/ui-custom/SectionHeading";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import { getIcon } from "@/lib/iconMap";
 import { ArrowRight } from "lucide-react";
+import CTAButton from "@/components/ui-custom/CTAButton";
 
 const primaryServices = [
   {
@@ -96,6 +97,10 @@ export default function ServicesGrid({ services = [] }) {
               </ScrollReveal>
             );
           })}
+        </div>
+
+        <div className="mt-12 text-center">
+          <CTAButton to="/services" variant="secondary">Explore All Services</CTAButton>
         </div>
       </div>
     </section>

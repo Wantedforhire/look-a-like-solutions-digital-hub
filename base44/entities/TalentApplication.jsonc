@@ -54,6 +54,10 @@
     "whyNote": {
       "type": "string"
     },
+    "jobListingId": {
+      "type": "string",
+      "description": "Linked JobListing id if applying for a specific role"
+    },
     "status": {
       "type": "string",
       "enum": [

@@ -11,9 +11,9 @@ const skillAreas = [
 ];
 const experienceLevels = ["Student", "Fresher", "1 to 2 Years", "3 to 5 Years", "5+ Years"];
 
-export default function TalentApplicationForm() {
+export default function TalentApplicationForm({ jobListingId, defaultSkillArea }) {
   const [form, setForm] = useState({
-    name: "", email: "", phone: "", city: "", skillArea: "", experienceLevel: "",
+    name: "", email: "", phone: "", city: "", skillArea: defaultSkillArea || "", experienceLevel: "",
     portfolioUrl: "", availability: "", expectedPay: "", whyNote: "",
   });
   const [submitting, setSubmitting] = useState(false);
@@ -31,7 +31,7 @@ export default function TalentApplicationForm() {
     setSubmitting(true);
     setError("");
     try {
-      await base44.entities.TalentApplication.create({ ...form, status: "New" });
+      await base44.entities.TalentApplication.create({ ...form, status: "New", jobListingId: jobListingId || undefined });
       setDone(true);
     } catch (err) {
       setError(err.message || "Something went wrong. Please try again.");
