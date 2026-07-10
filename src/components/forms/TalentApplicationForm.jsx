@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
+import { sendFormNotificationEmail } from "@/lib/notifyEmail";
 import { Field, TextInput, TextArea, Select } from "@/components/admin/FormFields";
 import { CheckCircle2, Loader2 } from "lucide-react";
 
@@ -32,6 +33,20 @@ export default function TalentApplicationForm({ jobListingId, defaultSkillArea }
     setError("");
     try {
       await base44.entities.TalentApplication.create({ ...form, status: "New", jobListingId: jobListingId || undefined });
+      sendFormNotificationEmail(
+        `New Talent Application — ${form.skillArea}`,
+        `<h3>New Talent Application</h3>
+         <p><b>Name:</b> ${form.name}</p>
+         <p><b>Email:</b> ${form.email}</p>
+         <p><b>Phone:</b> ${form.phone || "—"}</p>
+         <p><b>City:</b> ${form.city || "—"}</p>
+         <p><b>Skill Area:</b> ${form.skillArea}</p>
+         <p><b>Experience:</b> ${form.experienceLevel}</p>
+         <p><b>Portfolio:</b> ${form.portfolioUrl || "—"}</p>
+         <p><b>Availability:</b> ${form.availability || "—"}</p>
+         <p><b>Expected Pay:</b> ${form.expectedPay || "—"}</p>
+         <p><b>Why Us:</b> ${form.whyNote || "—"}</p>`
+      );
       setDone(true);
     } catch (err) {
       setError(err.message || "Something went wrong. Please try again.");

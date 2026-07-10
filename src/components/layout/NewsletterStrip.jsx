@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
+import { sendFormNotificationEmail } from "@/lib/notifyEmail";
 import { Send, Check } from "lucide-react";
 
 export default function NewsletterStrip() {
@@ -16,6 +17,10 @@ export default function NewsletterStrip() {
         email: email.trim(),
         subscribedAt: new Date().toISOString(),
       });
+      sendFormNotificationEmail(
+        "New Newsletter Subscriber",
+        `<h3>New Newsletter Subscriber</h3><p><b>Email:</b> ${email.trim()}</p>`
+      );
       setDone(true);
       setEmail("");
     } catch {

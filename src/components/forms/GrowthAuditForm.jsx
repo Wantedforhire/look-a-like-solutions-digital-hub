@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
+import { sendFormNotificationEmail } from "@/lib/notifyEmail";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -52,6 +53,18 @@ export default function GrowthAuditForm({ showChannels = false, compact = false 
         monthlyBudget: form.monthlyBudget,
         message: form.message + (form.currentChannels.length ? ` | Current channels: ${form.currentChannels.join(", ")}` : "")
       });
+      sendFormNotificationEmail(
+        `New Growth Audit Request from ${form.name}`,
+        `<h3>New Growth Audit Request</h3>
+         <p><b>Name:</b> ${form.name}</p>
+         <p><b>Email:</b> ${form.email}</p>
+         <p><b>Phone:</b> ${form.phone || "—"}</p>
+         <p><b>Company:</b> ${form.company || "—"}</p>
+         <p><b>Website:</b> ${form.website || "—"}</p>
+         <p><b>Monthly Budget:</b> ${form.monthlyBudget || "—"}</p>
+         <p><b>Current Channels:</b> ${form.currentChannels.join(", ") || "—"}</p>
+         <p><b>Challenge:</b> ${form.message || "—"}</p>`
+      );
       setStatus("success");
     } catch (err) {
       setStatus("error");

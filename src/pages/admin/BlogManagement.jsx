@@ -1,14 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import AdminTable, { ActionButton } from "@/components/admin/AdminTable";
 import { StatusBadge } from "@/components/admin/Badges";
-import { Plus, Pencil, Trash2, Eye, EyeOff } from "lucide-react";
+import BlogImport from "@/components/admin/BlogImport";
+import { Plus, Pencil, Trash2, Eye, EyeOff, Upload } from "lucide-react";
 import { formatDate } from "@/lib/adminUtils";
 
 export default function BlogManagement() {
   const qc = useQueryClient();
+  const [showImport, setShowImport] = useState(false);
   const { data: rows = [], isLoading } = useQuery({
     queryKey: ["admin-blog", "all"],
     queryFn: () => base44.entities.BlogPost.list("-created_date"),
@@ -42,8 +45,12 @@ export default function BlogManagement() {
   return (
     <div>
       <AdminPageHeader title="Blog" subtitle="Create and manage blog posts and articles."
-        actions={<Link to="/admin/blog/new" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-accent text-white text-sm font-semibold hover:bg-indigo-500"><Plus className="w-4 h-4" /> New Post</Link>} />
+        actions={<div className="flex gap-2">
+          <button onClick={() => setShowImport(true)} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 text-slate-700 text-sm font-semibold hover:bg-slate-50"><Upload className="w-4 h-4" /> Import Excel</button>
+          <Link to="/admin/blog/new" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-accent text-white text-sm font-semibold hover:bg-indigo-500"><Plus className="w-4 h-4" /> New Post</Link>
+        </div>} />
       {isLoading ? <p className="text-slate-400 text-sm">Loading...</p> : <AdminTable columns={columns} rows={rows} searchKeys={["title", "category", "author"]} searchPlaceholder="Search posts..." />}
+      {showImport && <BlogImport onClose={() => setShowImport(false)} onImported={() => qc.invalidateQueries({ queryKey: ["admin-blog"] })} />}
     </div>
   );
 }

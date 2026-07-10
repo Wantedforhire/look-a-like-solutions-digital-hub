@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
+import { sendFormNotificationEmail } from "@/lib/notifyEmail";
 import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
@@ -26,6 +27,18 @@ export default function StrategyCall() {
     setError("");
     try {
       await base44.entities.StrategyCallRequest.create({ ...form, status: "new" });
+      sendFormNotificationEmail(
+        `New Strategy Call Request from ${form.name}`,
+        `<h3>New Strategy Call Request</h3>
+         <p><b>Name:</b> ${form.name}</p>
+         <p><b>Email:</b> ${form.email}</p>
+         <p><b>Phone:</b> ${form.phone || "—"}</p>
+         <p><b>Company:</b> ${form.company || "—"}</p>
+         <p><b>Monthly Ad Spend:</b> ${form.monthlyAdSpend || "—"}</p>
+         <p><b>Primary Goal:</b> ${form.primaryGoal}</p>
+         <p><b>Preferred Call Time:</b> ${form.preferredCallTime || "—"}</p>
+         <p><b>Challenge:</b> ${form.message || "—"}</p>`
+      );
       setDone(true);
     } catch (err) {
       setError(err.message || "Something went wrong. Please try again.");

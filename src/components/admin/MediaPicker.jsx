@@ -35,6 +35,29 @@ export default function MediaPicker({ value, onChange, label = "Image" }) {
     }
   };
 
+  // Direct upload — uploads and selects the image in one step, no modal needed
+  const handleDirectUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const res = await base44.integrations.Core.UploadFile({ file });
+      await base44.entities.MediaImage.create({
+        url: res.file_url,
+        filename: file.name,
+        size: file.size,
+        contentType: file.type,
+        uploadedAt: new Date().toISOString(),
+      });
+      onChange(res.file_url);
+    } catch (err) {
+      alert("Upload failed: " + (err.message || "unknown error"));
+    } finally {
+      setUploading(false);
+      e.target.value = "";
+    }
+  };
+
   return (
     <div>
       {label && <label className="block text-xs font-semibold text-slate-600 mb-1.5">{label}</label>}
@@ -42,12 +65,17 @@ export default function MediaPicker({ value, onChange, label = "Image" }) {
         {value && (
           <img src={value} alt="preview" className="w-16 h-16 rounded-lg object-cover border border-slate-200" />
         )}
+        <label className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer">
+          <Upload className="w-3.5 h-3.5" />
+          {uploading ? "Uploading..." : "Upload"}
+          <input type="file" accept="image/*" onChange={handleDirectUpload} className="hidden" disabled={uploading} />
+        </label>
         <button
           type="button"
           onClick={() => setOpen(true)}
           className="px-4 py-2 rounded-lg text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors"
         >
-          {value ? "Change Image" : "Select from Library"}
+          {value ? "Change Image" : "Library"}
         </button>
         {value && (
           <button type="button" onClick={() => onChange("")} className="text-slate-400 hover:text-red-500">
