@@ -32,6 +32,7 @@ export default function MetaTags({ title, description, path = "/", image, noinde
     setLink("canonical", `${SITE_URL}${path}`);
     setMeta("og:title", fullTitle, "property");
     setMeta("og:description", description, "property");
+    setMeta("og:site_name", "Look A Like Solutions", "property");
     setMeta("og:url", `${SITE_URL}${path}`, "property");
     setMeta("og:type", "website", "property");
     if (image) setMeta("og:image", image, "property");

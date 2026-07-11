@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import { ChevronRight } from "lucide-react";
 import { format } from "date-fns";
 import MetaTags from "@/components/seo/MetaTags";
-import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
+import SchemaMarkup, { breadcrumbSchema, articleSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import CTAButton from "@/components/ui-custom/CTAButton";
 
@@ -34,18 +34,7 @@ export default function BlogDetail() {
   return (
     <div>
       <MetaTags title={post.metaTitle || post.title} description={post.metaDescription || post.excerpt} path={`/blog/${post.slug}`} image={post.coverImage} />
-      <SchemaMarkup
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          headline: post.title,
-          description: post.excerpt,
-          image: post.coverImage,
-          author: { "@type": "Person", name: post.author || "Look A Like Solutions" },
-          datePublished: post.publishDate
-        }}
-        id="schema-article"
-      />
+      <SchemaMarkup schema={articleSchema(post, "blog")} id="schema-article" />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }])} id="schema-breadcrumb" />
 
       <nav aria-label="Breadcrumb" className="pt-28 px-6 max-w-3xl mx-auto text-xs text-slate-sub flex items-center gap-2">

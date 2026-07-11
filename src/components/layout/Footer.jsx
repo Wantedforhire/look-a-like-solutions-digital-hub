@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, LogIn } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, LogIn } from "lucide-react";
 
 const services = [
   { label: "SEO Services", to: "/services/seo-services" },
@@ -41,9 +41,10 @@ export default function Footer() {
             Bengaluru's performance marketing agency — building revenue engines with Google Ads, Meta Ads, SEO, and AI-powered growth for 100+ businesses.
           </p>
           <div className="mt-6 flex gap-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-indigo-accent transition-colors"><Facebook className="w-5 h-5" /></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-indigo-accent transition-colors"><Instagram className="w-5 h-5" /></a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-indigo-accent transition-colors"><Youtube className="w-5 h-5" /></a>
+            <a href="https://www.facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" aria-label="Look A Like Solutions on Facebook" className="hover:text-indigo-accent transition-colors"><Facebook className="w-5 h-5" aria-hidden="true" /></a>
+            <a href="https://www.instagram.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" aria-label="Look A Like Solutions on Instagram" className="hover:text-indigo-accent transition-colors"><Instagram className="w-5 h-5" aria-hidden="true" /></a>
+            <a href="https://www.youtube.com/@thelookalikesolutions" target="_blank" rel="noopener noreferrer" aria-label="Look A Like Solutions on YouTube" className="hover:text-indigo-accent transition-colors"><Youtube className="w-5 h-5" aria-hidden="true" /></a>
+            <a href="https://www.linkedin.com/company/lookalikesolutions" target="_blank" rel="noopener noreferrer" aria-label="Look A Like Solutions on LinkedIn" className="hover:text-indigo-accent transition-colors"><Linkedin className="w-5 h-5" aria-hidden="true" /></a>
           </div>
         </div>
 
@@ -68,9 +69,9 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Get in Touch</h3>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" /><a href="tel:+919731588244" className="hover:text-indigo-accent transition-colors">+91-9731588244</a></li>
-            <li className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 shrink-0" /><a href="mailto:info@lookalikesolutions.com" className="hover:text-indigo-accent transition-colors break-all">info@lookalikesolutions.com</a></li>
-            <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" />Bengaluru, Karnataka, India</li>
+            <li className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" /><a href="tel:+919731588244" className="hover:text-indigo-accent transition-colors">+91-9731588244</a></li>
+            <li className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" /><a href="mailto:info@lookalikesolutions.com" className="hover:text-indigo-accent transition-colors break-all">info@lookalikesolutions.com</a></li>
+            <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />Bengaluru, Karnataka, India</li>
           </ul>
         </div>
       </div>

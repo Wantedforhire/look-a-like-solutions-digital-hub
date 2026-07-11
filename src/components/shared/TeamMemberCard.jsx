@@ -7,7 +7,7 @@ export default function TeamMemberCard({ member, index = 0 }) {
       <div className="rounded-2xl p-6 text-center bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-accent/30 transition-all duration-300">
         <img
           src={member.photo}
-          alt={member.name}
+          alt={`${member.name}, ${member.role}`}
           loading="lazy"
           className="w-24 h-24 rounded-full object-cover mx-auto mb-4 ring-2 ring-slate-200"
         />

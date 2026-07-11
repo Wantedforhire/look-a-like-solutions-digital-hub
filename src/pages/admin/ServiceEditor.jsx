@@ -24,6 +24,7 @@ export default function ServiceEditor() {
 
   const [form, setForm] = useState({
     title: "", slug: "", category: "", icon: "TrendingUp", shortDescription: "",
+    whoItsFor: "", businessOutcomes: [],
     heroHeadline: "", heroSubtext: "", heroImage: "", metricLabel: "", deliverables: [],
     process: [], faqs: [], keywordTargets: [], metaTitle: "", metaDescription: "", order: 0,
   });
@@ -68,6 +69,8 @@ export default function ServiceEditor() {
               <Field label="Icon"><Select value={form.icon} onChange={set("icon")} options={iconOptions} /></Field>
             </div>
             <Field label="Short Description"><TextArea value={form.shortDescription} onChange={set("shortDescription")} rows={2} /></Field>
+            <Field label="Who It's For" hint="The audience or business profile this service fits"><TextArea value={form.whoItsFor} onChange={set("whoItsFor")} rows={2} /></Field>
+            <Field label="Business Outcomes"><TagInput value={form.businessOutcomes || []} onChange={set("businessOutcomes")} placeholder="Add an outcome" /></Field>
             <Field label="Deliverables"><TagInput value={form.deliverables || []} onChange={set("deliverables")} placeholder="Add a deliverable" /></Field>
             <Field label="Keyword Targets"><TagInput value={form.keywordTargets || []} onChange={set("keywordTargets")} placeholder="Add a keyword" /></Field>
           </div>

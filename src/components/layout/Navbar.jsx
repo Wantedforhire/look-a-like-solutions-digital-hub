@@ -60,8 +60,8 @@ export default function Navbar() {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button className="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-indigo-accent transition-colors">
-              Services <ChevronDown className="w-4 h-4" />
+            <button className="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-indigo-accent transition-colors" aria-expanded={servicesOpen}>
+              Services <ChevronDown className="w-4 h-4" aria-hidden="true" />
             </button>
             {servicesOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[560px]">

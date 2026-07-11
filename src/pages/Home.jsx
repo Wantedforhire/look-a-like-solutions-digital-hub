@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import MetaTags from "@/components/seo/MetaTags";
-import SchemaMarkup, { organizationSchema, localBusinessSchema } from "@/components/seo/SchemaMarkup";
+import SchemaMarkup, { organizationSchema, localBusinessSchema, websiteSchema } from "@/components/seo/SchemaMarkup";
 import Hero from "@/components/home/Hero";
 import ResultsSection from "@/components/home/ResultsSection";
 import ClientLogoMarquee from "@/components/home/ClientLogoMarquee";
@@ -38,6 +38,7 @@ export default function Home() {
         path="/"
       />
       <SchemaMarkup schema={organizationSchema()} id="schema-org" />
+      <SchemaMarkup schema={websiteSchema()} id="schema-website" />
       <SchemaMarkup schema={localBusinessSchema()} id="schema-local" />
       <Hero />
       <ResultsSection />

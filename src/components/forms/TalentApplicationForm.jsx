@@ -25,8 +25,8 @@ export default function TalentApplicationForm({ jobListingId, defaultSkillArea }
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.skillArea || !form.experienceLevel) {
-      setError("Please fill in your name, email, skill area, and experience level.");
+    if (!form.name || !/^\S+@\S+\.\S+$/.test(form.email) || !form.skillArea || !form.experienceLevel) {
+      setError("Please fill in your name, a valid email, skill area, and experience level.");
       return;
     }
     setSubmitting(true);
@@ -59,7 +59,7 @@ export default function TalentApplicationForm({ jobListingId, defaultSkillArea }
     return (
       <div className="glass-cell rounded-2xl p-10 text-center max-w-xl mx-auto">
         <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="w-8 h-8 text-emerald-accent" />
+          <CheckCircle2 className="w-8 h-8 text-emerald-accent" aria-hidden="true" />
         </div>
         <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Application Received</h3>
         <p className="text-slate-500 leading-relaxed mb-6">
@@ -81,49 +81,50 @@ export default function TalentApplicationForm({ jobListingId, defaultSkillArea }
   }
 
   return (
-    <form onSubmit={submit} className="glass-cell rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+    <form onSubmit={submit} className="glass-cell rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto" noValidate>
       <div className="grid sm:grid-cols-2 gap-4 mb-4">
-        <Field label="Full Name *">
-          <TextInput value={form.name} onChange={set("name")} placeholder="Your full name" />
+        <Field label="Full Name *" id="ta-name">
+          <TextInput id="ta-name" name="name" autoComplete="name" value={form.name} onChange={set("name")} placeholder="Your full name" required />
         </Field>
-        <Field label="Email *">
-          <TextInput type="email" value={form.email} onChange={set("email")} placeholder="you@email.com" />
+        <Field label="Email *" id="ta-email">
+          <TextInput id="ta-email" name="email" type="email" autoComplete="email" value={form.email} onChange={set("email")} placeholder="you@email.com" required />
         </Field>
-        <Field label="Phone Number">
-          <TextInput value={form.phone} onChange={set("phone")} placeholder="+91 ..." />
+        <Field label="Phone Number" id="ta-phone">
+          <TextInput id="ta-phone" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={set("phone")} placeholder="+91 ..." />
         </Field>
-        <Field label="City">
-          <TextInput value={form.city} onChange={set("city")} placeholder="Bengaluru" />
+        <Field label="City" id="ta-city">
+          <TextInput id="ta-city" name="city" autoComplete="address-level2" value={form.city} onChange={set("city")} placeholder="Bengaluru" />
         </Field>
-        <Field label="Skill Area *">
-          <Select value={form.skillArea} onChange={set("skillArea")} options={skillAreas} placeholder="Select your skill" />
+        <Field label="Skill Area *" id="ta-skill">
+          <Select id="ta-skill" name="skillArea" value={form.skillArea} onChange={set("skillArea")} options={skillAreas} placeholder="Select your skill" required aria-required="true" />
         </Field>
-        <Field label="Experience Level *">
-          <Select value={form.experienceLevel} onChange={set("experienceLevel")} options={experienceLevels} placeholder="Select experience" />
+        <Field label="Experience Level *" id="ta-exp">
+          <Select id="ta-exp" name="experienceLevel" value={form.experienceLevel} onChange={set("experienceLevel")} options={experienceLevels} placeholder="Select experience" required aria-required="true" />
         </Field>
-        <Field label="Portfolio or LinkedIn URL" className="sm:col-span-2">
-          <TextInput value={form.portfolioUrl} onChange={set("portfolioUrl")} placeholder="https://..." />
+        <Field label="Portfolio or LinkedIn URL" className="sm:col-span-2" id="ta-portfolio">
+          <TextInput id="ta-portfolio" name="portfolioUrl" type="url" autoComplete="url" value={form.portfolioUrl} onChange={set("portfolioUrl")} placeholder="https://..." />
         </Field>
-        <Field label="Availability">
-          <TextInput value={form.availability} onChange={set("availability")} placeholder="e.g. Weekdays, 20 hrs/week" />
+        <Field label="Availability" id="ta-avail">
+          <TextInput id="ta-avail" name="availability" value={form.availability} onChange={set("availability")} placeholder="e.g. Weekdays, 20 hrs/week" />
         </Field>
-        <Field label="Expected Monthly / Project-Based Pay">
-          <TextInput value={form.expectedPay} onChange={set("expectedPay")} placeholder="e.g. ₹25,000/month or per project" />
+        <Field label="Expected Monthly / Project-Based Pay" id="ta-pay">
+          <TextInput id="ta-pay" name="expectedPay" value={form.expectedPay} onChange={set("expectedPay")} placeholder="e.g. ₹25,000/month or per project" />
         </Field>
       </div>
-      <Field label="Why do you want to work with us?" className="mb-5">
-        <TextArea value={form.whyNote} onChange={set("whyNote")} placeholder="Tell us briefly about your goals and what you bring..." rows={4} />
+      <Field label="Why do you want to work with us?" className="mb-5" id="ta-why">
+        <TextArea id="ta-why" name="whyNote" value={form.whyNote} onChange={set("whyNote")} placeholder="Tell us briefly about your goals and what you bring..." rows={4} />
       </Field>
 
-      {error && <p className="text-sm text-red-500 mb-4">{error}</p>}
+      {error && <p className="text-sm text-red-500 mb-4" role="alert">{error}</p>}
 
       <button
         type="submit"
         disabled={submitting}
         className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-indigo-accent text-white text-sm font-semibold hover:bg-indigo-500 transition-colors disabled:opacity-60"
       >
-        {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</> : "Submit Application"}
+        {submitting ? <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Submitting...</> : "Submit Application"}
       </button>
+      <p className="text-xs text-slate-400 text-center mt-4">We only use your details to respond to your request. No spam.</p>
     </form>
   );
 }

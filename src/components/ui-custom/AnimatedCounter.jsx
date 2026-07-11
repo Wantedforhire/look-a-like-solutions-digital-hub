@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
-export default function AnimatedCounter({ value, suffix = "", duration = 1.6, className = "" }) {
+export default function AnimatedCounter({ value, suffix = "", duration = 1.6, className = "", fallback }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [display, setDisplay] = useState(0);
   const numericValue = parseFloat(String(value).replace(/[^0-9.]/g, "")) || 0;
+  const useFallback = (value === 0 || value === undefined || value === null || isNaN(numericValue)) && fallback;
 
   useEffect(() => {
     if (!isInView) return;
@@ -21,6 +22,9 @@ export default function AnimatedCounter({ value, suffix = "", duration = 1.6, cl
     return () => cancelAnimationFrame(raf);
   }, [isInView, numericValue, duration]);
 
+  if (useFallback) {
+    return <span className={className}>{fallback}{suffix}</span>;
+  }
   return (
     <span ref={ref} className={className}>
       {display}

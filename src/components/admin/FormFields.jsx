@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export function Field({ label, children, hint, className = "" }) {
+export function Field({ label, children, hint, className = "", id }) {
   return (
     <div className={className}>
-      {label && <label className="block text-xs font-semibold text-slate-600 mb-1.5">{label}</label>}
+      {label && <label htmlFor={id} className="block text-xs font-semibold text-slate-600 mb-1.5">{label}</label>}
       {children}
       {hint && <p className="text-[11px] text-slate-400 mt-1">{hint}</p>}
     </div>
@@ -23,7 +23,7 @@ export function TextInput({ value, onChange, placeholder, type = "text", ...rest
   );
 }
 
-export function TextArea({ value, onChange, placeholder, rows = 4 }) {
+export function TextArea({ value, onChange, placeholder, rows = 4, ...rest }) {
   return (
     <textarea
       value={value || ""}
@@ -31,16 +31,18 @@ export function TextArea({ value, onChange, placeholder, rows = 4 }) {
       placeholder={placeholder}
       rows={rows}
       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:border-indigo-accent focus:ring-2 focus:ring-indigo-accent/20 outline-none transition-all bg-white resize-y"
+      {...rest}
     />
   );
 }
 
-export function Select({ value, onChange, options, placeholder }) {
+export function Select({ value, onChange, options, placeholder, ...rest }) {
   return (
     <select
       value={value || ""}
       onChange={(e) => onChange(e.target.value)}
       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-900 focus:border-indigo-accent focus:ring-2 focus:ring-indigo-accent/20 outline-none transition-all bg-white"
+      {...rest}
     >
       {placeholder && <option value="">{placeholder}</option>}
       {options.map((o) => {

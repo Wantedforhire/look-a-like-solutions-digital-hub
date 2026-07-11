@@ -19,8 +19,8 @@ export default function StrategyCall() {
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.primaryGoal) {
-      setError("Please fill in your name, email, and primary goal.");
+    if (!form.name || !/^\S+@\S+\.\S+$/.test(form.email) || !form.primaryGoal) {
+      setError("Please fill in your name, a valid email, and primary goal.");
       return;
     }
     setSubmitting(true);
@@ -51,7 +51,7 @@ export default function StrategyCall() {
     <div>
       <MetaTags
         title="Book a Strategy Call"
-        description="Book a free 1-on-1 strategy call with Ramkumar, founder of Look A Like Solutions. Get a personalized growth plan for your business."
+        description="Book a free 1-on-1 strategy call with Ramkumar, founder of Look A Like Solutions. Get a personalized growth plan for your business — no obligation."
         path="/strategy-call"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Strategy Call", path: "/strategy-call" }])} id="schema-breadcrumb" />
@@ -76,7 +76,7 @@ export default function StrategyCall() {
             {done ? (
               <div className="glass-cell rounded-2xl p-10 text-center">
                 <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-accent" />
+                  <CheckCircle2 className="w-8 h-8 text-emerald-accent" aria-hidden="true" />
                 </div>
                 <h3 className="text-2xl font-extrabold text-slate-900 mb-3">Request Received</h3>
                 <p className="text-slate-500 leading-relaxed mb-6">
@@ -84,30 +84,43 @@ export default function StrategyCall() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={submit} className="glass-cell rounded-2xl p-6 sm:p-8">
+              <form onSubmit={submit} className="glass-cell rounded-2xl p-6 sm:p-8" noValidate>
                 <h2 className="text-xl font-bold text-slate-900 mb-5">Tell us about your business</h2>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                  <Field label="Name *"><TextInput value={form.name} onChange={set("name")} placeholder="Your name" /></Field>
-                  <Field label="Email *"><TextInput type="email" value={form.email} onChange={set("email")} placeholder="you@email.com" /></Field>
-                  <Field label="Phone"><TextInput value={form.phone} onChange={set("phone")} placeholder="+91 ..." /></Field>
-                  <Field label="Company"><TextInput value={form.company} onChange={set("company")} placeholder="Company name" /></Field>
-                  <Field label="Current Monthly Ad Spend"><Select value={form.monthlyAdSpend} onChange={set("monthlyAdSpend")} options={spendOptions} placeholder="Select range" /></Field>
-                  <Field label="Primary Goal *"><Select value={form.primaryGoal} onChange={set("primaryGoal")} options={goalOptions} placeholder="Select goal" /></Field>
+                  <Field label="Name *" id="sc-name">
+                    <TextInput id="sc-name" name="name" autoComplete="name" value={form.name} onChange={set("name")} placeholder="Your name" required />
+                  </Field>
+                  <Field label="Email *" id="sc-email">
+                    <TextInput id="sc-email" name="email" type="email" autoComplete="email" value={form.email} onChange={set("email")} placeholder="you@email.com" required />
+                  </Field>
+                  <Field label="Phone" id="sc-phone">
+                    <TextInput id="sc-phone" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={set("phone")} placeholder="+91 ..." />
+                  </Field>
+                  <Field label="Company" id="sc-company">
+                    <TextInput id="sc-company" name="company" autoComplete="organization" value={form.company} onChange={set("company")} placeholder="Company name" />
+                  </Field>
+                  <Field label="Current Monthly Ad Spend" id="sc-spend">
+                    <Select id="sc-spend" name="monthlyAdSpend" value={form.monthlyAdSpend} onChange={set("monthlyAdSpend")} options={spendOptions} placeholder="Select range" aria-required="false" />
+                  </Field>
+                  <Field label="Primary Goal *" id="sc-goal">
+                    <Select id="sc-goal" name="primaryGoal" value={form.primaryGoal} onChange={set("primaryGoal")} options={goalOptions} placeholder="Select goal" required aria-required="true" />
+                  </Field>
                 </div>
-                <Field label="Preferred Call Time" className="mb-4">
-                  <TextInput value={form.preferredCallTime} onChange={set("preferredCallTime")} placeholder="e.g. Weekday mornings, after 3 PM" />
+                <Field label="Preferred Call Time" className="mb-4" id="sc-time">
+                  <TextInput id="sc-time" name="preferredCallTime" value={form.preferredCallTime} onChange={set("preferredCallTime")} placeholder="e.g. Weekday mornings, after 3 PM" />
                 </Field>
-                <Field label="What's your biggest challenge right now?" className="mb-5">
-                  <TextArea value={form.message} onChange={set("message")} placeholder="Briefly describe what you're trying to achieve..." rows={4} />
+                <Field label="What's your biggest challenge right now?" className="mb-5" id="sc-message">
+                  <TextArea id="sc-message" name="message" value={form.message} onChange={set("message")} placeholder="Briefly describe what you're trying to achieve..." rows={4} />
                 </Field>
-                {error && <p className="text-sm text-red-500 mb-4">{error}</p>}
+                {error && <p className="text-sm text-red-500 mb-4" role="alert">{error}</p>}
                 <button
                   type="submit"
                   disabled={submitting}
                   className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-indigo-accent text-white text-sm font-semibold hover:bg-indigo-500 transition-colors disabled:opacity-60"
                 >
-                  {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Requesting...</> : "Request My Strategy Call"}
+                  {submitting ? <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Requesting...</> : "Request My Strategy Call"}
                 </button>
+                <p className="text-xs text-slate-400 text-center mt-4">We only use your details to respond to your request. No spam.</p>
               </form>
             )}
           </div>
@@ -116,7 +129,7 @@ export default function StrategyCall() {
             <div className="glass-cell rounded-2xl p-6">
               <img
                 src="https://media.base44.com/images/public/6a45332a796cb5a887717912/b5f87c02a_WhatsAppImage2025-10-30at112027_e9d09851.jpg"
-                alt="Ramkumar"
+                alt="Ramkumar, Founder and Lead Strategist at Look A Like Solutions"
                 className="w-20 h-20 rounded-full object-cover mb-4"
               />
               <h3 className="font-bold text-slate-900">Ramkumar</h3>
@@ -128,21 +141,21 @@ export default function StrategyCall() {
             </div>
             <div className="glass-cell rounded-2xl p-6 space-y-4">
               <div className="flex items-start gap-3">
-                <TrendingUp className="w-5 h-5 text-emerald-accent mt-0.5 shrink-0" />
+                <TrendingUp className="w-5 h-5 text-emerald-accent mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-bold text-slate-900">Real Results</p>
                   <p className="text-xs text-slate-500">100+ businesses scaled across Bengaluru and India.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-indigo-accent mt-0.5 shrink-0" />
+                <Users className="w-5 h-5 text-indigo-accent mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-bold text-slate-900">Personal Attention</p>
                   <p className="text-xs text-slate-500">You talk directly to the strategist, not a sales rep.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <ShieldCheck className="w-5 h-5 text-emerald-accent mt-0.5 shrink-0" />
+                <ShieldCheck className="w-5 h-5 text-emerald-accent mt-0.5 shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-bold text-slate-900">No Obligation</p>
                   <p className="text-xs text-slate-500">Free call. Walk away with a plan whether we work together or not.</p>

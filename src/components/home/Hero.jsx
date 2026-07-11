@@ -58,17 +58,17 @@ export default function Hero() {
             {/* Metric tiles */}
             <div className="grid grid-cols-3 gap-3">
               <div className="rounded-xl border border-slate-200 p-4 bg-slate-50/50">
-                <MousePointerClick className="w-5 h-5 text-indigo-accent mb-2" />
+                <MousePointerClick className="w-5 h-5 text-indigo-accent mb-2" aria-hidden="true" />
                 <p className="text-2xl font-extrabold text-slate-900">4.8%</p>
                 <p className="text-xs text-slate-400">CTR</p>
               </div>
               <div className="rounded-xl border border-slate-200 p-4 bg-slate-50/50">
-                <Target className="w-5 h-5 text-emerald-accent mb-2" />
+                <Target className="w-5 h-5 text-emerald-accent mb-2" aria-hidden="true" />
                 <p className="text-2xl font-extrabold text-slate-900">₹42</p>
                 <p className="text-xs text-slate-400">CPL</p>
               </div>
               <div className="rounded-xl border border-slate-200 p-4 bg-slate-50/50">
-                <TrendingUp className="w-5 h-5 text-indigo-accent mb-2" />
+                <TrendingUp className="w-5 h-5 text-indigo-accent mb-2" aria-hidden="true" />
                 <p className="text-2xl font-extrabold text-slate-900">312</p>
                 <p className="text-xs text-slate-400">Leads</p>
               </div>

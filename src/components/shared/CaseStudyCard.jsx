@@ -12,7 +12,7 @@ export default function CaseStudyCard({ caseStudy, index = 0 }) {
           {caseStudy.thumbnail && (
             <img
               src={caseStudy.thumbnail}
-              alt="Case study result"
+              alt={`${caseStudy.industry} ${caseStudy.service} case study — ${caseStudy.heroMetricValue} ${caseStudy.heroMetricLabel}`}
               loading="lazy"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { ChevronRight } from "lucide-react";
 import MetaTags from "@/components/seo/MetaTags";
-import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
+import SchemaMarkup, { breadcrumbSchema, articleSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import ReactMarkdown from "react-markdown";
 import CTABand from "@/components/ui-custom/CTABand";
@@ -32,6 +32,7 @@ export default function InsightDetail() {
   return (
     <div>
       <MetaTags title={insight.metaTitle || insight.title} description={insight.metaDescription || insight.excerpt} path={`/insights/${insight.slug}`} image={insight.coverImage} />
+      <SchemaMarkup schema={articleSchema(insight, "insights")} id="schema-article" />
       <SchemaMarkup
         schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: insight.title, path: `/insights/${insight.slug}` }])}
         id="schema-breadcrumb"

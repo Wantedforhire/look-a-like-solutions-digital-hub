@@ -1,12 +1,11 @@
-import AnimatedCounter from "@/components/ui-custom/AnimatedCounter";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 
 const metrics = [
-  { value: 500, suffix: "+", label: "Businesses Served" },
-  { value: 150, suffix: "+", label: "Projects Completed" },
-  { value: 250, suffix: "%", label: "Avg Traffic Growth" },
-  { value: 320, suffix: "%", label: "Avg PPC ROI" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" }
+  { value: 100, suffix: "+", label: "Businesses Worked With" },
+  { value: 15, suffix: "+", label: "Years Hands-On Experience" },
+  { value: 3, suffix: "x", label: "Avg Lead Growth" },
+  { value: 50, suffix: "Cr+", label: "Ad Spend Managed", prefix: "₹" },
+  { value: 9, suffix: "", label: "Core Services Offered" }
 ];
 
 export default function TrustMetricsBand() {
@@ -16,7 +15,7 @@ export default function TrustMetricsBand() {
         {metrics.map((m, i) => (
           <ScrollReveal key={m.label} delay={i * 0.05} className="text-center">
             <p className="text-3xl md:text-4xl font-extrabold text-pearl">
-              <AnimatedCounter value={m.value} suffix={m.suffix} />
+              {m.prefix}{m.value}{m.suffix}
             </p>
             <p className="text-xs md:text-sm text-slate-sub mt-2">{m.label}</p>
           </ScrollReveal>

@@ -30,7 +30,7 @@ export default function FounderSection() {
             {/* Admin note: If Ramkumar's photo field is set, it renders here. Otherwise, a clean placeholder is shown. */}
             <img
               src={founderPhoto}
-              alt={ramkumar?.name || "Ramkumar"}
+              alt={ramkumar ? `${ramkumar.name}, Founder of Look A Like Solutions` : "Ramkumar, Founder of Look A Like Solutions"}
               loading="lazy"
               className="w-full aspect-square object-cover rounded-3xl shadow-lg"
             />

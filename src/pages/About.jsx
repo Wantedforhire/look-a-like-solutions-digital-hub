@@ -26,7 +26,7 @@ export default function About() {
     <div>
       <MetaTags
         title="About Us"
-        description="Meet Look A Like Solutions — a growth-focused digital marketing agency serving businesses across India. Our story, values, and the team behind 500+ client success stories."
+        description="Meet Look A Like Solutions — a growth-focused digital marketing agency serving businesses across India. Our story, values, and the team behind 100+ businesses scaled over 15+ years."
         path="/about"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} id="schema-breadcrumb" />
@@ -53,11 +53,11 @@ export default function About() {
               Look A Like Solutions was born from a simple belief: every business deserves a powerful digital presence. What started as a small team of passionate marketers in Bengaluru has grown into a full-service digital marketing agency trusted by businesses across India.
             </p>
             <p className="text-slate-sub leading-relaxed">
-              We've helped hundreds of businesses transform their online presence — from startups finding their voice to established brands reaching new heights — combining cutting-edge technology with creative storytelling, always keeping your business goals at the center.
+              We've helped 100+ businesses transform their online presence — from startups finding their voice to established brands reaching new heights — combining cutting-edge technology with creative storytelling, always keeping your business goals at the center.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.15} className="grid grid-cols-3 gap-4">
-            {[{ v: 150, s: "+", l: "Projects Completed" }, { v: 98, s: "%", l: "Client Satisfaction" }, { v: 5, s: "+", l: "Team Members" }].map((m) => (
+            {[{ v: 100, s: "+", l: "Businesses Worked With" }, { v: 15, s: "+", l: "Years Experience" }, { v: 3, s: "x", l: "Avg Lead Growth" }].map((m) => (
               <div key={m.l} className="glass-cell rounded-2xl p-5 text-center">
                 <p className="text-2xl md:text-3xl font-extrabold text-emerald-accent"><AnimatedCounter value={m.v} suffix={m.s} /></p>
                 <p className="text-xs text-slate-sub mt-2">{m.l}</p>

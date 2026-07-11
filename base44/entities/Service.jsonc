@@ -29,6 +29,17 @@
     "shortDescription": {
       "type": "string"
     },
+    "whoItsFor": {
+      "type": "string",
+      "description": "Who this service is for \u2014 audience / business profile"
+    },
+    "businessOutcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Business outcomes / results the client can expect"
+    },
     "heroHeadline": {
       "type": "string"
     },

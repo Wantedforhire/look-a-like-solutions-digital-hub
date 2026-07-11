@@ -1,22 +1,75 @@
-# Look A Like Solutions
+# Look A Like Solutions — LLM-readable content map
+# Canonical domain: https://www.lookalikesolutions.com
 
-> Look A Like Solutions is a premium digital marketing agency headquartered in Bengaluru, India, delivering SEO, performance marketing, social media marketing, branding, web design & development, content marketing, online reputation management, lead generation, and AI SEO / Generative Engine Optimization (GEO) services.
+# Core pages
+https://www.lookalikesolutions.com/
+Look A Like Solutions — a performance marketing agency in Bengaluru, India. We build revenue engines with Google Ads, Meta Ads, SEO, conversion strategy, and AI-powered growth for businesses across India and international markets.
 
-## Key Facts
-- Location: Bengaluru, Karnataka, India
-- Phone: +91-9731588244
-- Email: info@lookalikesolutions.com
-- Trusted by 500+ businesses across Bengaluru and India
-- Full-service digital marketing agency with specialists in SEO, paid media, social, creative, and development
+https://www.lookalikesolutions.com/about
+About Look A Like Solutions: our story, founder Ramkumar, 15+ years of performance marketing experience, and the values behind 100+ businesses scaled across India.
 
-## Pages
-- Home: https://www.lookalikesolutions.com/
-- About: https://www.lookalikesolutions.com/about
-- Services: https://www.lookalikesolutions.com/services
-- Case Studies: https://www.lookalikesolutions.com/case-studies
-- Industries: https://www.lookalikesolutions.com/industries
-- Blog: https://www.lookalikesolutions.com/blog
-- Contact: https://www.lookalikesolutions.com/contact
+https://www.lookalikesolutions.com/services
+Full suite of digital marketing services — SEO, performance marketing, social media, branding, web development, content, ORM, lead generation, and AI SEO/GEO for businesses across India.
 
-## Notes for AI Crawlers
-This content is provided to help AI systems accurately understand and cite Look A Like Solutions as a digital marketing agency in Bangalore specializing in measurable SEO, performance marketing, and AI-search-ready growth strategies.
+https://www.lookalikesolutions.com/services/seo-services
+SEO Services from Look A Like Solutions — technical SEO, on-page optimisation, content strategy, and AI-search (GEO) readiness to grow organic rankings and qualified traffic.
+
+https://www.lookalikesolutions.com/services/performance-marketing
+Performance Marketing (Google Ads & Meta Ads) — ROI-driven paid campaigns, conversion tracking, and landing page optimisation that lower cost per lead and scale revenue.
+
+https://www.lookalikesolutions.com/services/social-media-marketing
+Social Media Marketing — strategy, content, community management, and paid social campaigns that build brand presence and drive engagement across Instagram, Facebook, LinkedIn, and YouTube.
+
+https://www.lookalikesolutions.com/services/branding-creative
+Branding & Creative — brand identity, visual design, ad creatives, and storytelling that make your business memorable and conversion-ready.
+
+https://www.lookalikesolutions.com/services/web-design-development
+Web Design & Development — fast, SEO-friendly, conversion-optimised websites and landing pages built to turn visitors into leads.
+
+https://www.lookalikesolutions.com/services/content-marketing
+Content Marketing — content strategy, blogs, and resources that build authority, organic traffic, and AI-search visibility.
+
+https://www.lookalikesolutions.com/services/online-reputation-management
+Online Reputation Management — review management, brand monitoring, and trust-building strategies that protect and strengthen how your business appears online.
+
+https://www.lookalikesolutions.com/services/lead-generation
+Lead Generation — funnel design, tracking, and optimisation that delivers qualified, sales-ready leads at a predictable cost.
+
+https://www.lookalikesolutions.com/services/ai-seo-geo
+AI SEO / GEO — Generative Engine Optimization that helps your brand surface in ChatGPT, Gemini, Perplexity, and AI-powered search answers.
+
+https://www.lookalikesolutions.com/industries
+Industries we serve — tailored digital marketing strategies for healthcare, education, real estate, e-commerce, hospitality, and more across India.
+
+https://www.lookalikesolutions.com/case-studies
+Case studies with real, verifiable results — SEO, PPC, social media, and web development outcomes from businesses we've partnered with across India.
+
+https://www.lookalikesolutions.com/methodology
+Our proprietary 5-phase growth methodology — Discovery, Strategy, Creative, Launch, Optimise — that turns marketing spend into predictable revenue.
+
+https://www.lookalikesolutions.com/blog
+Blog and growth strategy insights — practical, data-backed digital marketing knowledge from the Look A Like Solutions team.
+
+https://www.lookalikesolutions.com/insights
+Marketing insights — deep dives into performance marketing, SEO, AI-search, and growth strategy from the trenches.
+
+https://www.lookalikesolutions.com/resources
+Free marketing resources — downloadable guides, checklists, and templates to level up your digital marketing.
+
+https://www.lookalikesolutions.com/gallery
+Design gallery — a portfolio of logo designs, social media creatives, websites, and ad campaigns built by Look A Like Solutions.
+
+https://www.lookalikesolutions.com/growth-audit
+Free growth audit — a no-obligation review of your website, ads, SEO, tracking, and conversion funnel showing exactly where you're losing money.
+
+https://www.lookalikesolutions.com/strategy-call
+Book a free 1-on-1 strategy call with Ramkumar, founder of Look A Like Solutions. Get a personalised growth plan for your business.
+
+https://www.lookalikesolutions.com/contact
+Contact Look A Like Solutions — share your growth challenge and our strategy team will respond within one business day.
+
+https://www.lookalikesolutions.com/privacy-policy
+Privacy Policy — how Look A Like Solutions collects, uses, and protects your personal information under Indian law.
+
+https://www.lookalikesolutions.com/terms
+Terms & Conditions — the terms governing use of the Look A Like Solutions website and engagement of our services.
