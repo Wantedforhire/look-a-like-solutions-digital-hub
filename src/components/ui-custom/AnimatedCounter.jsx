@@ -25,6 +25,7 @@ export default function AnimatedCounter({ value, suffix = "", duration = 1.6, cl
   if (useFallback) {
     return <span className={className}>{fallback}{suffix}</span>;
   }
+
   return (
     <span ref={ref} className={className}>
       {display}
