@@ -3,7 +3,34 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import { Field, TextInput, TextArea, Toggle } from "@/components/admin/FormFields";
-import { ChevronDown, ChevronRight, Save, Loader2 } from "lucide-react";
+import { ChevronDown, ChevronRight, Save, Loader2, Tag } from "lucide-react";
+import { GTM_FALLBACK_ID } from "@/components/GtmInjector";
+
+function GtmStatusCard() {
+  const { data: config, isLoading } = useQuery({
+    queryKey: ["site-config", "gtm"],
+    queryFn: () => base44.entities.SiteConfig.filter({ configKey: "main" }),
+    staleTime: 300000,
+  });
+  const stored = config?.[0]?.gtmContainerId;
+  const activeId = stored && /^GTM-[A-Z0-9]{6,}$/.test(stored) ? stored : GTM_FALLBACK_ID;
+  const usingFallback = !stored;
+
+  return (
+    <div className="glass-cell rounded-2xl p-5 flex items-center gap-4">
+      <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center shrink-0">
+        <Tag className="w-5 h-5 text-indigo-accent" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="font-bold text-slate-900 text-sm">Google Tag Manager</p>
+        <p className="text-xs text-slate-500 mt-0.5">
+          {isLoading ? "Loading..." : usingFallback ? "Using hardcoded fallback (not yet saved to SiteConfig)." : "Configured in SiteConfig."}
+        </p>
+      </div>
+      <code className="px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-mono tracking-wider">{activeId}</code>
+    </div>
+  );
+}
 
 export default function SeoSettings() {
   const [open, setOpen] = useState("blog");
@@ -18,6 +45,7 @@ export default function SeoSettings() {
   return (
     <div>
       <AdminPageHeader title="SEO Settings" subtitle="Edit meta tags, slugs, and indexing for your content." />
+      <GtmStatusCard />
       <div className="space-y-3">
         {sections.map((sec) => (
           <SeoSection key={sec.key} section={sec} open={open === sec.key} onToggle={() => setOpen(open === sec.key ? null : sec.key)} />

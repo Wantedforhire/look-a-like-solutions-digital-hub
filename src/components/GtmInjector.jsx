@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 
+export const GTM_FALLBACK_ID = "GTM-KKCKP3M6";
+const GTM_PATTERN = /^GTM-[A-Z0-9]{6,}$/;
+
 export default function GtmInjector() {
   const { data: config } = useQuery({
     queryKey: ["site-config", "gtm"],
@@ -9,11 +12,13 @@ export default function GtmInjector() {
     staleTime: 300000,
   });
 
-  const gtmId = config?.[0]?.gtmContainerId;
+  const storedId = config?.[0]?.gtmContainerId;
+  // Fall back to the hardcoded container ID so the tag fires immediately,
+  // even before SiteConfig is fetched or populated.
+  const gtmId = storedId && GTM_PATTERN.test(storedId) ? storedId : GTM_FALLBACK_ID;
 
   useEffect(() => {
-    // Strict validation: only accept a valid GTM container ID (GTM-XXXXXX) to prevent stored XSS.
-    if (!gtmId || !/^GTM-[A-Z0-9]{6,}$/.test(gtmId)) return;
+    if (!GTM_PATTERN.test(gtmId)) return;
     const scriptId = "gtm-script";
     if (document.getElementById(scriptId)) return;
 
