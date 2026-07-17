@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import MetaTags from "@/components/seo/MetaTags";
@@ -8,14 +9,21 @@ import ClientLogoMarquee from "@/components/home/ClientLogoMarquee";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import FounderSection from "@/components/home/FounderSection";
 import WhyUs from "@/components/home/WhyUs";
-import ProcessTimeline from "@/components/home/ProcessTimeline";
 import HowWeWork from "@/components/home/HowWeWork";
-import CaseStudyStrip from "@/components/home/CaseStudyStrip";
 import IndustriesStrip from "@/components/home/IndustriesStrip";
 import GrowthAuditSection from "@/components/home/GrowthAuditSection";
-import GeoReadiness from "@/components/home/GeoReadiness";
 import FAQSection from "@/components/home/FAQSection";
 import CTABand from "@/components/ui-custom/CTABand";
+
+const ProcessTimeline = lazy(() => import("@/components/home/ProcessTimeline"));
+const CaseStudyStrip = lazy(() => import("@/components/home/CaseStudyStrip"));
+const GeoReadiness = lazy(() => import("@/components/home/GeoReadiness"));
+
+const SectionSkeleton = () => (
+  <div className="py-24 px-6">
+    <div className="max-w-7xl mx-auto h-64 rounded-2xl bg-slate-100 animate-pulse" />
+  </div>
+);
 
 export default function Home() {
   const { data: caseStudies = [] } = useQuery({
@@ -46,12 +54,18 @@ export default function Home() {
       <ServicesGrid />
       <FounderSection />
       <WhyUs />
-      <ProcessTimeline />
+      <Suspense fallback={<SectionSkeleton />}>
+        <ProcessTimeline />
+      </Suspense>
       <HowWeWork />
-      <CaseStudyStrip caseStudies={caseStudies} />
+      <Suspense fallback={<SectionSkeleton />}>
+        <CaseStudyStrip caseStudies={caseStudies} />
+      </Suspense>
       <IndustriesStrip industries={industries} />
       <GrowthAuditSection />
-      <GeoReadiness />
+      <Suspense fallback={<SectionSkeleton />}>
+        <GeoReadiness />
+      </Suspense>
       <FAQSection />
       <CTABand />
     </div>

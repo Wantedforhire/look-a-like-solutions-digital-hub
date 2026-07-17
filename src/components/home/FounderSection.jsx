@@ -31,7 +31,10 @@ export default function FounderSection() {
             <img
               src={founderPhoto}
               alt={ramkumar ? `${ramkumar.name}, Founder of Look A Like Solutions` : "Ramkumar, Founder of Look A Like Solutions"}
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
+              width={600}
+              height={600}
               className="w-full aspect-square object-cover rounded-3xl shadow-lg"
             />
           </ScrollReveal>

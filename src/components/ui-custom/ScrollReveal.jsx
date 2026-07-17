@@ -1,15 +1,18 @@
-import { motion } from "framer-motion";
+import useInView from "@/hooks/useInView";
 
 export default function ScrollReveal({ children, delay = 0, y = 24, className = "" }) {
+  const [ref, inView] = useInView();
   return (
-    <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
+    <div
+      ref={ref}
+      className={`transition-all duration-500 ease-out ${className}`}
+      style={{
+        transitionDelay: `${delay}s`,
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : `translateY(${y}px)`,
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

@@ -48,7 +48,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center shrink-0">
-          <img src="https://media.base44.com/images/public/6a45332a796cb5a887717912/54bfc626b_LookalikeSolutionsIconJPG.JPG" alt="Look A Like Solutions" className="h-8 w-8 object-contain mr-2" />
+          <img src="https://media.base44.com/images/public/6a45332a796cb5a887717912/54bfc626b_LookalikeSolutionsIconJPG.JPG" alt="Look A Like Solutions" width={32} height={32} fetchpriority="low" className="h-8 w-8 object-contain mr-2" />
           <span className="text-lg md:text-xl font-extrabold text-slate-900 tracking-tight">
             Look A Like <span className="text-indigo-accent">Solutions</span>
           </span>

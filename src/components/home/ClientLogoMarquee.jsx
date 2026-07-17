@@ -17,7 +17,7 @@ export default function ClientLogoMarquee({ clients = [] }) {
               rel="noopener noreferrer"
               className="opacity-80 hover:opacity-100 transition-opacity"
             >
-              <img src={c.logoUrl} alt={`${c.name} logo`} loading="lazy" className="h-8 md:h-10 w-auto object-contain transition-all" />
+              <img src={c.logoUrl} alt={`${c.name} logo`} loading="lazy" width={120} height={40} className="h-8 md:h-10 w-auto object-contain transition-all" />
             </a>
           ))}
         </div>
