@@ -1,13 +1,13 @@
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
-import ReactMarkdown from "react-markdown";
 import { ChevronRight } from "lucide-react";
 import { format } from "date-fns";
 import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema, articleSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import CTAButton from "@/components/ui-custom/CTAButton";
+import SafeHtml from "@/components/ui-custom/SafeHtml";
 
 export default function BlogDetail() {
   const { slug } = useParams();
@@ -55,9 +55,10 @@ export default function BlogDetail() {
             {post.coverImage && (
               <img src={post.coverImage} alt={post.title} loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
             )}
-            <div className="prose prose-slate prose-p:text-slate-600 prose-headings:text-slate-900 prose-strong:text-slate-900 max-w-none">
-              <ReactMarkdown>{post.content}</ReactMarkdown>
-            </div>
+            <SafeHtml
+              html={post.content}
+              className="prose prose-slate prose-p:text-slate-600 prose-headings:text-slate-900 prose-strong:text-slate-900 prose-li:text-slate-600 prose-a:text-indigo-accent max-w-none"
+            />
           </ScrollReveal>
 
           <div className="mt-16 glass-cell rounded-2xl p-8 text-center">

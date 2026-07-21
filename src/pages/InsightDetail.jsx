@@ -5,8 +5,8 @@ import { ChevronRight } from "lucide-react";
 import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema, articleSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
-import ReactMarkdown from "react-markdown";
 import CTABand from "@/components/ui-custom/CTABand";
+import SafeHtml from "@/components/ui-custom/SafeHtml";
 
 export default function InsightDetail() {
   const { slug } = useParams();
@@ -53,9 +53,10 @@ export default function InsightDetail() {
             {insight.coverImage && (
               <img src={insight.coverImage} alt={insight.title} className="rounded-2xl w-full object-cover mb-10" />
             )}
-            <div className="prose prose-slate prose-lg max-w-none">
-              <ReactMarkdown>{insight.content || ""}</ReactMarkdown>
-            </div>
+            <SafeHtml
+              html={insight.content}
+              className="prose prose-slate prose-lg prose-headings:text-slate-900 prose-p:text-slate-600 prose-li:text-slate-600 prose-a:text-indigo-accent max-w-none"
+            />
           </ScrollReveal>
         </div>
       </article>
