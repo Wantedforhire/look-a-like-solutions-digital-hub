@@ -3,8 +3,9 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import { Field, TextInput, TextArea, Toggle } from "@/components/admin/FormFields";
-import { ChevronDown, ChevronRight, Save, Loader2, Tag } from "lucide-react";
+import { ChevronDown, ChevronRight, Save, Loader2, Tag, RefreshCw } from "lucide-react";
 import { GTM_FALLBACK_ID } from "@/components/GtmInjector";
+import { useToast } from "@/components/ui/use-toast";
 
 function GtmStatusCard() {
   const { data: config, isLoading } = useQuery({
@@ -32,6 +33,51 @@ function GtmStatusCard() {
   );
 }
 
+function SitemapCard() {
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
+  const regenerate = async () => {
+    setLoading(true);
+    try {
+      const res = await base44.functions.invoke("generateSitemap", {});
+      setResult(res.data);
+      toast({
+        title: `Sitemap regenerated — ${res.data.urlCount} URLs`,
+        description: `Generated at ${new Date(res.data.generatedAt).toLocaleString()}`,
+      });
+    } catch (e) {
+      toast({ title: "Failed to regenerate sitemap", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="glass-cell rounded-2xl p-5 flex items-center gap-4">
+      <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
+        <RefreshCw className={`w-5 h-5 text-emerald-accent ${loading ? "animate-spin" : ""}`} />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="font-bold text-slate-900 text-sm">XML Sitemap</p>
+        <p className="text-xs text-slate-500 mt-0.5">
+          {result
+            ? `${result.urlCount} URLs · last generated ${new Date(result.generatedAt).toLocaleString()}`
+            : "Auto-regenerated daily at 2am IST. Click to refresh on demand."}
+        </p>
+      </div>
+      <button
+        onClick={regenerate}
+        disabled={loading}
+        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-indigo-accent text-white text-xs font-semibold hover:bg-indigo-500 disabled:opacity-50"
+      >
+        <RefreshCw className={`w-3 h-3 ${loading ? "animate-spin" : ""}`} /> Regenerate Now
+      </button>
+    </div>
+  );
+}
+
 export default function SeoSettings() {
   const [open, setOpen] = useState("blog");
 
@@ -46,6 +92,7 @@ export default function SeoSettings() {
     <div>
       <AdminPageHeader title="SEO Settings" subtitle="Edit meta tags, slugs, and indexing for your content." />
       <GtmStatusCard />
+      <SitemapCard />
       <div className="space-y-3">
         {sections.map((sec) => (
           <SeoSection key={sec.key} section={sec} open={open === sec.key} onToggle={() => setOpen(open === sec.key ? null : sec.key)} />
