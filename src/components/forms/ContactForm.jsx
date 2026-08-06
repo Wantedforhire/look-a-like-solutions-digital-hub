@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { sendFormNotificationEmail } from "@/lib/notifyEmail";
+import { sendFormNotificationEmail, esc } from "@/lib/notifyEmail";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -46,14 +46,14 @@ export default function ContactForm({ defaultService = "" }) {
       sendFormNotificationEmail(
         `New Contact Form Submission from ${payload.name}`,
         `<h3>New Contact Submission</h3>
-         <p><b>Name:</b> ${payload.name}</p>
-         <p><b>Email:</b> ${payload.email}</p>
-         <p><b>Phone:</b> ${payload.phone || "—"}</p>
-         <p><b>Company:</b> ${payload.company || "—"}</p>
-         <p><b>Website:</b> ${payload.website || "—"}</p>
-         <p><b>Service Interest:</b> ${payload.serviceInterest || "—"}</p>
-         <p><b>Monthly Budget:</b> ${payload.monthlyBudget || "—"}</p>
-         <p><b>Message:</b> ${payload.message}</p>`
+         <p><b>Name:</b> ${esc(payload.name)}</p>
+         <p><b>Email:</b> ${esc(payload.email)}</p>
+         <p><b>Phone:</b> ${esc(payload.phone || "—")}</p>
+         <p><b>Company:</b> ${esc(payload.company || "—")}</p>
+         <p><b>Website:</b> ${esc(payload.website || "—")}</p>
+         <p><b>Service Interest:</b> ${esc(payload.serviceInterest || "—")}</p>
+         <p><b>Monthly Budget:</b> ${esc(payload.monthlyBudget || "—")}</p>
+         <p><b>Message:</b> ${esc(payload.message)}</p>`
       );
       setStatus("success");
     } catch (err) {

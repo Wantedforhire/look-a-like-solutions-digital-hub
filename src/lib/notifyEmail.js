@@ -3,6 +3,13 @@ import { base44 } from "@/api/base44Client";
 const NOTIFY_EMAIL = "rammarketinghead@gmail.com";
 
 /**
+ * HTML-entity escapes a value for safe interpolation into email HTML bodies.
+ */
+export function esc(value) {
+  return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+/**
  * Sends a notification email for form submissions.
  * Fire-and-forget — never blocks the form success flow.
  */

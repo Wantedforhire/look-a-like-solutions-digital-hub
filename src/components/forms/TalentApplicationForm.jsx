@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { sendFormNotificationEmail } from "@/lib/notifyEmail";
+import { sendFormNotificationEmail, esc } from "@/lib/notifyEmail";
 import { Field, TextInput, TextArea, Select } from "@/components/admin/FormFields";
 import { CheckCircle2, Loader2 } from "lucide-react";
 
@@ -36,16 +36,16 @@ export default function TalentApplicationForm({ jobListingId, defaultSkillArea }
       sendFormNotificationEmail(
         `New Talent Application — ${form.skillArea}`,
         `<h3>New Talent Application</h3>
-         <p><b>Name:</b> ${form.name}</p>
-         <p><b>Email:</b> ${form.email}</p>
-         <p><b>Phone:</b> ${form.phone || "—"}</p>
-         <p><b>City:</b> ${form.city || "—"}</p>
-         <p><b>Skill Area:</b> ${form.skillArea}</p>
-         <p><b>Experience:</b> ${form.experienceLevel}</p>
-         <p><b>Portfolio:</b> ${form.portfolioUrl || "—"}</p>
-         <p><b>Availability:</b> ${form.availability || "—"}</p>
-         <p><b>Expected Pay:</b> ${form.expectedPay || "—"}</p>
-         <p><b>Why Us:</b> ${form.whyNote || "—"}</p>`
+         <p><b>Name:</b> ${esc(form.name)}</p>
+         <p><b>Email:</b> ${esc(form.email)}</p>
+         <p><b>Phone:</b> ${esc(form.phone || "—")}</p>
+         <p><b>City:</b> ${esc(form.city || "—")}</p>
+         <p><b>Skill Area:</b> ${esc(form.skillArea)}</p>
+         <p><b>Experience:</b> ${esc(form.experienceLevel)}</p>
+         <p><b>Portfolio:</b> ${esc(form.portfolioUrl || "—")}</p>
+         <p><b>Availability:</b> ${esc(form.availability || "—")}</p>
+         <p><b>Expected Pay:</b> ${esc(form.expectedPay || "—")}</p>
+         <p><b>Why Us:</b> ${esc(form.whyNote || "—")}</p>`
       );
       setDone(true);
     } catch (err) {

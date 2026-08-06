@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { sendFormNotificationEmail } from "@/lib/notifyEmail";
+import { sendFormNotificationEmail, esc } from "@/lib/notifyEmail";
 import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
@@ -30,14 +30,14 @@ export default function StrategyCall() {
       sendFormNotificationEmail(
         `New Strategy Call Request from ${form.name}`,
         `<h3>New Strategy Call Request</h3>
-         <p><b>Name:</b> ${form.name}</p>
-         <p><b>Email:</b> ${form.email}</p>
-         <p><b>Phone:</b> ${form.phone || "—"}</p>
-         <p><b>Company:</b> ${form.company || "—"}</p>
-         <p><b>Monthly Ad Spend:</b> ${form.monthlyAdSpend || "—"}</p>
-         <p><b>Primary Goal:</b> ${form.primaryGoal}</p>
-         <p><b>Preferred Call Time:</b> ${form.preferredCallTime || "—"}</p>
-         <p><b>Challenge:</b> ${form.message || "—"}</p>`
+         <p><b>Name:</b> ${esc(form.name)}</p>
+         <p><b>Email:</b> ${esc(form.email)}</p>
+         <p><b>Phone:</b> ${esc(form.phone || "—")}</p>
+         <p><b>Company:</b> ${esc(form.company || "—")}</p>
+         <p><b>Monthly Ad Spend:</b> ${esc(form.monthlyAdSpend || "—")}</p>
+         <p><b>Primary Goal:</b> ${esc(form.primaryGoal)}</p>
+         <p><b>Preferred Call Time:</b> ${esc(form.preferredCallTime || "—")}</p>
+         <p><b>Challenge:</b> ${esc(form.message || "—")}</p>`
       );
       setDone(true);
     } catch (err) {
