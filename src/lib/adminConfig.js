@@ -4,6 +4,7 @@ export const ADMIN_EMAILS = [
   "admin@lookalikesolutions.com",
   "lookalike.digitalmarketing@gmail.com",
   "rammarketinghead@gmail.com",
+  "kavinagaseo2406@gmail.com",
 ];
 
 export function isAdminEmail(email) {
