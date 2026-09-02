@@ -44,7 +44,7 @@ export default function ContactForm({ defaultService = "" }) {
       const { honeypot, ...payload } = form;
       await base44.entities.ContactSubmission.create(payload);
       sendFormNotificationEmail(
-        `New Contact Form Submission from ${payload.name}`,
+        `New Contact Form Submission from ${esc(payload.name)}`,
         `<h3>New Contact Submission</h3>
          <p><b>Name:</b> ${esc(payload.name)}</p>
          <p><b>Email:</b> ${esc(payload.email)}</p>

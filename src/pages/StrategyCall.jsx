@@ -28,7 +28,7 @@ export default function StrategyCall() {
     try {
       await base44.entities.StrategyCallRequest.create({ ...form, status: "new" });
       sendFormNotificationEmail(
-        `New Strategy Call Request from ${form.name}`,
+        `New Strategy Call Request from ${esc(form.name)}`,
         `<h3>New Strategy Call Request</h3>
          <p><b>Name:</b> ${esc(form.name)}</p>
          <p><b>Email:</b> ${esc(form.email)}</p>

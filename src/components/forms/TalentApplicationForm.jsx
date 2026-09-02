@@ -34,7 +34,7 @@ export default function TalentApplicationForm({ jobListingId, defaultSkillArea }
     try {
       await base44.entities.TalentApplication.create({ ...form, status: "New", jobListingId: jobListingId || undefined });
       sendFormNotificationEmail(
-        `New Talent Application — ${form.skillArea}`,
+        `New Talent Application — ${esc(form.skillArea)}`,
         `<h3>New Talent Application</h3>
          <p><b>Name:</b> ${esc(form.name)}</p>
          <p><b>Email:</b> ${esc(form.email)}</p>

@@ -56,7 +56,7 @@ export default function GrowthAuditForm({ showChannels = false, compact = false 
         message: form.message + (form.currentChannels.length ? ` | Current channels: ${form.currentChannels.join(", ")}` : "")
       });
       sendFormNotificationEmail(
-        `New Growth Audit Request from ${form.name}`,
+        `New Growth Audit Request from ${esc(form.name)}`,
         `<h3>New Growth Audit Request</h3>
          <p><b>Name:</b> ${esc(form.name)}</p>
          <p><b>Email:</b> ${esc(form.email)}</p>
