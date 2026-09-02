@@ -47,7 +47,8 @@ export default function Navbar() {
         scrolled ? "bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-sm" : "bg-white/95 backdrop-blur-xl border-b border-slate-100"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center shrink-0">
           <img src="https://media.base44.com/images/public/6a45332a796cb5a887717912/54bfc626b_LookalikeSolutionsIconJPG.JPG" alt="Look A Like Solutions" width={32} height={32} fetchpriority="low" className="h-8 w-8 object-contain mr-2" />
           <span className="text-lg md:text-xl font-extrabold text-slate-900 tracking-tight">
@@ -103,7 +104,6 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <SiteSearch />
           <a href="tel:+919731588244" className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 transition-colors">
             <Phone className="w-4 h-4" /> +91-9731588244
           </a>
@@ -119,6 +119,10 @@ export default function Navbar() {
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
+        </div>
+        <div className="hidden lg:block pb-3">
+          <SiteSearch />
+        </div>
       </div>
 
       {mobileOpen && (
