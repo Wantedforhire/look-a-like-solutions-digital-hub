@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import CTAButton from "@/components/ui-custom/CTAButton";
+import SiteSearch from "./SiteSearch";
 
 const serviceLinks = [
   { label: "SEO Services", to: "/services/seo-services" },
@@ -102,6 +103,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
+          <SiteSearch />
           <a href="tel:+919731588244" className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 transition-colors">
             <Phone className="w-4 h-4" /> +91-9731588244
           </a>
@@ -122,6 +124,9 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-slate-100 max-h-[80vh] overflow-y-auto shadow-lg">
           <div className="px-6 py-6 space-y-1">
+            <div className="mb-3">
+              <SiteSearch variant="mobile" onNavigate={() => setMobileOpen(false)} />
+            </div>
             <p className="text-xs uppercase tracking-wider text-slate-400 mb-2 mt-2">Services</p>
             {serviceLinks.map((s) => (
               <Link key={s.to} to={s.to} className="block py-2.5 text-sm text-slate-700">
