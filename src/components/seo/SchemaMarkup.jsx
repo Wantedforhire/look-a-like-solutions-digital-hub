@@ -145,8 +145,13 @@ export function serviceSchema(service) {
       url: SITE_URL,
       telephone: "+91-9731588244"
     },
-    areaServed: { "@type": "Country", name: "India" },
+    areaServed: [
+      { "@type": "City", name: "Bengaluru" },
+      { "@type": "State", name: "Karnataka" },
+      { "@type": "Country", name: "India" }
+    ],
     description: service.metaDescription || service.shortDescription,
+    keywords: (service.keywordTargets || []).join(", "),
     offers: { "@type": "Offer", availability: "https://schema.org/InStock" }
   };
 }

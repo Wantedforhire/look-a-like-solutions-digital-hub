@@ -85,6 +85,19 @@ export default function ServiceDetail() {
         </div>
       </section>
 
+      {service.keywordTargets?.length > 0 && (
+        <section className="pb-10 px-6 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Targeted keywords</span>
+              {service.keywordTargets.map((k, i) => (
+                <span key={i} className="inline-flex items-center px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium">{k}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {service.whoItsFor && (
         <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
           <div className="max-w-3xl mx-auto">
