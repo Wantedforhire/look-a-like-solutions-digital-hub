@@ -6,6 +6,7 @@ import { Field, TextInput, TextArea, Toggle } from "@/components/admin/FormField
 import { ChevronDown, ChevronRight, Save, Loader2, Tag, RefreshCw } from "lucide-react";
 import { GTM_FALLBACK_ID } from "@/components/GtmInjector";
 import { useToast } from "@/components/ui/use-toast";
+import WebsitePagesSeo from "@/components/admin/WebsitePagesSeo";
 
 function GtmStatusCard() {
   const { data: config, isLoading } = useQuery({
@@ -94,6 +95,7 @@ export default function SeoSettings() {
       <GtmStatusCard />
       <SitemapCard />
       <div className="space-y-3">
+        <WebsitePagesSeo open={open === "pages"} onToggle={() => setOpen(open === "pages" ? null : "pages")} />
         {sections.map((sec) => (
           <SeoSection key={sec.key} section={sec} open={open === sec.key} onToggle={() => setOpen(open === sec.key ? null : sec.key)} />
         ))}

@@ -1,0 +1,41 @@
+{
+  "name": "PageMeta",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "Unique public page path e.g. '/' or '/industries'"
+    },
+    "pageName": {
+      "type": "string",
+      "description": "Friendly page name for the admin SEO list"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "path"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

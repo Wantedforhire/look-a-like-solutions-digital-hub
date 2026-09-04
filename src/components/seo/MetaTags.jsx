@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { base44 } from "@/api/base44Client";
 
 const SITE_URL = "https://www.lookalikesolutions.com";
 
@@ -24,23 +26,33 @@ function setLink(rel, href) {
 }
 
 export default function MetaTags({ title, description, path = "/", image, noindex }) {
+  const { data: pageMetas } = useQuery({
+    queryKey: ["page-meta", path],
+    queryFn: () => base44.entities.PageMeta.filter({ path }),
+    staleTime: 300000,
+    enabled: !!path,
+  });
+  const override = pageMetas?.[0];
+  const finalTitle = override?.metaTitle || title;
+  const finalDescription = override?.metaDescription || description;
+
   useEffect(() => {
-    const fullTitle = title ? `${title} | Look A Like Solutions` : "Look A Like Solutions | Digital Marketing Agency in Bangalore";
+    const fullTitle = finalTitle ? `${finalTitle} | Look A Like Solutions` : "Look A Like Solutions | Digital Marketing Agency in Bangalore";
     document.title = fullTitle;
-    setMeta("description", description);
+    setMeta("description", finalDescription);
     setMeta("robots", noindex ? "noindex,nofollow" : "index,follow");
     setLink("canonical", `${SITE_URL}${path}`);
     setMeta("og:title", fullTitle, "property");
-    setMeta("og:description", description, "property");
+    setMeta("og:description", finalDescription, "property");
     setMeta("og:site_name", "Look A Like Solutions", "property");
     setMeta("og:url", `${SITE_URL}${path}`, "property");
     setMeta("og:type", "website", "property");
     if (image) setMeta("og:image", image, "property");
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", fullTitle);
-    setMeta("twitter:description", description);
+    setMeta("twitter:description", finalDescription);
     if (image) setMeta("twitter:image", image);
-  }, [title, description, path, image, noindex]);
+  }, [finalTitle, finalDescription, path, image, noindex]);
 
   return null;
 }
