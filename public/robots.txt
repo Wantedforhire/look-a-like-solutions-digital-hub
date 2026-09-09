@@ -1,5 +1,11 @@
+# robots.txt for Look A Like Solutions
+# https://www.lookalikesolutions.com
+
+# Allow all crawlers access to public content
 User-agent: *
 Allow: /
+
+# Block indexing of admin, authentication, and utility routes
 Disallow: /admin
 Disallow: /admin/
 Disallow: /login
@@ -7,4 +13,5 @@ Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
 
+# XML sitemap
 Sitemap: https://www.lookalikesolutions.com/sitemap.xml
