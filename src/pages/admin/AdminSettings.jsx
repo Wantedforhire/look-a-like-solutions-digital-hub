@@ -4,7 +4,7 @@ import { base44 } from "@/api/base44Client";
 import AdminPageHeader from "@/components/admin/AdminPageHeader";
 import { useAuth } from "@/lib/AuthContext";
 import { useOutletContext } from "react-router-dom";
-import { ADMIN_EMAILS } from "@/lib/adminConfig";
+import { ROLE_LABELS } from "@/lib/adminConfig";
 import { Field, TextInput, TextArea } from "@/components/admin/FormFields";
 import { Mail, User, BarChart3, Info, Save, Search } from "lucide-react";
 
@@ -106,15 +106,7 @@ export default function AdminSettings() {
           </div>
           <div className="text-sm text-slate-600 space-y-2">
             <p>The admin panel is at <code className="text-indigo-accent font-semibold">/admin</code>. To log in, visit <code className="text-indigo-accent font-semibold">/login</code> with your Base44 account email.</p>
-            <p className="text-xs text-slate-400">Super Admin emails:</p>
-            <div className="space-y-1.5">
-              {ADMIN_EMAILS.map((email) => (
-                <div key={email} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span className="text-slate-700">{email}</span>
-                </div>
-              ))}
-            </div>
+            <p className="text-xs text-slate-400">User roles and access are managed in <code className="text-indigo-accent font-semibold">Roles &amp; Users</code>. Your role: <span className="text-slate-700 font-semibold">{ROLE_LABELS[role] || role}</span></p>
           </div>
         </div>
 

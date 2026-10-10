@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "name": "AuditLog",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "invite",
+        "role_change",
+        "revoke",
+        "restore",
+        "resend_invite"
+      ]
+    },
+    "targetEmail": {
+      "type": "string"
+    },
+    "performedByEmail": {
+      "type": "string"
+    },
+    "details": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "action",
+    "performedByEmail"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

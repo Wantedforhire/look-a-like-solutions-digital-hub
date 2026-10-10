@@ -8,6 +8,7 @@ import {
   Navigation, Settings, LogOut, ChevronLeft, ChevronDown, X,
   Lightbulb, Download, Image, PhoneCall, Mail, UserCog, Layers, GraduationCap
 } from "lucide-react";
+import { canAccessPath, ROLE_LABELS } from "@/lib/adminConfig";
 
 const groups = [
   {
@@ -43,7 +44,6 @@ const groups = [
   },
   {
     label: "Settings",
-    superAdminOnly: true,
     items: [
       { label: "Navigation & Footer", path: "/admin/navigation", icon: Navigation },
       { label: "SEO", path: "/admin/seo", icon: Search },
@@ -56,7 +56,7 @@ const groups = [
 export default function AdminLayout() {
   const location = useLocation();
   const { user, logout } = useAuth();
-  const { role } = useOutletContext() || { role: "editor" };
+  const { role } = useOutletContext() || { role: "staff" };
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openGroups, setOpenGroups] = useState({ Content: true, Leads: true, Settings: true });
 
@@ -69,7 +69,9 @@ export default function AdminLayout() {
 
   const toggleGroup = (label) => setOpenGroups((g) => ({ ...g, [label]: !g[label] }));
 
-  const visibleGroups = groups.filter((g) => !g.superAdminOnly || role === "super_admin");
+  const visibleGroups = groups
+    .map((g) => ({ ...g, items: g.items.filter((item) => canAccessPath(role, item.path)) }))
+    .filter((g) => g.items.length > 0);
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
@@ -143,7 +145,7 @@ export default function AdminLayout() {
           <div className="flex items-center gap-4">
             <div className="text-right hidden sm:block">
               <p className="text-sm font-semibold text-slate-900 leading-tight">{user?.full_name || user?.email}</p>
-              <p className="text-[11px] text-slate-400 leading-tight">{role === "super_admin" ? "Super Admin" : "Editor"}</p>
+              <p className="text-[11px] text-slate-400 leading-tight">{ROLE_LABELS[role] || role}</p>
             </div>
             <div className="w-9 h-9 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-accent font-bold text-sm shrink-0">
               {(user?.full_name || user?.email || "A").charAt(0).toUpperCase()}

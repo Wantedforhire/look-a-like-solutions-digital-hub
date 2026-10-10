@@ -1,25 +1,15 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.52';
 
-const ADMIN_EMAILS = [
-  "ramkumar@lookalikesolutions.com",
-  "admin@lookalikesolutions.com",
-];
+const APP_ROLES = ["super_admin", "admin", "manager", "staff"];
 
-function isAdminEmail(email) {
-  if (!email) return false;
-  return ADMIN_EMAILS.map((e) => e.toLowerCase()).includes(email.toLowerCase());
-}
-
-function resolveRole(siteUser, email) {
-  if (isAdminEmail(email)) return "super_admin";
+function resolveAppRole(siteUser) {
   if (!siteUser) return null;
-  if (!siteUser.active) return null;
-  if (siteUser.role === "super_admin") return "super_admin";
-  if (siteUser.role === "editor") return "editor";
-  return null;
+  if (siteUser.active === false) return null;
+  if (!APP_ROLES.includes(siteUser.role)) return null;
+  return siteUser.role;
 }
 
-Deno.serve(async (req) => {
+export default async function(req) {
   try {
     const base44 = createClientFromRequest(req);
     const user = await base44.auth.me();
@@ -28,14 +18,13 @@ Deno.serve(async (req) => {
     const body = await req.json();
     const { entity, operation, id, data } = body;
 
-    if (entity !== "SiteConfig" && entity !== "SiteUser") {
-      return Response.json({ error: "Unsupported entity" }, { status: 400 });
+    if (entity !== "SiteConfig") {
+      return Response.json({ error: "Unsupported entity. Use userManagement for SiteUser operations." }, { status: 400 });
     }
 
-    // Resolve the caller's custom SiteUser role (server-side, not client-side)
+    // Resolve the caller's app role from their SiteUser record (server-side)
     const siteUsers = await base44.asServiceRole.entities.SiteUser.filter({ email: user.email });
-    const siteUser = siteUsers?.[0];
-    const role = resolveRole(siteUser, user.email);
+    const role = resolveAppRole(siteUsers?.[0]);
 
     if (role !== "super_admin") {
       return Response.json({ error: "Forbidden — Super Admin access required" }, { status: 403 });
@@ -46,8 +35,6 @@ Deno.serve(async (req) => {
       result = await base44.asServiceRole.entities[entity].update(id, data);
     } else if (operation === "create") {
       result = await base44.asServiceRole.entities[entity].create(data);
-    } else if (operation === "delete" && id) {
-      result = await base44.asServiceRole.entities[entity].delete(id);
     } else {
       return Response.json({ error: "Invalid operation" }, { status: 400 });
     }
@@ -56,4 +43,4 @@ Deno.serve(async (req) => {
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }
-});
+}

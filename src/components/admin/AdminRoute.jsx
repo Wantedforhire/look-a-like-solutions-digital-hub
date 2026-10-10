@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/lib/AuthContext";
 import { base44 } from "@/api/base44Client";
-import { resolveRole, canAccessPath } from "@/lib/adminConfig";
+import { resolveRole, canAccessPath, ROLE_LABELS } from "@/lib/adminConfig";
 import { ShieldAlert, LogOut, Loader2 } from "lucide-react";
 
 export default function AdminRoute() {
@@ -25,7 +25,7 @@ export default function AdminRoute() {
   });
 
   const su = siteUser?.[0];
-  const role = resolveRole(su, user?.email);
+  const role = resolveRole(su);
 
   if (isLoadingAuth || !authChecked || (isAuthenticated && user && roleLoading && !role)) {
     return (
@@ -75,9 +75,9 @@ export default function AdminRoute() {
           <div className="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center mx-auto mb-6">
             <ShieldAlert className="w-7 h-7 text-amber-500" />
           </div>
-          <h1 className="text-2xl font-extrabold text-slate-900 mb-3">Super Admin Only</h1>
+          <h1 className="text-2xl font-extrabold text-slate-900 mb-3">Access Restricted</h1>
           <p className="text-sm text-slate-500 mb-8">
-            This section is restricted to Super Admin accounts. You're signed in as an Editor.
+            This section requires higher permissions. You're signed in as {ROLE_LABELS[role] || role}.
           </p>
           <button
             onClick={() => logout()}

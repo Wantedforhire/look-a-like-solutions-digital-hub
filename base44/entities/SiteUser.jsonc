@@ -12,13 +12,32 @@
       "type": "string",
       "enum": [
         "super_admin",
-        "editor"
+        "admin",
+        "manager",
+        "staff"
       ],
-      "default": "editor"
+      "default": "staff"
     },
     "active": {
       "type": "boolean",
       "default": true
+    },
+    "invitedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "invitedByEmail": {
+      "type": "string"
+    },
+    "invitationMessage": {
+      "type": "string"
+    },
+    "revokedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revokedByEmail": {
+      "type": "string"
     }
   },
   "required": [

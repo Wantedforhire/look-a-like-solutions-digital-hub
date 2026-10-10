@@ -1,46 +1,57 @@
-// Admin access control — ADMIN_EMAILS are Super Admins (Ramkumar).
-export const ADMIN_EMAILS = [
-  "ramkumar@lookalikesolutions.com",
-  "admin@lookalikesolutions.com",
-  "lookalike.digitalmarketing@gmail.com",
-  "rammarketinghead@gmail.com",
-  "kavinagaseo2406@gmail.com",
-];
+// App-level role definitions and access control.
+// The source of truth for a user's app role is their SiteUser record (entity).
+// Base44 platform role (User.role = "admin"/"user") is separate and is NOT used
+// to infer app-level permissions. Access is never granted by email matching.
 
-export function isAdminEmail(email) {
-  if (!email) return false;
-  return ADMIN_EMAILS.map((e) => e.toLowerCase()).includes(email.toLowerCase());
-}
+export const APP_ROLES = ["super_admin", "admin", "manager", "staff"];
 
-// Legacy: any admin-level user (super_admin or editor)
-export function hasAdminRole(user) {
-  if (!user) return false;
-  return isAdminEmail(user.email) || user.role === "admin";
-}
+export const ROLE_LABELS = {
+  super_admin: "Super Admin",
+  admin: "Admin",
+  manager: "Manager",
+  staff: "Staff",
+};
 
-// Resolve concrete role from SiteUser record + ADMIN_EMAILS fallback
-export function resolveRole(siteUser, email) {
-  if (isAdminEmail(email)) return "super_admin";
+// Resolve concrete app role from a SiteUser record.
+// Returns null if no record, inactive, or unknown role.
+export function resolveRole(siteUser) {
   if (!siteUser) return null;
-  if (!siteUser.active) return null;
-  if (siteUser.role === "super_admin") return "super_admin";
-  if (siteUser.role === "editor") return "editor";
-  return null;
+  if (siteUser.active === false) return null;
+  if (!APP_ROLES.includes(siteUser.role)) return null;
+  return siteUser.role;
 }
 
 // Super-admin-only paths. SiteConfig & SiteUser writes are enforced server-side
-// via the superAdminGuard backend function (RLS = false on those entities).
-const RESTRICTED_EDITOR_PATHS = [
-  "/admin/settings",
+// via backend functions (userManagement, superAdminGuard) using asServiceRole.
+const SUPER_ADMIN_ONLY_PATHS = [
   "/admin/roles",
+  "/admin/settings",
   "/admin/navigation",
-  "/admin/seo",
+];
+
+const MANAGER_ALLOWED_PATHS = [
+  "/admin/pages", "/admin/blog", "/admin/insights", "/admin/resources",
+  "/admin/gallery", "/admin/services", "/admin/case-studies", "/admin/industries",
+  "/admin/testimonials", "/admin/team", "/admin/methodology", "/admin/media",
+  "/admin/leads", "/admin/strategy-calls", "/admin/newsletter", "/admin/talent",
+  "/admin/careers",
+];
+
+const STAFF_ALLOWED_PATHS = [
+  "/admin/blog", "/admin/insights", "/admin/leads", "/admin/strategy-calls",
 ];
 
 export function canAccessPath(role, pathname) {
   if (role === "super_admin") return true;
-  if (role === "editor") {
-    return !RESTRICTED_EDITOR_PATHS.some((p) => pathname.startsWith(p));
+  if (pathname === "/admin") return true;
+  if (role === "admin") {
+    return !SUPER_ADMIN_ONLY_PATHS.some((p) => pathname.startsWith(p));
+  }
+  if (role === "manager") {
+    return MANAGER_ALLOWED_PATHS.some((p) => pathname.startsWith(p));
+  }
+  if (role === "staff") {
+    return STAFF_ALLOWED_PATHS.some((p) => pathname.startsWith(p));
   }
   return false;
 }
