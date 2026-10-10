@@ -1,0 +1,39 @@
+{
+  "name": "Sitemap Refresh on Case Study",
+  "description": "Regenerates the sitemap whenever a case study is created, updated, or deleted.",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "entity",
+      "entity_name": "CaseStudy",
+      "events": [
+        "create",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "sitemap_refresh_casestudy",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "refresh_sitemap": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "generateSitemap"
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Regenerate sitemap",
+            "description": "Refresh sitemap.xml after case study change"
+          }
+        }
+      }
+    ]
+  }
+}

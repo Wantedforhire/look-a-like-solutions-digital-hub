@@ -1,0 +1,39 @@
+{
+  "name": "Sitemap Refresh on Insight",
+  "description": "Regenerates the sitemap whenever an insight is created, updated, or deleted.",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "entity",
+      "entity_name": "Insight",
+      "events": [
+        "create",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "sitemap_refresh_insight",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "refresh_sitemap": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "generateSitemap"
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Regenerate sitemap",
+            "description": "Refresh sitemap.xml after insight change"
+          }
+        }
+      }
+    ]
+  }
+}
