@@ -10,7 +10,7 @@ import { Mail, User, BarChart3, Info, Save, Search } from "lucide-react";
 
 export default function AdminSettings() {
   const { user } = useAuth();
-  const { role } = useOutletContext() || { role: "editor" };
+  const { role } = useOutletContext() || { role: "staff" };
   const qc = useQueryClient();
   const [gtmId, setGtmId] = useState("");
   const [gaId, setGaId] = useState("");
