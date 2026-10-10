@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { format, isValid } from "date-fns";
 import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema, articleSchema } from "@/components/seo/SchemaMarkup";
-import ScrollReveal from "@/components/ui-custom/ScrollReveal";
+
 import CTAButton from "@/components/ui-custom/CTAButton";
 import SafeHtml from "@/components/ui-custom/SafeHtml";
 import ErrorBoundary from "@/components/ui-custom/ErrorBoundary";
@@ -49,7 +49,7 @@ export default function BlogDetail() {
 
       <article className="py-10 px-6 bg-ink">
         <div className="max-w-3xl mx-auto">
-          <ScrollReveal>
+          <div className="reveal-safe">
             {post.category && <span className="text-xs font-semibold uppercase tracking-wider text-indigo-accent">{post.category}</span>}
             <h1 className="text-3xl md:text-5xl font-extrabold text-pearl tracking-tight mt-3 mb-4">{post.title}</h1>
             <div className="flex items-center gap-3 text-sm text-slate-sub mb-8">
@@ -63,7 +63,7 @@ export default function BlogDetail() {
               html={post.content}
               className="prose prose-slate prose-p:text-slate-600 prose-headings:text-slate-900 prose-strong:text-slate-900 prose-li:text-slate-600 prose-a:text-indigo-accent max-w-none"
             />
-          </ScrollReveal>
+          </div>
 
           <div className="mt-16 glass-cell rounded-2xl p-8 text-center">
             <h3 className="text-xl font-bold text-slate-900 mb-3">Ready to Put This Into Action?</h3>
