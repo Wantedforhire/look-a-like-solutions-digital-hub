@@ -2,16 +2,17 @@ import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { ChevronRight } from "lucide-react";
-import { format } from "date-fns";
+import { format, isValid } from "date-fns";
 import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema, articleSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import CTAButton from "@/components/ui-custom/CTAButton";
 import SafeHtml from "@/components/ui-custom/SafeHtml";
+import ErrorBoundary from "@/components/ui-custom/ErrorBoundary";
 
 export default function BlogDetail() {
   const { slug } = useParams();
-  const { data: results, isLoading } = useQuery({
+  const { data: results, isLoading, isError } = useQuery({
     queryKey: ["blogPost", slug],
     queryFn: () => base44.entities.BlogPost.filter({ slug })
   });
@@ -21,7 +22,7 @@ export default function BlogDetail() {
     return <div className="pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading article...</div>;
   }
 
-  if (!post) {
+  if (!post || isError) {
     return (
       <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
         <MetaTags noindex />
@@ -31,7 +32,10 @@ export default function BlogDetail() {
     );
   }
 
+  const pubDate = post.publishDate ? new Date(post.publishDate) : null;
+
   return (
+    <ErrorBoundary>
     <div>
       <MetaTags title={post.metaTitle || post.title} description={post.metaDescription || post.excerpt} path={`/blog/${post.slug}`} image={post.coverImage} />
       <SchemaMarkup schema={articleSchema(post, "blog")} id="schema-article" />
@@ -50,7 +54,7 @@ export default function BlogDetail() {
             <h1 className="text-3xl md:text-5xl font-extrabold text-pearl tracking-tight mt-3 mb-4">{post.title}</h1>
             <div className="flex items-center gap-3 text-sm text-slate-sub mb-8">
               <span>{post.author || "Look A Like Solutions"}</span>
-              {post.publishDate && <><span>&middot;</span><span>{format(new Date(post.publishDate), "MMM d, yyyy")}</span></>}
+              {pubDate && isValid(pubDate) && <><span>&middot;</span><span>{format(pubDate, "MMM d, yyyy")}</span></>}
             </div>
             {post.coverImage && (
               <img src={post.coverImage} alt={post.title} loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
@@ -69,5 +73,6 @@ export default function BlogDetail() {
         </div>
       </article>
     </div>
+    </ErrorBoundary>
   );
 }
