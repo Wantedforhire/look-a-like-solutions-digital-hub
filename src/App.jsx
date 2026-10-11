@@ -6,6 +6,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import GtmInjector from './components/GtmInjector';
+import VerificationMetaInjector from './components/VerificationMetaInjector';
 import SiteLayout from '@/components/layout/SiteLayout';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
@@ -166,6 +167,7 @@ function App() {
         <Router>
           <ScrollToTop />
           <GtmInjector />
+          <VerificationMetaInjector />
           <AuthenticatedApp />
         </Router>
         <Toaster />

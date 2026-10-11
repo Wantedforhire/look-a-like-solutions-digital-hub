@@ -26,6 +26,10 @@
       "type": "string",
       "description": "Google Search Console verification meta tag content value"
     },
+    "bingVerification": {
+      "type": "string",
+      "description": "Bing Webmaster Tools verification meta tag content value (msvalidate.01)"
+    },
     "navLinks": {
       "type": "array",
       "items": {

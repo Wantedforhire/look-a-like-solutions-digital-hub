@@ -18,6 +18,7 @@ export default function AdminSettings() {
   const [defaultMetaDescription, setDefaultMetaDescription] = useState("");
   const [defaultOgImage, setDefaultOgImage] = useState("");
   const [gscVerification, setGscVerification] = useState("");
+  const [bingVerification, setBingVerification] = useState("");
   const [savedMsg, setSavedMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -35,6 +36,7 @@ export default function AdminSettings() {
       setDefaultMetaDescription(configRecord.defaultMetaDescription || "");
       setDefaultOgImage(configRecord.defaultOgImage || "");
       setGscVerification(configRecord.gscVerification || "");
+      setBingVerification(configRecord.bingVerification || "");
     }
   }, [configRecord]);
 
@@ -64,6 +66,7 @@ export default function AdminSettings() {
         defaultMetaDescription: defaultMetaDescription.trim(),
         defaultOgImage: defaultOgImage.trim(),
         gscVerification: gscVerification.trim(),
+        bingVerification: bingVerification.trim(),
       };
       return configRecord
         ? base44.functions.invoke('superAdminGuard', { entity: "SiteConfig", operation: "update", id: configRecord.id, data: payload })
@@ -160,6 +163,9 @@ export default function AdminSettings() {
               </Field>
               <Field label="Google Search Console Verification" hint="Content value of the google-site-verification meta tag">
                 <TextInput value={gscVerification} onChange={setGscVerification} placeholder="google-site-verification content value" />
+              </Field>
+              <Field label="Bing Webmaster Verification" hint="Content value of the msvalidate.01 meta tag from Bing Webmaster Tools">
+                <TextInput value={bingVerification} onChange={setBingVerification} placeholder="msvalidate.01 content value" />
               </Field>
               <button
                 onClick={() => saveSeo.mutate()}
