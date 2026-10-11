@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
+import { parseVerificationValue } from "@/lib/parseVerification";
 
 /**
  * Injects search-engine verification meta tags (Bing Webmaster Tools,
@@ -14,8 +15,8 @@ export default function VerificationMetaInjector() {
     staleTime: 300000,
   });
 
-  const bing = config?.[0]?.bingVerification?.trim();
-  const gsc = config?.[0]?.gscVerification?.trim();
+  const bing = parseVerificationValue(config?.[0]?.bingVerification || "");
+  const gsc = parseVerificationValue(config?.[0]?.gscVerification || "");
 
   useEffect(() => {
     if (bing) {

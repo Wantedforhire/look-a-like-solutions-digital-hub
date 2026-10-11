@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/AuthContext";
 import { useOutletContext } from "react-router-dom";
 import { ROLE_LABELS } from "@/lib/adminConfig";
 import { Field, TextInput, TextArea } from "@/components/admin/FormFields";
+import { parseVerificationValue } from "@/lib/parseVerification";
 import { Mail, User, BarChart3, Info, Save, Search } from "lucide-react";
 
 export default function AdminSettings() {
@@ -36,7 +37,7 @@ export default function AdminSettings() {
       setDefaultMetaDescription(configRecord.defaultMetaDescription || "");
       setDefaultOgImage(configRecord.defaultOgImage || "");
       setGscVerification(configRecord.gscVerification || "");
-      setBingVerification(configRecord.bingVerification || "");
+      setBingVerification(parseVerificationValue(configRecord.bingVerification || ""));
     }
   }, [configRecord]);
 
@@ -66,7 +67,7 @@ export default function AdminSettings() {
         defaultMetaDescription: defaultMetaDescription.trim(),
         defaultOgImage: defaultOgImage.trim(),
         gscVerification: gscVerification.trim(),
-        bingVerification: bingVerification.trim(),
+        bingVerification: parseVerificationValue(bingVerification),
       };
       return configRecord
         ? base44.functions.invoke('superAdminGuard', { entity: "SiteConfig", operation: "update", id: configRecord.id, data: payload })
@@ -164,8 +165,8 @@ export default function AdminSettings() {
               <Field label="Google Search Console Verification" hint="Content value of the google-site-verification meta tag">
                 <TextInput value={gscVerification} onChange={setGscVerification} placeholder="google-site-verification content value" />
               </Field>
-              <Field label="Bing Webmaster Verification" hint="Content value of the msvalidate.01 meta tag from Bing Webmaster Tools">
-                <TextInput value={bingVerification} onChange={setBingVerification} placeholder="msvalidate.01 content value" />
+              <Field label="Bing Webmaster Verification" hint="Paste the full meta tag or just the content value from Bing Webmaster Tools">
+                <TextInput value={bingVerification} onChange={setBingVerification} placeholder="0504E842B94076FFB6E604A8910810A9" />
               </Field>
               <button
                 onClick={() => saveSeo.mutate()}
