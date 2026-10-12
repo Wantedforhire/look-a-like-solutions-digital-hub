@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { sendFormNotificationEmail } from "@/lib/notifyEmail";
 import { Send, Check } from "lucide-react";
@@ -61,6 +62,10 @@ export default function NewsletterStrip() {
             >
               {loading ? "Subscribing..." : "Subscribe"} <Send className="w-4 h-4" />
             </button>
+            <p className="text-xs text-indigo-100/80 text-center w-full mt-1">
+              By subscribing you agree to receive marketing emails. You can unsubscribe at any time. See our{" "}
+              <Link to="/privacy-policy" className="underline hover:text-white">Privacy Policy</Link>.
+            </p>
           </form>
         )}
       </div>

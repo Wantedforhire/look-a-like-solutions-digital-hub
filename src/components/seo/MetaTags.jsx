@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 
-const SITE_URL = "https://www.lookalikesolutions.com";
+const SITE_URL = "https://lookalikesolutions.com";
 
 export function setMeta(name, content, attr = "name") {
   if (!content) return;
@@ -37,10 +37,10 @@ export default function MetaTags({ title, description, path = "/", image, noinde
   const finalDescription = override?.metaDescription || description;
 
   useEffect(() => {
-    const fullTitle = finalTitle ? `${finalTitle} | Look A Like Solutions` : "Look A Like Solutions | Digital Marketing Agency in Bangalore";
+    const fullTitle = finalTitle ? `${finalTitle} | Look A Like Solutions` : "Look A Like Solutions | Digital Marketing Agency in Bengaluru";
     document.title = fullTitle;
     setMeta("description", finalDescription);
-    setMeta("robots", noindex ? "noindex,nofollow" : "index,follow");
+    setMeta("robots", noindex ? "noindex,follow" : "index,follow");
     setLink("canonical", `${SITE_URL}${path}`);
     setMeta("og:title", fullTitle, "property");
     setMeta("og:description", finalDescription, "property");

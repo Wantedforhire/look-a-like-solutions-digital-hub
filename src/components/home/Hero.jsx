@@ -21,11 +21,14 @@ export default function Hero() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
-            We Don't Sell Clicks. <br className="hidden sm:block" />
-            We Build <span className="text-indigo-accent">Revenue Engines.</span>
+            Performance Marketing &amp; SEO <br className="hidden sm:block" />
+            Agency in <span className="text-indigo-accent">Bengaluru</span>
           </h1>
 
-          <p className="mt-6 text-lg text-slate-500 max-w-xl leading-relaxed">
+          <p className="mt-6 text-xl font-semibold text-slate-900 max-w-xl leading-snug">
+            We Don't Sell Clicks. We Build Revenue Engines.
+          </p>
+          <p className="mt-3 text-lg text-slate-500 max-w-xl leading-relaxed">
             Google Ads, Meta Ads, SEO, Conversion Strategy, and AI-Powered Growth for businesses that want leads, revenue, and measurable results.
           </p>
 

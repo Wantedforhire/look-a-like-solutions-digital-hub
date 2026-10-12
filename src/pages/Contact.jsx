@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import MetaTags from "@/components/seo/MetaTags";
-import SchemaMarkup, { breadcrumbSchema, localBusinessSchema } from "@/components/seo/SchemaMarkup";
+import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import ContactForm from "@/components/forms/ContactForm";
 
@@ -19,7 +19,6 @@ export default function Contact() {
         description="Get in touch with Look A Like Solutions — a performance marketing agency serving businesses across India. Share your growth challenge and we'll review whether we're the right fit."
         path="/contact"
       />
-      <SchemaMarkup schema={localBusinessSchema()} id="schema-local" />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])} id="schema-breadcrumb" />
 
       <section className="pt-40 pb-16 px-6 bg-white text-center">

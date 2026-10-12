@@ -33,7 +33,7 @@ export default function ResultsSection() {
           ))}
         </div>
         <p className="mt-10 text-center text-xs text-slate-400 italic">
-          Results vary by industry, budget, and campaign type.
+          Results vary by industry, budget, competition, tracking setup, and campaign conditions.
         </p>
       </div>
     </section>

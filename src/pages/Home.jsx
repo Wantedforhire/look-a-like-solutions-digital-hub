@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import MetaTags from "@/components/seo/MetaTags";
-import SchemaMarkup, { organizationSchema, localBusinessSchema, websiteSchema } from "@/components/seo/SchemaMarkup";
+import SchemaMarkup, { localBusinessSchema, websiteSchema } from "@/components/seo/SchemaMarkup";
 import Hero from "@/components/home/Hero";
 import ResultsSection from "@/components/home/ResultsSection";
 import ClientLogoMarquee from "@/components/home/ClientLogoMarquee";
@@ -41,11 +41,10 @@ export default function Home() {
   return (
     <div>
       <MetaTags
-        title="Performance Marketing Agency in Bangalore"
-        description="Look A Like Solutions builds revenue engines — Google Ads, Meta Ads, SEO, conversion strategy, and AI-powered growth for businesses that want leads and measurable results."
+        title="Digital Marketing Agency in Bengaluru"
+        description="Bengaluru performance marketing and SEO agency building revenue engines with Google Ads, Meta Ads, and AI-powered growth for measurable leads and ROI."
         path="/"
       />
-      <SchemaMarkup schema={organizationSchema()} id="schema-org" />
       <SchemaMarkup schema={websiteSchema()} id="schema-website" />
       <SchemaMarkup schema={localBusinessSchema()} id="schema-local" />
       <Hero />

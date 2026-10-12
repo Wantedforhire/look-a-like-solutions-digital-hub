@@ -1,75 +1,81 @@
 # Look A Like Solutions — LLM-readable content map
-# Canonical domain: https://www.lookalikesolutions.com
+# Canonical domain: https://lookalikesolutions.com
 
 # Core pages
-https://www.lookalikesolutions.com/
+https://lookalikesolutions.com/
 Look A Like Solutions — a performance marketing agency in Bengaluru, India. We build revenue engines with Google Ads, Meta Ads, SEO, conversion strategy, and AI-powered growth for businesses across India and international markets.
 
-https://www.lookalikesolutions.com/about
+https://lookalikesolutions.com/about
 About Look A Like Solutions: our story, founder Ramkumar, 15+ years of performance marketing experience, and the values behind 100+ businesses scaled across India.
 
-https://www.lookalikesolutions.com/services
+https://lookalikesolutions.com/services
 Full suite of digital marketing services — SEO, performance marketing, social media, branding, web development, content, ORM, lead generation, and AI SEO/GEO for businesses across India.
 
-https://www.lookalikesolutions.com/services/seo-services
+https://lookalikesolutions.com/services/seo-services
 SEO Services from Look A Like Solutions — technical SEO, on-page optimisation, content strategy, and AI-search (GEO) readiness to grow organic rankings and qualified traffic.
 
-https://www.lookalikesolutions.com/services/performance-marketing
+https://lookalikesolutions.com/services/performance-marketing
 Performance Marketing (Google Ads & Meta Ads) — ROI-driven paid campaigns, conversion tracking, and landing page optimisation that lower cost per lead and scale revenue.
 
-https://www.lookalikesolutions.com/services/social-media-marketing
+https://lookalikesolutions.com/services/social-media-marketing
 Social Media Marketing — strategy, content, community management, and paid social campaigns that build brand presence and drive engagement across Instagram, Facebook, LinkedIn, and YouTube.
 
-https://www.lookalikesolutions.com/services/branding-creative
+https://lookalikesolutions.com/services/branding-creative
 Branding & Creative — brand identity, visual design, ad creatives, and storytelling that make your business memorable and conversion-ready.
 
-https://www.lookalikesolutions.com/services/web-design-development
+https://lookalikesolutions.com/services/web-design-development
 Web Design & Development — fast, SEO-friendly, conversion-optimised websites and landing pages built to turn visitors into leads.
 
-https://www.lookalikesolutions.com/services/content-marketing
+https://lookalikesolutions.com/services/content-marketing
 Content Marketing — content strategy, blogs, and resources that build authority, organic traffic, and AI-search visibility.
 
-https://www.lookalikesolutions.com/services/online-reputation-management
+https://lookalikesolutions.com/services/online-reputation-management
 Online Reputation Management — review management, brand monitoring, and trust-building strategies that protect and strengthen how your business appears online.
 
-https://www.lookalikesolutions.com/services/lead-generation
+https://lookalikesolutions.com/services/lead-generation
 Lead Generation — funnel design, tracking, and optimisation that delivers qualified, sales-ready leads at a predictable cost.
 
-https://www.lookalikesolutions.com/services/ai-seo-geo
+https://lookalikesolutions.com/services/growth-strategy
+Growth Strategy — marketing audits, consulting, AI integration, and business planning that connect every channel to revenue.
+
+https://lookalikesolutions.com/services/ai-seo-geo
 AI SEO / GEO — Generative Engine Optimization that helps your brand surface in ChatGPT, Gemini, Perplexity, and AI-powered search answers.
 
-https://www.lookalikesolutions.com/industries
+https://lookalikesolutions.com/industries
 Industries we serve — tailored digital marketing strategies for healthcare, education, real estate, e-commerce, hospitality, and more across India.
 
-https://www.lookalikesolutions.com/case-studies
+https://lookalikesolutions.com/case-studies
 Case studies with real, verifiable results — SEO, PPC, social media, and web development outcomes from businesses we've partnered with across India.
 
-https://www.lookalikesolutions.com/methodology
+https://lookalikesolutions.com/methodology
 Our proprietary 5-phase growth methodology — Discovery, Strategy, Creative, Launch, Optimise — that turns marketing spend into predictable revenue.
 
-https://www.lookalikesolutions.com/blog
+https://lookalikesolutions.com/blog
 Blog and growth strategy insights — practical, data-backed digital marketing knowledge from the Look A Like Solutions team.
 
-https://www.lookalikesolutions.com/insights
+https://lookalikesolutions.com/insights
 Marketing insights — deep dives into performance marketing, SEO, AI-search, and growth strategy from the trenches.
 
-https://www.lookalikesolutions.com/resources
+https://lookalikesolutions.com/resources
 Free marketing resources — downloadable guides, checklists, and templates to level up your digital marketing.
 
-https://www.lookalikesolutions.com/gallery
+https://lookalikesolutions.com/gallery
 Design gallery — a portfolio of logo designs, social media creatives, websites, and ad campaigns built by Look A Like Solutions.
 
-https://www.lookalikesolutions.com/growth-audit
+https://lookalikesolutions.com/growth-audit
 Free growth audit — a no-obligation review of your website, ads, SEO, tracking, and conversion funnel showing exactly where you're losing money.
 
-https://www.lookalikesolutions.com/strategy-call
+https://lookalikesolutions.com/strategy-call
 Book a free 1-on-1 strategy call with Ramkumar, founder of Look A Like Solutions. Get a personalised growth plan for your business.
 
-https://www.lookalikesolutions.com/contact
+https://lookalikesolutions.com/contact
 Contact Look A Like Solutions — share your growth challenge and our strategy team will respond within one business day.
 
-https://www.lookalikesolutions.com/privacy-policy
+https://lookalikesolutions.com/privacy-policy
 Privacy Policy — how Look A Like Solutions collects, uses, and protects your personal information under Indian law.
 
-https://www.lookalikesolutions.com/terms
+https://lookalikesolutions.com/cookie-policy
+Cookie Policy — how Look A Like Solutions uses cookies and similar technologies, and how to manage your consent preferences.
+
+https://lookalikesolutions.com/terms
 Terms & Conditions — the terms governing use of the Look A Like Solutions website and engagement of our services.

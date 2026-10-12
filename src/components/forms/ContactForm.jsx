@@ -5,6 +5,7 @@ import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import ConsentFields from "@/components/forms/ConsentFields";
 
 const services = [
   "SEO Services", "Performance Marketing / PPC", "Social Media Marketing", "Branding / Creative",
@@ -17,7 +18,7 @@ const budgets = ["Under ₹25,000/mo", "₹25,000 - ₹50,000/mo", "₹50,000 - 
 export default function ContactForm({ defaultService = "" }) {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", company: "", website: "",
-    serviceInterest: defaultService, monthlyBudget: "", message: "", honeypot: ""
+    serviceInterest: defaultService, monthlyBudget: "", message: "", honeypot: "", marketingConsent: false
   });
   const [status, setStatus] = useState("idle");
   const [errors, setErrors] = useState({});
@@ -53,6 +54,7 @@ export default function ContactForm({ defaultService = "" }) {
          <p><b>Website:</b> ${esc(payload.website || "—")}</p>
          <p><b>Service Interest:</b> ${esc(payload.serviceInterest || "—")}</p>
          <p><b>Monthly Budget:</b> ${esc(payload.monthlyBudget || "—")}</p>
+         <p><b>Marketing Consent:</b> ${payload.marketingConsent ? "Yes" : "No"}</p>
          <p><b>Message:</b> ${esc(payload.message)}</p>`
       );
       setStatus("success");
@@ -155,7 +157,7 @@ export default function ContactForm({ defaultService = "" }) {
         {status === "loading" && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
         {status === "loading" ? "Sending..." : "Request Proposal"}
       </button>
-      <p className="text-xs text-slate-400 text-center">We only use your details to respond to your request. No spam.</p>
+      <ConsentFields marketingConsent={form.marketingConsent} onMarketingChange={(v) => setForm({ ...form, marketingConsent: v })} />
     </form>
   );
 }

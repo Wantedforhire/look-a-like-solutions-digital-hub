@@ -54,8 +54,21 @@ export default function BlogDetail() {
             <h1 className="text-3xl md:text-5xl font-extrabold text-pearl tracking-tight mt-3 mb-4">{post.title}</h1>
             <div className="flex items-center gap-3 text-sm text-slate-sub mb-8">
               <span>{post.author || "Look A Like Solutions"}</span>
+              {post.authorRole && <><span>&middot;</span><span>{post.authorRole}</span></>}
               {pubDate && isValid(pubDate) && <><span>&middot;</span><span>{format(pubDate, "MMM d, yyyy")}</span></>}
             </div>
+            {post.authorBio && (
+              <div className="glass-cell rounded-xl p-4 mb-8 text-sm text-slate-600 leading-relaxed">
+                <span className="font-semibold text-slate-900">{post.author || "Look A Like Solutions"}</span>
+                {post.authorRole && <span className="text-slate-sub"> — {post.authorRole}</span>}
+                <p className="mt-1">{post.authorBio}</p>
+              </div>
+            )}
+            {post.lastReviewedDate && isValid(new Date(post.lastReviewedDate)) && (
+              <p className="text-xs text-slate-400 mb-8">
+                Last reviewed: {format(new Date(post.lastReviewedDate), "MMM d, yyyy")}
+              </p>
+            )}
             {post.coverImage && (
               <img src={post.coverImage} alt={post.title} loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
             )}
@@ -69,6 +82,11 @@ export default function BlogDetail() {
             <h3 className="text-xl font-bold text-slate-900 mb-3">Ready to Put This Into Action?</h3>
             <p className="text-slate-500 mb-6">Talk to our team about applying these strategies to your business.</p>
             <CTAButton to="/growth-audit" variant="primary">Get A Free Growth Audit</CTAButton>
+            <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
+              <Link to="/services" className="text-indigo-accent hover:underline">Explore our services</Link>
+              <Link to="/case-studies" className="text-indigo-accent hover:underline">See client case studies</Link>
+              <Link to="/contact" className="text-indigo-accent hover:underline">Contact us</Link>
+            </div>
           </div>
         </div>
       </article>

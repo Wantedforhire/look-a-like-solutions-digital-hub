@@ -1,6 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.52';
 
-const BASE_URL = "https://www.lookalikesolutions.com";
+const BASE_URL = "https://lookalikesolutions.com";
 
 function xmlEscape(s) {
   return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
@@ -53,7 +53,8 @@ async function buildSitemap(base44) {
     { path: "/resources", changefreq: "weekly", priority: "0.5" },
     { path: "/work-with-us", changefreq: "monthly", priority: "0.5" },
     { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
-    { path: "/terms", changefreq: "yearly", priority: "0.3" }
+    { path: "/terms", changefreq: "yearly", priority: "0.3" },
+    { path: "/cookie-policy", changefreq: "yearly", priority: "0.3" }
   ];
   staticPages.forEach((p) => urls.push(urlEntry(`${BASE_URL}${p.path}`, today, p.changefreq, p.priority)));
 

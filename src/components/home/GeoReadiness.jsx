@@ -17,7 +17,7 @@ export default function GeoReadiness() {
         <SectionHeading
           eyebrow="SEO + GEO + AI Search"
           title="Ready for the Next Era of Search"
-          subtitle="We build for Google today and AI-driven discovery tomorrow — with Bangalore's first AI SEO / GEO-ready methodology."
+          subtitle="We build for Google today and AI-driven discovery tomorrow — with an AI-search-ready SEO and content methodology."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((p, i) => (

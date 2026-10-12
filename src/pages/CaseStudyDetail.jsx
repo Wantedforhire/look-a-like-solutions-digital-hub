@@ -85,6 +85,9 @@ export default function CaseStudyDetail() {
               )}
 
               <CTAButton to="/growth-audit" variant="primary" className="w-full">Get A Free Growth Audit</CTAButton>
+              <p className="text-[11px] text-slate-400 italic mt-4 text-center">
+                Results vary by industry, budget, competition, tracking setup, and campaign conditions.
+              </p>
             </ScrollReveal>
           </div>
         </div>

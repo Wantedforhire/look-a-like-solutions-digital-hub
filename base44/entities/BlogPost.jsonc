@@ -24,6 +24,19 @@
     "author": {
       "type": "string"
     },
+    "authorRole": {
+      "type": "string",
+      "description": "Author role or area of expertise"
+    },
+    "authorBio": {
+      "type": "string",
+      "description": "Short author bio shown on the article page"
+    },
+    "lastReviewedDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the article was last reviewed for accuracy"
+    },
     "publishDate": {
       "type": "string",
       "format": "date"

@@ -7,6 +7,8 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import GtmInjector from './components/GtmInjector';
 import VerificationMetaInjector from './components/VerificationMetaInjector';
+import ConsentProvider from './components/ConsentProvider';
+import CookieConsentBanner from './components/CookieConsentBanner';
 import SiteLayout from '@/components/layout/SiteLayout';
 import Home from '@/pages/Home';
 import About from '@/pages/About';
@@ -30,6 +32,7 @@ import StrategyCall from '@/pages/StrategyCall';
 import Gallery from '@/pages/Gallery';
 import Methodology from '@/pages/Methodology';
 import Careers from '@/pages/Careers';
+import CookiePolicy from '@/pages/CookiePolicy';
 import AdminRoute from '@/components/admin/AdminRoute';
 import AdminLayout from '@/components/admin/AdminLayout';
 import Dashboard from '@/pages/admin/Dashboard';
@@ -115,6 +118,7 @@ const AuthenticatedApp = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/work-with-us" element={<WorkWithUs />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />
       </Route>
@@ -165,10 +169,13 @@ function App() {
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
         <Router>
-          <ScrollToTop />
-          <GtmInjector />
-          <VerificationMetaInjector />
-          <AuthenticatedApp />
+          <ConsentProvider>
+            <ScrollToTop />
+            <GtmInjector />
+            <VerificationMetaInjector />
+            <AuthenticatedApp />
+            <CookieConsentBanner />
+          </ConsentProvider>
         </Router>
         <Toaster />
       </QueryClientProvider>

@@ -27,7 +27,7 @@ const primaryServices = [
     outcome: "Turn existing traffic into paying customers."
   },
   {
-    slug: "ai-seo-geo",
+    slug: "growth-strategy",
     icon: "Sparkles",
     title: "Growth Strategy",
     items: "Marketing Audits, Consulting, AI Integration, Business Planning",

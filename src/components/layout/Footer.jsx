@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, LogIn } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, LogIn, Cookie } from "lucide-react";
+import { useConsent } from "@/components/ConsentProvider";
 
 const services = [
   { label: "SEO Services", to: "/services/seo-services" },
@@ -7,6 +8,7 @@ const services = [
   { label: "Social Media Marketing", to: "/services/social-media-marketing" },
   { label: "Branding & Creative", to: "/services/branding-creative" },
   { label: "Web Design & Development", to: "/services/web-design-development" },
+  { label: "Growth Strategy", to: "/services/growth-strategy" },
   { label: "AI SEO / GEO", to: "/services/ai-seo-geo" }
 ];
 
@@ -27,6 +29,7 @@ const company = [
 ];
 
 export default function Footer() {
+  const { openPreferences } = useConsent();
   return (
     <footer className="bg-slate-900 border-t border-slate-800 text-slate-400">
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-5 gap-12">
@@ -79,9 +82,13 @@ export default function Footer() {
       <div className="border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
           <p>&copy; {new Date().getFullYear()} Look A Like Solutions. All rights reserved.</p>
-          <div className="flex gap-6 items-center">
+          <div className="flex flex-wrap gap-4 sm:gap-6 items-center justify-center">
             <Link to="/privacy-policy" className="hover:text-indigo-accent transition-colors">Privacy Policy</Link>
+            <Link to="/cookie-policy" className="hover:text-indigo-accent transition-colors">Cookie Policy</Link>
             <Link to="/terms" className="hover:text-indigo-accent transition-colors">Terms &amp; Conditions</Link>
+            <button onClick={openPreferences} className="inline-flex items-center gap-1 hover:text-indigo-accent transition-colors">
+              <Cookie className="w-3 h-3" /> Cookie Preferences
+            </button>
             <Link to="/login" className="flex items-center gap-1 hover:text-indigo-accent transition-colors"><LogIn className="w-3 h-3" /> Client Login</Link>
           </div>
         </div>

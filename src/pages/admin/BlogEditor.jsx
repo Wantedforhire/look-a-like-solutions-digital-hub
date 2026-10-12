@@ -26,6 +26,7 @@ export default function BlogEditor() {
     title: "", slug: "", category: "", tags: [], author: "", publishDate: "",
     coverImage: "", excerpt: "", content: "", metaTitle: "", metaDescription: "",
     ogImage: "", noindex: false, status: "draft", scheduledDate: "",
+    authorRole: "", authorBio: "", lastReviewedDate: "",
   });
   const [slugTouched, setSlugTouched] = useState(false);
 
@@ -71,6 +72,11 @@ export default function BlogEditor() {
               <Field label="Category"><Select value={form.category} onChange={set("category")} options={categories} placeholder="Select category" /></Field>
               <Field label="Author"><TextInput value={form.author} onChange={set("author")} placeholder="Author name" /></Field>
             </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Field label="Author Role / Expertise" hint="Shown on the article page when filled"><TextInput value={form.authorRole} onChange={set("authorRole")} placeholder="e.g. Head of SEO" /></Field>
+              <Field label="Last Reviewed Date" hint="Shown on the article page when filled"><TextInput type="date" value={form.lastReviewedDate} onChange={set("lastReviewedDate")} /></Field>
+            </div>
+            <Field label="Author Bio" hint="Short bio shown on the article page when filled"><TextArea value={form.authorBio} onChange={set("authorBio")} rows={2} placeholder="Brief author bio..." /></Field>
             <Field label="Tags"><TagInput value={form.tags || []} onChange={set("tags")} placeholder="Add tag" /></Field>
             <Field label="Excerpt"><TextArea value={form.excerpt} onChange={set("excerpt")} rows={2} placeholder="Short summary..." /></Field>
           </div>

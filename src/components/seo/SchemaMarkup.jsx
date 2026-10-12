@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE_URL = "https://www.lookalikesolutions.com";
+const SITE_URL = "https://lookalikesolutions.com";
 const BRAND_LOGO = "https://media.base44.com/images/public/6a45332a796cb5a887717912/54bfc626b_LookalikeSolutionsIconJPG.JPG";
 const SOCIAL = {
   facebook: "https://www.facebook.com/lookalikesolutions",
@@ -163,13 +163,19 @@ export function articleSchema(post, pathPrefix = "blog") {
     headline: post.title,
     description: post.excerpt || post.metaDescription,
     image: post.coverImage || BRAND_LOGO,
-    author: { "@type": "Person", name: post.author || "Look A Like Solutions" },
+    author: {
+      "@type": "Person",
+      name: post.author || "Look A Like Solutions",
+      ...(post.authorRole ? { jobTitle: post.authorRole } : {}),
+      ...(post.authorBio ? { description: post.authorBio } : {})
+    },
     publisher: {
       "@type": "Organization",
       name: "Look A Like Solutions",
       logo: { "@type": "ImageObject", url: BRAND_LOGO }
     },
     datePublished: post.publishDate,
+    ...(post.lastReviewedDate ? { dateModified: post.lastReviewedDate } : {}),
     mainEntityOfPage: `${SITE_URL}/${pathPrefix}/${post.slug}`
   };
 }

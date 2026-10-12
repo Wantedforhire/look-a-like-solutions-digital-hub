@@ -1,5 +1,5 @@
 # robots.txt for Look A Like Solutions
-# https://www.lookalikesolutions.com
+# https://lookalikesolutions.com
 
 # Allow all crawlers access to public content
 User-agent: *
@@ -14,4 +14,4 @@ Disallow: /forgot-password
 Disallow: /reset-password
 
 # XML sitemap
-Sitemap: https://www.lookalikesolutions.com/sitemap.xml
+Sitemap: https://lookalikesolutions.com/sitemap.xml

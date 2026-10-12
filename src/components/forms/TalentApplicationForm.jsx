@@ -3,6 +3,7 @@ import { base44 } from "@/api/base44Client";
 import { sendFormNotificationEmail, esc } from "@/lib/notifyEmail";
 import { Field, TextInput, TextArea, Select } from "@/components/admin/FormFields";
 import { CheckCircle2, Loader2 } from "lucide-react";
+import ConsentFields from "@/components/forms/ConsentFields";
 
 const skillAreas = [
   "Google Ads", "Meta Ads", "SEO", "Content Writing", "Graphic Design",
@@ -15,7 +16,7 @@ const experienceLevels = ["Student", "Fresher", "1 to 2 Years", "3 to 5 Years", 
 export default function TalentApplicationForm({ jobListingId, defaultSkillArea }) {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", city: "", skillArea: defaultSkillArea || "", experienceLevel: "",
-    portfolioUrl: "", availability: "", expectedPay: "", whyNote: "",
+    portfolioUrl: "", availability: "", expectedPay: "", whyNote: "", marketingConsent: false,
   });
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
@@ -45,6 +46,7 @@ export default function TalentApplicationForm({ jobListingId, defaultSkillArea }
          <p><b>Portfolio:</b> ${esc(form.portfolioUrl || "—")}</p>
          <p><b>Availability:</b> ${esc(form.availability || "—")}</p>
          <p><b>Expected Pay:</b> ${esc(form.expectedPay || "—")}</p>
+         <p><b>Marketing Consent:</b> ${form.marketingConsent ? "Yes" : "No"}</p>
          <p><b>Why Us:</b> ${esc(form.whyNote || "—")}</p>`
       );
       setDone(true);
@@ -124,7 +126,7 @@ export default function TalentApplicationForm({ jobListingId, defaultSkillArea }
       >
         {submitting ? <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Submitting...</> : "Submit Application"}
       </button>
-      <p className="text-xs text-slate-400 text-center mt-4">We only use your details to respond to your request. No spam.</p>
+      <ConsentFields marketingConsent={form.marketingConsent} onMarketingChange={set("marketingConsent")} />
     </form>
   );
 }

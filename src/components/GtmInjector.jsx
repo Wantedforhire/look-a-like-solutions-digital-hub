@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
+import { useConsent } from "@/components/ConsentProvider";
 
 export const GTM_FALLBACK_ID = "GTM-KKCKP3M6";
 const GTM_PATTERN = /^GTM-[A-Z0-9]{6,}$/;
 
 export default function GtmInjector() {
+  const { consent } = useConsent();
   const { data: config } = useQuery({
     queryKey: ["site-config", "gtm"],
     queryFn: () => base44.entities.SiteConfig.filter({ configKey: "main" }),
@@ -13,11 +15,11 @@ export default function GtmInjector() {
   });
 
   const storedId = config?.[0]?.gtmContainerId;
-  // Fall back to the hardcoded container ID so the tag fires immediately,
-  // even before SiteConfig is fetched or populated.
   const gtmId = storedId && GTM_PATTERN.test(storedId) ? storedId : GTM_FALLBACK_ID;
 
   useEffect(() => {
+    // Do not load GTM until analytics consent is granted.
+    if (!consent?.analytics) return;
     if (!GTM_PATTERN.test(gtmId)) return;
     const scriptId = "gtm-script";
     if (document.getElementById(scriptId)) return;
@@ -36,7 +38,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
 height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
     document.body.insertBefore(noscript, document.body.firstChild);
-  }, [gtmId]);
+  }, [gtmId, consent]);
 
   return null;
 }

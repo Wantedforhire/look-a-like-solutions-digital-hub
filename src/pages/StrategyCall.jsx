@@ -5,13 +5,14 @@ import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import { Field, TextInput, TextArea, Select } from "@/components/admin/FormFields";
+import ConsentFields from "@/components/forms/ConsentFields";
 import { CheckCircle2, Loader2, ShieldCheck, TrendingUp, Users } from "lucide-react";
 
 const spendOptions = ["No active spend", "Under ₹25,000/month", "₹25,000 - ₹50,000/month", "₹50,000 - ₹1,00,000/month", "₹1,00,000+ /month"];
 const goalOptions = ["More Leads", "Better ROI", "Brand Awareness", "SEO Rankings", "Other"];
 
 export default function StrategyCall() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", monthlyAdSpend: "", primaryGoal: "", preferredCallTime: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", monthlyAdSpend: "", primaryGoal: "", preferredCallTime: "", message: "", marketingConsent: false });
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
@@ -37,6 +38,7 @@ export default function StrategyCall() {
          <p><b>Monthly Ad Spend:</b> ${esc(form.monthlyAdSpend || "—")}</p>
          <p><b>Primary Goal:</b> ${esc(form.primaryGoal)}</p>
          <p><b>Preferred Call Time:</b> ${esc(form.preferredCallTime || "—")}</p>
+         <p><b>Marketing Consent:</b> ${form.marketingConsent ? "Yes" : "No"}</p>
          <p><b>Challenge:</b> ${esc(form.message || "—")}</p>`
       );
       setDone(true);
@@ -120,7 +122,7 @@ export default function StrategyCall() {
                 >
                   {submitting ? <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Requesting...</> : "Request My Strategy Call"}
                 </button>
-                <p className="text-xs text-slate-400 text-center mt-4">We only use your details to respond to your request. No spam.</p>
+                <ConsentFields marketingConsent={form.marketingConsent} onMarketingChange={set("marketingConsent")} />
               </form>
             )}
           </div>

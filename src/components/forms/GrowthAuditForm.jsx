@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import ConsentFields from "@/components/forms/ConsentFields";
 
 const budgets = ["Under ₹25K", "₹25K–₹1L", "₹1L–₹5L", "₹5L+"];
 const channels = ["Google Ads", "Meta Ads", "SEO", "Social Media", "Email", "None"];
@@ -13,7 +14,7 @@ const channels = ["Google Ads", "Meta Ads", "SEO", "Social Media", "Email", "Non
 export default function GrowthAuditForm({ showChannels = false, compact = false }) {
   const [form, setForm] = useState({
     name: "", company: "", website: "", email: "", phone: "",
-    message: "", monthlyBudget: "", currentChannels: [], honeypot: ""
+    message: "", monthlyBudget: "", currentChannels: [], honeypot: "", marketingConsent: false
   });
   const [status, setStatus] = useState("idle");
   const [errors, setErrors] = useState({});
@@ -65,6 +66,7 @@ export default function GrowthAuditForm({ showChannels = false, compact = false 
          <p><b>Website:</b> ${esc(form.website || "—")}</p>
          <p><b>Monthly Budget:</b> ${esc(form.monthlyBudget || "—")}</p>
          <p><b>Current Channels:</b> ${esc(form.currentChannels.join(", ") || "—")}</p>
+         <p><b>Marketing Consent:</b> ${form.marketingConsent ? "Yes" : "No"}</p>
          <p><b>Challenge:</b> ${esc(form.message || "—")}</p>`
       );
       setStatus("success");
@@ -162,7 +164,7 @@ export default function GrowthAuditForm({ showChannels = false, compact = false 
         {status === "loading" && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
         {status === "loading" ? "Sending..." : "Request My Free Growth Audit"}
       </button>
-      <p className="text-xs text-slate-400 text-center">We only use your details to respond to your request. No spam.</p>
+      <ConsentFields marketingConsent={form.marketingConsent} onMarketingChange={(v) => setForm({ ...form, marketingConsent: v })} />
     </form>
   );
 }

@@ -21,4 +21,5 @@ export const STATIC_PAGES = [
   { path: "/work-with-us", name: "Work With Us" },
   { path: "/privacy-policy", name: "Privacy Policy" },
   { path: "/terms", name: "Terms" },
+  { path: "/cookie-policy", name: "Cookie Policy" },
 ];

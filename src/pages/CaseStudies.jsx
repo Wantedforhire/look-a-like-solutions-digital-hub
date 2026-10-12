@@ -46,6 +46,10 @@ export default function CaseStudies() {
         </div>
       </section>
 
+      <p className="text-center text-xs text-slate-400 italic pb-16">
+        Results vary by industry, budget, competition, tracking setup, and campaign conditions.
+      </p>
+
       <CTABand title="Want Results Like These?" primaryLabel="Get A Free Growth Audit" primaryTo="/growth-audit" />
     </div>
   );
