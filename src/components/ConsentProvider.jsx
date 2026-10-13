@@ -34,21 +34,21 @@ function pushConsentUpdate(c) {
 }
 
 export default function ConsentProvider({ children }) {
-  const [consent, setConsent] = useState(null);
+  const [consent, setConsent] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) return JSON.parse(saved);
+    } catch {
+      /* ignore */
+    }
+    return null;
+  });
   const [showPreferences, setShowPreferences] = useState(false);
 
   useEffect(() => {
     setDefaultConsent();
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        setConsent(parsed);
-        pushConsentUpdate(parsed);
-      }
-    } catch {
-      /* ignore */
-    }
+    if (consent) pushConsentUpdate(consent);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const save = useCallback((values) => {
