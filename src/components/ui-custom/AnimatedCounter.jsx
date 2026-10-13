@@ -4,8 +4,8 @@ import { useInView } from "framer-motion";
 export default function AnimatedCounter({ value, suffix = "", duration = 1.6, className = "", fallback }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [display, setDisplay] = useState(numericValue);
   const numericValue = parseFloat(String(value).replace(/[^0-9.]/g, "")) || 0;
+  const [display, setDisplay] = useState(numericValue);
   const useFallback = (value === 0 || value === undefined || value === null || isNaN(numericValue)) && fallback;
 
   useEffect(() => {
