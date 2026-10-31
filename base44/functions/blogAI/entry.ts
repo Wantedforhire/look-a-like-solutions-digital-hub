@@ -43,16 +43,14 @@ export default async function (req) {
 
     if (action === "internalLinks") {
       const sr = base44.asServiceRole;
-      const [posts, services, caseStudies, insights] = await Promise.all([
+      const [posts, services, insights] = await Promise.all([
         sr.entities.BlogPost.filter({ status: "published" }),
         sr.entities.Service.list(),
-        sr.entities.CaseStudy.list(),
         sr.entities.Insight.filter({ status: "published" }),
       ]);
       const catalogue = [
         ...posts.filter((p) => p.slug).slice(0, 25).map((p) => ({ type: "blog", title: p.title, url: `/blog/${p.slug}` })),
         ...services.filter((s) => s.slug).slice(0, 20).map((s) => ({ type: "service", title: s.title, url: `/services/${s.slug}` })),
-        ...caseStudies.filter((c) => c.slug).slice(0, 15).map((c) => ({ type: "case study", title: c.clientName, url: `/case-studies/${c.slug}` })),
         ...insights.filter((i) => i.slug).slice(0, 15).map((i) => ({ type: "insight", title: i.title, url: `/insights/${i.slug}` })),
       ];
 

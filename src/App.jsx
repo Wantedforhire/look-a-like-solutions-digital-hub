@@ -14,8 +14,6 @@ import Home from '@/pages/Home';
 import About from '@/pages/About';
 import Services from '@/pages/Services';
 import ServiceDetail from '@/pages/ServiceDetail';
-import CaseStudies from '@/pages/CaseStudies';
-import CaseStudyDetail from '@/pages/CaseStudyDetail';
 import Industries from '@/pages/Industries';
 import Blog from '@/pages/Blog';
 import BlogDetail from '@/pages/BlogDetail';
@@ -36,11 +34,8 @@ import CookiePolicy from '@/pages/CookiePolicy';
 import AdminRoute from '@/components/admin/AdminRoute';
 import AdminLayout from '@/components/admin/AdminLayout';
 import Dashboard from '@/pages/admin/Dashboard';
-import PagesManagement from '@/pages/admin/PagesManagement';
 import BlogsDashboard from '@/pages/admin/marketing/BlogsDashboard';
 import BlogEditorPage from '@/pages/admin/marketing/BlogEditorPage';
-import CaseStudyManagement from '@/pages/admin/CaseStudyManagement';
-import CaseStudyEditor from '@/pages/admin/CaseStudyEditor';
 import ServiceManagement from '@/pages/admin/ServiceManagement';
 import ServiceEditor from '@/pages/admin/ServiceEditor';
 import IndustryManagement from '@/pages/admin/IndustryManagement';
@@ -50,13 +45,11 @@ import TestimonialManagement from '@/pages/admin/TestimonialManagement';
 import TeamManagement from '@/pages/admin/TeamManagement';
 import MediaLibrary from '@/pages/admin/MediaLibrary';
 import SeoSettings from '@/pages/admin/SeoSettings';
-import NavigationSettings from '@/pages/admin/NavigationSettings';
 import AdminSettings from '@/pages/admin/AdminSettings';
 import ResourceManagement from '@/pages/admin/ResourceManagement';
 import InsightManagement from '@/pages/admin/InsightManagement';
 import InsightEditor from '@/pages/admin/InsightEditor';
 import StrategyCallManagement from '@/pages/admin/StrategyCallManagement';
-import GalleryManagement from '@/pages/admin/GalleryManagement';
 import CareerManagement from '@/pages/admin/CareerManagement';
 import NewsletterManagement from '@/pages/admin/NewsletterManagement';
 import RolesManagement from '@/pages/admin/RolesManagement';
@@ -102,8 +95,6 @@ const AuthenticatedApp = () => {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:slug" element={<ServiceDetail />} />
-        <Route path="/case-studies" element={<CaseStudies />} />
-        <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogDetail />} />
@@ -127,7 +118,6 @@ const AuthenticatedApp = () => {
       <Route element={<AdminRoute />}>
         <Route element={<AdminLayout />}>
           <Route path="/admin" element={<Dashboard />} />
-          <Route path="/admin/pages" element={<PagesManagement />} />
           <Route path="/super-admin/marketing/blogs" element={<BlogsDashboard />} />
           <Route path="/super-admin/marketing/blogs/new" element={<BlogEditorPage />} />
           <Route path="/super-admin/marketing/blogs/:id/edit" element={<BlogEditorPage />} />
@@ -136,12 +126,8 @@ const AuthenticatedApp = () => {
           <Route path="/admin/insights/new" element={<InsightEditor />} />
           <Route path="/admin/insights/edit/:id" element={<InsightEditor />} />
           <Route path="/admin/resources" element={<ResourceManagement />} />
-          <Route path="/admin/gallery" element={<GalleryManagement />} />
           <Route path="/admin/blog/new" element={<BlogEditorPage />} />
           <Route path="/admin/blog/edit/:id" element={<BlogEditorPage />} />
-          <Route path="/admin/case-studies" element={<CaseStudyManagement />} />
-          <Route path="/admin/case-studies/new" element={<CaseStudyEditor />} />
-          <Route path="/admin/case-studies/edit/:id" element={<CaseStudyEditor />} />
           <Route path="/admin/services" element={<ServiceManagement />} />
           <Route path="/admin/services/new" element={<ServiceEditor />} />
           <Route path="/admin/services/edit/:id" element={<ServiceEditor />} />
@@ -156,7 +142,6 @@ const AuthenticatedApp = () => {
           <Route path="/admin/methodology" element={<MethodologyManagement />} />
           <Route path="/admin/media" element={<MediaLibrary />} />
           <Route path="/admin/seo" element={<SeoSettings />} />
-          <Route path="/admin/navigation" element={<NavigationSettings />} />
           <Route path="/admin/roles" element={<RolesManagement />} />
           <Route path="/admin/settings" element={<AdminSettings />} />
         </Route>

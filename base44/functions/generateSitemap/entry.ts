@@ -26,11 +26,10 @@ function urlEntry(loc, lastmod, changefreq, priority) {
 
 async function buildSitemap(base44) {
   const sr = base44.asServiceRole;
-  const [posts, insights, services, caseStudies] = await Promise.all([
+  const [posts, insights, services] = await Promise.all([
     sr.entities.BlogPost.filter({ status: "published" }),
     sr.entities.Insight.filter({ status: "published" }),
-    sr.entities.Service.list(),
-    sr.entities.CaseStudy.list()
+    sr.entities.Service.list()
   ]);
 
   const urls = [];
@@ -40,7 +39,6 @@ async function buildSitemap(base44) {
     { path: "/", changefreq: "weekly", priority: "1.0" },
     { path: "/about", changefreq: "monthly", priority: "0.5" },
     { path: "/services", changefreq: "weekly", priority: "0.9" },
-    { path: "/case-studies", changefreq: "weekly", priority: "0.9" },
     { path: "/industries", changefreq: "monthly", priority: "0.5" },
     { path: "/blog", changefreq: "daily", priority: "0.9" },
     { path: "/insights", changefreq: "daily", priority: "0.9" },
@@ -61,7 +59,6 @@ async function buildSitemap(base44) {
   posts.forEach((p) => { if (p.slug && !p.noindex) urls.push(urlEntry(`${BASE_URL}/blog/${p.slug}`, toDate(p.publishedAt || p.publishDate || p.updated_date), "daily", "0.8")); });
   insights.forEach((i) => { if (i.slug) urls.push(urlEntry(`${BASE_URL}/insights/${i.slug}`, toDate(i.publishDate || i.updated_date), "daily", "0.8")); });
   services.forEach((s) => { if (s.slug) urls.push(urlEntry(`${BASE_URL}/services/${s.slug}`, toDate(s.updated_date), "weekly", "0.7")); });
-  caseStudies.forEach((c) => { if (c.slug) urls.push(urlEntry(`${BASE_URL}/case-studies/${c.slug}`, toDate(c.updated_date), "weekly", "0.7")); });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`;
   return { xml, urlCount: urls.length };

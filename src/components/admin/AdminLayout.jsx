@@ -3,9 +3,9 @@ import { Link, Outlet, useLocation, useOutletContext } from "react-router-dom";
 import { setMeta } from "@/components/seo/MetaTags";
 import { useAuth } from "@/lib/AuthContext";
 import {
-  LayoutDashboard, FileText, Newspaper, FolderKanban, Briefcase, Building2,
+  LayoutDashboard, Newspaper, Briefcase, Building2,
   Inbox, Users, Star, UserSquare2, Image as ImageIcon, Search, Menu,
-  Navigation, Settings, LogOut, ChevronLeft, ChevronDown, X,
+  Settings, LogOut, ChevronLeft, ChevronDown, X,
   Lightbulb, Download, Image, PhoneCall, Mail, UserCog, Layers, GraduationCap
 } from "lucide-react";
 import { canAccessPath, ROLE_LABELS } from "@/lib/adminConfig";
@@ -18,12 +18,9 @@ const groups = [
   {
     label: "Content",
     items: [
-      { label: "Pages", path: "/admin/pages", icon: FileText },
       { label: "Insights", path: "/admin/insights", icon: Lightbulb },
       { label: "Resources", path: "/admin/resources", icon: Download },
-      { label: "Gallery", path: "/admin/gallery", icon: Image },
       { label: "Services", path: "/admin/services", icon: Briefcase },
-      { label: "Case Studies", path: "/admin/case-studies", icon: FolderKanban },
       { label: "Industries", path: "/admin/industries", icon: Building2 },
       { label: "Testimonials", path: "/admin/testimonials", icon: Star },
       { label: "Team", path: "/admin/team", icon: UserSquare2 },
@@ -50,7 +47,6 @@ const groups = [
   {
     label: "Settings",
     items: [
-      { label: "Navigation & Footer", path: "/admin/navigation", icon: Navigation },
       { label: "SEO", path: "/admin/seo", icon: Search },
       { label: "Roles & Users", path: "/admin/roles", icon: UserCog },
       { label: "Settings", path: "/admin/settings", icon: Settings },

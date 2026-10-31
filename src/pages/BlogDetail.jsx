@@ -107,7 +107,6 @@ export default function BlogDetail() {
             <CTAButton to="/growth-audit" variant="primary">Get A Free Growth Audit</CTAButton>
             <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
               <Link to="/services" className="text-indigo-accent hover:underline">Explore our services</Link>
-              <Link to="/case-studies" className="text-indigo-accent hover:underline">See client case studies</Link>
               <Link to="/contact" className="text-indigo-accent hover:underline">Contact us</Link>
             </div>
           </div>

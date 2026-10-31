@@ -8,6 +8,10 @@
     "filename": {
       "type": "string"
     },
+    "alt": {
+      "type": "string",
+      "description": "Alt text used for accessibility and SEO"
+    },
     "size": {
       "type": "number",
       "description": "bytes"

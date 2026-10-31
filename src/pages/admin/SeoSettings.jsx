@@ -85,7 +85,6 @@ export default function SeoSettings() {
   const sections = [
     { key: "blog", label: "Blog Posts", entity: "BlogPost", fields: ["metaTitle", "metaDescription", "slug", "ogImage", "noindex"], titleKey: "title" },
     { key: "services", label: "Services", entity: "Service", fields: ["metaTitle", "metaDescription", "slug"], titleKey: "title" },
-    { key: "case-studies", label: "Case Studies", entity: "CaseStudy", fields: ["metaTitle", "metaDescription", "slug"], titleKey: "clientName" },
     { key: "industries", label: "Industries", entity: "Industry", fields: ["description"], titleKey: "name" },
   ];
 

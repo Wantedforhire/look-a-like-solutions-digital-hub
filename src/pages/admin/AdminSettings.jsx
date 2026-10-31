@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/AuthContext";
 import { useOutletContext } from "react-router-dom";
 import { ROLE_LABELS } from "@/lib/adminConfig";
 import { Field, TextInput, TextArea } from "@/components/admin/FormFields";
+import NavigationFooterSettings from "@/components/admin/NavigationFooterSettings";
 import { parseVerificationValue } from "@/lib/parseVerification";
 import { Mail, User, BarChart3, Info, Save, Search } from "lucide-react";
 
@@ -84,7 +85,7 @@ export default function AdminSettings() {
 
   return (
     <div>
-      <AdminPageHeader title="Settings" subtitle="Admin account, analytics, and site configuration." />
+      <AdminPageHeader title="Settings" subtitle="Admin account, analytics, site configuration, navigation and footer." />
       <div className="grid lg:grid-cols-2 gap-6">
         <div className="glass-cell rounded-2xl p-6 space-y-4">
           <div className="flex items-center gap-3">
@@ -176,6 +177,8 @@ export default function AdminSettings() {
                 <Save className="w-4 h-4" /> Save SEO Settings
               </button>
             </div>
+
+            <NavigationFooterSettings />
           </>
         )}
       </div>

@@ -18,7 +18,6 @@ const serviceLinks = [
 
 const navLinks = [
   { label: "Industries", to: "/industries" },
-  { label: "Results", to: "/case-studies" },
   { label: "About", to: "/about" },
   { label: "Blog", to: "/blog" },
   { label: "Insights", to: "/insights" }

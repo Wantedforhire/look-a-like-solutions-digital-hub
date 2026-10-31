@@ -4,7 +4,6 @@ import { base44 } from "@/api/base44Client";
 import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { localBusinessSchema, websiteSchema } from "@/components/seo/SchemaMarkup";
 import Hero from "@/components/home/Hero";
-import ResultsSection from "@/components/home/ResultsSection";
 import ClientLogoMarquee from "@/components/home/ClientLogoMarquee";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import FounderSection from "@/components/home/FounderSection";
@@ -16,7 +15,6 @@ import FAQSection from "@/components/home/FAQSection";
 import CTABand from "@/components/ui-custom/CTABand";
 
 const ProcessTimeline = lazy(() => import("@/components/home/ProcessTimeline"));
-const CaseStudyStrip = lazy(() => import("@/components/home/CaseStudyStrip"));
 const GeoReadiness = lazy(() => import("@/components/home/GeoReadiness"));
 
 const SectionSkeleton = () => (
@@ -26,10 +24,6 @@ const SectionSkeleton = () => (
 );
 
 export default function Home() {
-  const { data: caseStudies = [] } = useQuery({
-    queryKey: ["caseStudies", "home"],
-    queryFn: () => base44.entities.CaseStudy.filter({ featured: true }, "-created_date", 3)
-  });
   const { data: industries = [] } = useQuery({
     queryKey: ["industries", "home"],
     queryFn: () => base44.entities.Industry.list("-created_date", 8)
@@ -48,7 +42,6 @@ export default function Home() {
       <SchemaMarkup schema={websiteSchema()} id="schema-website" />
       <SchemaMarkup schema={localBusinessSchema()} id="schema-local" />
       <Hero />
-      <ResultsSection />
       <ClientLogoMarquee clients={clients} />
       <ServicesGrid />
       <FounderSection />
@@ -57,9 +50,6 @@ export default function Home() {
         <ProcessTimeline />
       </Suspense>
       <HowWeWork />
-      <Suspense fallback={<SectionSkeleton />}>
-        <CaseStudyStrip caseStudies={caseStudies} />
-      </Suspense>
       <IndustriesStrip industries={industries} />
       <GrowthAuditSection />
       <Suspense fallback={<SectionSkeleton />}>

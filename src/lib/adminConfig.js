@@ -26,13 +26,12 @@ export function resolveRole(siteUser) {
 const SUPER_ADMIN_ONLY_PATHS = [
   "/admin/roles",
   "/admin/settings",
-  "/admin/navigation",
 ];
 
 const MANAGER_ALLOWED_PATHS = [
   "/super-admin/marketing",
-  "/admin/pages", "/admin/blog", "/admin/insights", "/admin/resources",
-  "/admin/gallery", "/admin/services", "/admin/case-studies", "/admin/industries",
+  "/admin/blog", "/admin/insights", "/admin/resources",
+  "/admin/services", "/admin/industries",
   "/admin/testimonials", "/admin/team", "/admin/methodology", "/admin/media",
   "/admin/leads", "/admin/strategy-calls", "/admin/newsletter", "/admin/talent",
   "/admin/careers",

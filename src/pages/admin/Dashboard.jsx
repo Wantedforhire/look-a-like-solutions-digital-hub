@@ -4,7 +4,7 @@ import AdminPageHeader, { StatCard } from "@/components/admin/AdminPageHeader";
 import { formatDate } from "@/lib/adminUtils";
 import { Link } from "react-router-dom";
 import {
-  Inbox, TrendingUp, Newspaper, FolderKanban, Star, Briefcase,
+  Inbox, TrendingUp, Newspaper, Star, Briefcase,
   Building2, Users, ArrowRight, Mail, Clock
 } from "lucide-react";
 
@@ -20,10 +20,6 @@ export default function Dashboard() {
   const { data: posts = [] } = useQuery({
     queryKey: ["admin-blog", "all"],
     queryFn: () => base44.entities.BlogPost.list(),
-  });
-  const { data: studies = [] } = useQuery({
-    queryKey: ["admin-case-studies", "all"],
-    queryFn: () => base44.entities.CaseStudy.list(),
   });
   const { data: services = [] } = useQuery({
     queryKey: ["admin-services", "all"],
@@ -56,7 +52,6 @@ export default function Dashboard() {
         <StatCard label="Growth Audit Submissions" value={growthAudits.length} icon={TrendingUp} accent="emerald" />
         <StatCard label="Talent Applications" value={talent.length} icon={Users} accent="sky" />
         <StatCard label="Blog Posts" value={posts.length} icon={Newspaper} accent="amber" />
-        <StatCard label="Case Studies" value={studies.length} icon={FolderKanban} accent="indigo" />
         <StatCard label="Services" value={services.length} icon={Briefcase} accent="emerald" />
         <StatCard label="Industries" value={industries.length} icon={Building2} accent="sky" />
         <StatCard label="Testimonials" value={testimonials.length} icon={Star} accent="amber" />

@@ -7,7 +7,6 @@ export const STATIC_PAGES = [
   { path: "/", name: "Home Page" },
   { path: "/about", name: "About" },
   { path: "/services", name: "Services" },
-  { path: "/case-studies", name: "Results" },
   { path: "/industries", name: "Industries" },
   { path: "/blog", name: "Blog" },
   { path: "/insights", name: "Insights" },

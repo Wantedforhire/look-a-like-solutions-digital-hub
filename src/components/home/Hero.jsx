@@ -38,7 +38,7 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <CTAButton to="/growth-audit" variant="primary">Get A Free Growth Audit</CTAButton>
-            <CTAButton to="/case-studies" variant="secondary">See Real Results</CTAButton>
+            <CTAButton to="/services" variant="secondary">Explore Our Services</CTAButton>
           </div>
         </motion.div>
 

@@ -18,9 +18,6 @@ export default function CTABand({
           <CTAButton to={primaryTo} variant="primary">
             {primaryLabel}
           </CTAButton>
-          <CTAButton to="/case-studies" variant="secondary">
-            See Real Results
-          </CTAButton>
         </div>
       </ScrollReveal>
     </section>
