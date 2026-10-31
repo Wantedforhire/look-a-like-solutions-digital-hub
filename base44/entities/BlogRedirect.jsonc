@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "name": "BlogRedirect",
+  "properties": {
+    "fromSlug": {
+      "type": "string",
+      "description": "Previously published slug"
+    },
+    "toSlug": {
+      "type": "string",
+      "description": "Current slug the old URL redirects to"
+    },
+    "postId": {
+      "type": "string"
+    },
+    "postTitle": {
+      "type": "string"
+    },
+    "statusCode": {
+      "type": "number",
+      "default": 301
+    }
+  },
+  "required": [
+    "fromSlug",
+    "toSlug"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

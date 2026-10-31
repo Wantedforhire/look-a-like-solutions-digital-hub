@@ -1,4 +1,5 @@
-import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { ChevronRight } from "lucide-react";
@@ -12,13 +13,26 @@ import ErrorBoundary from "@/components/ui-custom/ErrorBoundary";
 
 export default function BlogDetail() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const { data: results, isLoading, isError } = useQuery({
     queryKey: ["blogPost", slug],
-    queryFn: () => base44.entities.BlogPost.filter({ slug })
+    queryFn: () => base44.entities.BlogPost.filter({ slug, status: "published" })
   });
   const post = results?.[0];
 
-  if (isLoading) {
+  // A previously published slug permanently redirects to the current one.
+  const { data: redirects } = useQuery({
+    queryKey: ["blogRedirect", slug],
+    queryFn: () => base44.entities.BlogRedirect.filter({ fromSlug: slug }),
+    enabled: !isLoading && !post,
+  });
+  const redirect = redirects?.[0];
+
+  useEffect(() => {
+    if (redirect?.toSlug) navigate(`/blog/${redirect.toSlug}`, { replace: true });
+  }, [redirect, navigate]);
+
+  if (isLoading || (!post && redirect)) {
     return <div className="pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading article...</div>;
   }
 
@@ -37,7 +51,16 @@ export default function BlogDetail() {
   return (
     <ErrorBoundary>
     <div>
-      <MetaTags title={post.metaTitle || post.title} description={post.metaDescription || post.excerpt} path={`/blog/${post.slug}`} image={post.coverImage} />
+      <MetaTags
+        title={post.metaTitle || post.title}
+        description={post.metaDescription || post.excerpt}
+        path={`/blog/${post.slug}`}
+        image={post.ogImage || post.coverImage}
+        noindex={!!post.noindex}
+        canonical={post.canonicalUrl || undefined}
+        ogTitle={post.ogTitle || undefined}
+        ogDescription={post.ogDescription || undefined}
+      />
       <SchemaMarkup schema={articleSchema(post, "blog")} id="schema-article" />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }])} id="schema-breadcrumb" />
 
@@ -70,7 +93,7 @@ export default function BlogDetail() {
               </p>
             )}
             {post.coverImage && (
-              <img src={post.coverImage} alt={post.title} loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
+              <img src={post.coverImage} alt={post.coverImageAlt || post.title} loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
             )}
             <SafeHtml
               html={post.content}

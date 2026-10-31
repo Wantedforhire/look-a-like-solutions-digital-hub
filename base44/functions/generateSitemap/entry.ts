@@ -58,7 +58,7 @@ async function buildSitemap(base44) {
   ];
   staticPages.forEach((p) => urls.push(urlEntry(`${BASE_URL}${p.path}`, today, p.changefreq, p.priority)));
 
-  posts.forEach((p) => { if (p.slug) urls.push(urlEntry(`${BASE_URL}/blog/${p.slug}`, toDate(p.publishDate || p.updated_date), "daily", "0.8")); });
+  posts.forEach((p) => { if (p.slug && !p.noindex) urls.push(urlEntry(`${BASE_URL}/blog/${p.slug}`, toDate(p.publishedAt || p.publishDate || p.updated_date), "daily", "0.8")); });
   insights.forEach((i) => { if (i.slug) urls.push(urlEntry(`${BASE_URL}/insights/${i.slug}`, toDate(i.publishDate || i.updated_date), "daily", "0.8")); });
   services.forEach((s) => { if (s.slug) urls.push(urlEntry(`${BASE_URL}/services/${s.slug}`, toDate(s.updated_date), "weekly", "0.7")); });
   caseStudies.forEach((c) => { if (c.slug) urls.push(urlEntry(`${BASE_URL}/case-studies/${c.slug}`, toDate(c.updated_date), "weekly", "0.7")); });

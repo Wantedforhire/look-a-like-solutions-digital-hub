@@ -1,0 +1,45 @@
+{
+  "description": "Publishes blog posts whose Asia/Kolkata schedule time has arrived.",
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "publish_scheduled_blog_posts",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "publish_due_posts": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "publishScheduledPosts",
+            "args": {}
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Publish scheduled posts",
+            "description": "Checks for posts due in IST"
+          }
+        }
+      }
+    ]
+  },
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "recurring",
+      "cron_expression": "*/5 * * * *",
+      "one_time_date": null,
+      "timezone": "Asia/Kolkata",
+      "interval_value": null,
+      "interval_unit": null,
+      "interval_anchor": null,
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "name": "Publish Scheduled Blog Posts"
+}

@@ -19,7 +19,6 @@ const groups = [
     label: "Content",
     items: [
       { label: "Pages", path: "/admin/pages", icon: FileText },
-      { label: "Blog", path: "/admin/blog", icon: Newspaper },
       { label: "Insights", path: "/admin/insights", icon: Lightbulb },
       { label: "Resources", path: "/admin/resources", icon: Download },
       { label: "Gallery", path: "/admin/gallery", icon: Image },
@@ -30,6 +29,12 @@ const groups = [
       { label: "Team", path: "/admin/team", icon: UserSquare2 },
       { label: "Methodology", path: "/admin/methodology", icon: Layers },
       { label: "Media Library", path: "/admin/media", icon: ImageIcon },
+    ],
+  },
+  {
+    label: "Marketing",
+    items: [
+      { label: "Blog Management", path: "/super-admin/marketing/blogs", icon: Newspaper },
     ],
   },
   {
@@ -58,7 +63,7 @@ export default function AdminLayout() {
   const { user, logout } = useAuth();
   const { role } = useOutletContext() || { role: "staff" };
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openGroups, setOpenGroups] = useState({ Content: true, Leads: true, Settings: true });
+  const [openGroups, setOpenGroups] = useState({ Content: true, Marketing: true, Leads: true, Settings: true });
 
   useEffect(() => {
     setMeta("robots", "noindex,nofollow");

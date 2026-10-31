@@ -30,6 +30,7 @@ const SUPER_ADMIN_ONLY_PATHS = [
 ];
 
 const MANAGER_ALLOWED_PATHS = [
+  "/super-admin/marketing",
   "/admin/pages", "/admin/blog", "/admin/insights", "/admin/resources",
   "/admin/gallery", "/admin/services", "/admin/case-studies", "/admin/industries",
   "/admin/testimonials", "/admin/team", "/admin/methodology", "/admin/media",
@@ -38,7 +39,7 @@ const MANAGER_ALLOWED_PATHS = [
 ];
 
 const STAFF_ALLOWED_PATHS = [
-  "/admin/blog", "/admin/insights", "/admin/leads", "/admin/strategy-calls",
+  "/admin/insights", "/admin/leads", "/admin/strategy-calls",
 ];
 
 export function canAccessPath(role, pathname) {

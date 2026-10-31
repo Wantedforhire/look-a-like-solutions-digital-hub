@@ -25,7 +25,7 @@ function setLink(rel, href) {
   el.setAttribute("href", href);
 }
 
-export default function MetaTags({ title, description, path = "/", image, noindex }) {
+export default function MetaTags({ title, description, path = "/", image, noindex, canonical, ogTitle, ogDescription }) {
   const { data: pageMetas } = useQuery({
     queryKey: ["page-meta", path],
     queryFn: () => base44.entities.PageMeta.filter({ path }),
@@ -41,9 +41,9 @@ export default function MetaTags({ title, description, path = "/", image, noinde
     document.title = fullTitle;
     setMeta("description", finalDescription);
     setMeta("robots", noindex ? "noindex,follow" : "index,follow");
-    setLink("canonical", `${SITE_URL}${path}`);
-    setMeta("og:title", fullTitle, "property");
-    setMeta("og:description", finalDescription, "property");
+    setLink("canonical", canonical || `${SITE_URL}${path}`);
+    setMeta("og:title", ogTitle || fullTitle, "property");
+    setMeta("og:description", ogDescription || finalDescription, "property");
     setMeta("og:site_name", "Look A Like Solutions", "property");
     setMeta("og:url", `${SITE_URL}${path}`, "property");
     setMeta("og:type", "website", "property");
@@ -52,7 +52,7 @@ export default function MetaTags({ title, description, path = "/", image, noinde
     setMeta("twitter:title", fullTitle);
     setMeta("twitter:description", finalDescription);
     if (image) setMeta("twitter:image", image);
-  }, [finalTitle, finalDescription, path, image, noindex]);
+  }, [finalTitle, finalDescription, path, image, noindex, canonical, ogTitle, ogDescription]);
 
   return null;
 }

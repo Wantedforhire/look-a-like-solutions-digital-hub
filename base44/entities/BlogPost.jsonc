@@ -11,15 +11,25 @@
     "category": {
       "type": "string"
     },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "excerpt": {
       "type": "string"
     },
     "content": {
       "type": "string",
-      "description": "Markdown / HTML content"
+      "description": "Rich text / HTML content"
     },
     "coverImage": {
       "type": "string"
+    },
+    "coverImageAlt": {
+      "type": "string",
+      "description": "Alt text for the featured image"
     },
     "author": {
       "type": "string"
@@ -41,10 +51,42 @@
       "type": "string",
       "format": "date"
     },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Original publication timestamp, preserved on edits"
+    },
+    "scheduledDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC instant the post goes live"
+    },
+    "scheduledTimezone": {
+      "type": "string",
+      "default": "Asia/Kolkata"
+    },
     "metaTitle": {
       "type": "string"
     },
     "metaDescription": {
+      "type": "string"
+    },
+    "focusKeyword": {
+      "type": "string"
+    },
+    "secondaryKeywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonicalUrl": {
+      "type": "string"
+    },
+    "ogTitle": {
+      "type": "string"
+    },
+    "ogDescription": {
       "type": "string"
     },
     "ogImage": {
@@ -64,12 +106,32 @@
       "type": "string",
       "enum": [
         "draft",
+        "review",
+        "scheduled",
         "published",
-        "scheduled"
+        "archived"
       ],
       "default": "draft"
     },
-    "scheduledDate": {
+    "previousSlugs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Old slugs that permanently redirect here"
+    },
+    "aiAssisted": {
+      "type": "boolean",
+      "default": false
+    },
+    "aiApproved": {
+      "type": "boolean",
+      "default": false
+    },
+    "aiApprovedBy": {
+      "type": "string"
+    },
+    "aiApprovedAt": {
       "type": "string",
       "format": "date-time"
     }

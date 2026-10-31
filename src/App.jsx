@@ -37,8 +37,8 @@ import AdminRoute from '@/components/admin/AdminRoute';
 import AdminLayout from '@/components/admin/AdminLayout';
 import Dashboard from '@/pages/admin/Dashboard';
 import PagesManagement from '@/pages/admin/PagesManagement';
-import BlogManagement from '@/pages/admin/BlogManagement';
-import BlogEditor from '@/pages/admin/BlogEditor';
+import BlogsDashboard from '@/pages/admin/marketing/BlogsDashboard';
+import BlogEditorPage from '@/pages/admin/marketing/BlogEditorPage';
 import CaseStudyManagement from '@/pages/admin/CaseStudyManagement';
 import CaseStudyEditor from '@/pages/admin/CaseStudyEditor';
 import ServiceManagement from '@/pages/admin/ServiceManagement';
@@ -128,14 +128,17 @@ const AuthenticatedApp = () => {
         <Route element={<AdminLayout />}>
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/pages" element={<PagesManagement />} />
-          <Route path="/admin/blog" element={<BlogManagement />} />
+          <Route path="/super-admin/marketing/blogs" element={<BlogsDashboard />} />
+          <Route path="/super-admin/marketing/blogs/new" element={<BlogEditorPage />} />
+          <Route path="/super-admin/marketing/blogs/:id/edit" element={<BlogEditorPage />} />
+          <Route path="/admin/blog" element={<BlogsDashboard />} />
           <Route path="/admin/insights" element={<InsightManagement />} />
           <Route path="/admin/insights/new" element={<InsightEditor />} />
           <Route path="/admin/insights/edit/:id" element={<InsightEditor />} />
           <Route path="/admin/resources" element={<ResourceManagement />} />
           <Route path="/admin/gallery" element={<GalleryManagement />} />
-          <Route path="/admin/blog/new" element={<BlogEditor />} />
-          <Route path="/admin/blog/edit/:id" element={<BlogEditor />} />
+          <Route path="/admin/blog/new" element={<BlogEditorPage />} />
+          <Route path="/admin/blog/edit/:id" element={<BlogEditorPage />} />
           <Route path="/admin/case-studies" element={<CaseStudyManagement />} />
           <Route path="/admin/case-studies/new" element={<CaseStudyEditor />} />
           <Route path="/admin/case-studies/edit/:id" element={<CaseStudyEditor />} />
