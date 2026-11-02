@@ -26,6 +26,7 @@ import WorkWithUs from '@/pages/WorkWithUs';
 import Resources from '@/pages/Resources';
 import Insights from '@/pages/Insights';
 import InsightDetail from '@/pages/InsightDetail';
+import SearchResults from '@/pages/SearchResults';
 import StrategyCall from '@/pages/StrategyCall';
 import Gallery from '@/pages/Gallery';
 import Methodology from '@/pages/Methodology';
@@ -104,6 +105,7 @@ const AuthenticatedApp = () => {
         <Route path="/resources" element={<Resources />} />
         <Route path="/insights" element={<Insights />} />
         <Route path="/insights/:slug" element={<InsightDetail />} />
+        <Route path="/search" element={<SearchResults />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/methodology" element={<Methodology />} />
         <Route path="/careers" element={<Careers />} />
