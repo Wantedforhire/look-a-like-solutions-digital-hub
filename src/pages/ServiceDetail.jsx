@@ -9,6 +9,7 @@ import SectionHeading from "@/components/ui-custom/SectionHeading";
 import CTAButton from "@/components/ui-custom/CTAButton";
 import FAQAccordion from "@/components/shared/FAQAccordion";
 import ContactForm from "@/components/forms/ContactForm";
+import TrustedInBengaluru from "@/components/services/TrustedInBengaluru";
 import { getIcon } from "@/lib/iconMap";
 
 export default function ServiceDetail() {
@@ -97,6 +98,8 @@ export default function ServiceDetail() {
           </div>
         </section>
       )}
+
+      <TrustedInBengaluru />
 
       {service.whoItsFor && (
         <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">

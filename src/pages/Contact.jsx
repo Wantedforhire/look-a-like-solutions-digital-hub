@@ -3,6 +3,7 @@ import MetaTags from "@/components/seo/MetaTags";
 import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import ContactForm from "@/components/forms/ContactForm";
+import ContactMap from "@/components/contact/ContactMap";
 
 const contactMethods = [
   { icon: Phone, label: "Call Us", value: "+91-9731588244", href: "tel:+919731588244" },
@@ -70,6 +71,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <ContactMap />
     </div>
   );
 }
