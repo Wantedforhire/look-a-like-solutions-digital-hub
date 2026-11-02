@@ -14,7 +14,7 @@ export default function GrowthAudit() {
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Free Growth Audit", path: "/growth-audit" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-16 px-6 bg-white text-center">
+      <section className="pt-28 md:pt-40 pb-16 px-6 bg-white text-center">
         <ScrollReveal className="max-w-3xl mx-auto text-center">
           <EyebrowLabel className="mb-4">No Cost · No Obligation</EyebrowLabel>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900">
@@ -26,7 +26,7 @@ export default function GrowthAudit() {
         </ScrollReveal>
       </section>
 
-      <section className="pb-24 px-6 bg-white">
+      <section className="pb-16 md:pb-24 px-6 bg-white">
         <div className="max-w-2xl mx-auto">
           <ScrollReveal>
             <GrowthAuditForm showChannels />

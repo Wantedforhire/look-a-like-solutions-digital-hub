@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function GrowthAuditSection() {
   return (
-    <section className="py-24 px-6 bg-indigo-50/40 border-y border-slate-100">
+    <section className="py-16 md:py-24 px-6 bg-indigo-50/40 border-y border-slate-100">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
         <ScrollReveal>
           <EyebrowLabel className="mb-4">Free Growth Audit</EyebrowLabel>

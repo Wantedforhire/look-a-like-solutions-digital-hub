@@ -42,7 +42,7 @@ const supportingServices = [
 
 export default function ServicesGrid({ services = [] }) {
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-16 md:py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           eyebrow="What We Do"

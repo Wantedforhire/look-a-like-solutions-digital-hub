@@ -31,7 +31,7 @@ export default function Industries() {
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Industries", path: "/industries" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-14 px-6 bg-white">
+      <section className="pt-28 md:pt-40 pb-14 px-6 bg-white">
         <ScrollReveal className="max-w-3xl mx-auto text-center">
           <p className="text-xs font-semibold uppercase tracking-widest text-indigo-accent">Industries</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900">

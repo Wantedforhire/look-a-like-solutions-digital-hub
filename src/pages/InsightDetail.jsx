@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { ChevronRight } from "lucide-react";
 import MetaTags from "@/components/seo/MetaTags";
+import NotFoundMeta from "@/components/seo/NotFoundMeta";
 import SchemaMarkup, { breadcrumbSchema, articleSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import CTABand from "@/components/ui-custom/CTABand";
@@ -18,12 +19,14 @@ export default function InsightDetail() {
   const galleryImages = Array.isArray(insight?.gallery) ? insight.gallery.filter((img) => img?.url) : [];
 
   if (isLoading) {
-    return <div className="pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading...</div>;
+    return <div className="pt-28 md:pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading...</div>;
   }
 
   if (!insight) {
     return (
-      <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
+      <div className="pt-28 md:pt-40 pb-24 text-center min-h-screen bg-white px-6">
+        <MetaTags title="Insight Not Found" path={`/insights/${slug}`} noindex />
+        <NotFoundMeta />
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Insight Not Found</h1>
         <Link to="/insights" className="text-indigo-accent font-semibold hover:underline">Browse All Insights</Link>
       </div>
@@ -52,7 +55,14 @@ export default function InsightDetail() {
             <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">{insight.title}</h1>
             <p className="text-sm text-slate-400 mb-8">{insight.author || "Look A Like Solutions"} · {insight.publishDate || ""}</p>
             {insight.coverImage && (
-              <img src={insight.coverImage} alt={insight.title} className="rounded-2xl w-full object-cover mb-10" />
+              <img
+                src={insight.coverImage}
+                alt={insight.title}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="rounded-2xl w-full object-cover mb-10"
+              />
             )}
             <SafeHtml
               html={insight.content}

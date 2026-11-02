@@ -31,7 +31,7 @@ export default function Methodology() {
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Methodology", path: "/methodology" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-16 px-6 bg-white">
+      <section className="pt-28 md:pt-40 pb-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-accent font-semibold mb-4">Methodology</p>
@@ -45,7 +45,7 @@ export default function Methodology() {
         </div>
       </section>
 
-      <section className="pb-24 px-6 bg-slate-50">
+      <section className="pb-16 md:pb-24 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto space-y-6 pt-8">
           {isLoading ? (
             <p className="text-center text-slate-400 py-20">Loading...</p>

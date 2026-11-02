@@ -58,7 +58,7 @@ export default function StrategyCall() {
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Strategy Call", path: "/strategy-call" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-16 px-6 bg-white">
+      <section className="pt-28 md:pt-40 pb-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-accent font-semibold mb-4">Strategy Call</p>
@@ -72,7 +72,7 @@ export default function StrategyCall() {
         </div>
       </section>
 
-      <section className="pb-24 px-6 bg-slate-50">
+      <section className="pb-16 md:pb-24 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-8 pt-8">
           <div className="lg:col-span-3">
             {done ? (

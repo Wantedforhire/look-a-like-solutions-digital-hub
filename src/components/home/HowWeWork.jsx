@@ -11,7 +11,7 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-16 md:py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal className="text-center mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-indigo-accent font-semibold mb-3">How We Work</p>

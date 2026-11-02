@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 
 export default function CookiePolicy() {
   return (
-    <div className="pt-40 pb-24 px-6 bg-ink">
+    <div className="pt-28 md:pt-40 pb-16 md:pb-24 px-6 bg-ink">
       <MetaTags
         title="Cookie Policy"
         description="How Look A Like Solutions uses cookies and similar technologies, the categories we use, and how to manage your consent preferences."

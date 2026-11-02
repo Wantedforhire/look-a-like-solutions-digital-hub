@@ -14,7 +14,7 @@ export default function ResourceCard({ resource, index = 0 }) {
       <div className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300">
         <div className="relative h-40 overflow-hidden bg-slate-100">
           {resource.coverImage ? (
-            <img src={resource.coverImage} alt={resource.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <img src={resource.coverImage} alt={resource.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-slate-50">
               <FileText className="w-12 h-12 text-slate-300" />

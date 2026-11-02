@@ -26,7 +26,7 @@ export default function Gallery() {
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Gallery", path: "/gallery" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-12 px-6 bg-white">
+      <section className="pt-28 md:pt-40 pb-12 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-accent font-semibold mb-4">Gallery</p>
@@ -37,7 +37,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      <section className="pb-24 px-6 bg-slate-50">
+      <section className="pb-16 md:pb-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {categories.map((cat) => (
@@ -62,7 +62,7 @@ export default function Gallery() {
               {filtered.map((item, i) => (
                 <ScrollReveal key={item.id} delay={(i % 3) * 0.06} className="break-inside-avoid mb-5">
                   <div className="group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-lg transition-all">
-                    <img src={item.imageUrl} alt={item.title} loading="lazy" className="w-full object-cover group-hover:scale-[1.02] transition-transform duration-500" />
+                    <img src={item.imageUrl} alt={item.title} loading="lazy" decoding="async" className="w-full object-cover group-hover:scale-[1.02] transition-transform duration-500" />
                     <div className="p-4">
                       <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-accent mb-1">{item.category}</p>
                       <h3 className="text-sm font-bold text-slate-900">{item.title}</h3>

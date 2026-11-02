@@ -40,6 +40,16 @@ export default function Navbar() {
     setServicesOpen(false);
   }, [location.pathname]);
 
+  // Lock page scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  const isActive = (to) => location.pathname === to || location.pathname.startsWith(`${to}/`);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -49,7 +59,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center shrink-0">
-          <img src="https://media.base44.com/images/public/6a45332a796cb5a887717912/54bfc626b_LookalikeSolutionsIconJPG.JPG" alt="Look A Like Solutions" width={32} height={32} fetchpriority="low" className="h-8 w-8 object-contain mr-2" />
+          <img src="https://media.base44.com/images/public/6a45332a796cb5a887717912/54bfc626b_LookalikeSolutionsIconJPG.JPG" alt="Look A Like Solutions" width={32} height={32} decoding="async" className="h-8 w-8 object-contain mr-2" />
           <span className="text-lg md:text-xl font-extrabold text-slate-900 tracking-tight">
             Look A Like <span className="text-indigo-accent">Solutions</span>
           </span>
@@ -91,13 +101,22 @@ export default function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm font-medium text-slate-700 hover:text-indigo-accent transition-colors"
+              aria-current={isActive(l.to) ? "page" : undefined}
+              className={`text-sm font-medium transition-colors ${
+                isActive(l.to) ? "text-indigo-accent" : "text-slate-700 hover:text-indigo-accent"
+              }`}
             >
               {l.label}
             </Link>
           ))}
 
-          <Link to="/contact" className="text-sm font-medium text-slate-700 hover:text-indigo-accent transition-colors">
+          <Link
+            to="/contact"
+            aria-current={isActive("/contact") ? "page" : undefined}
+            className={`text-sm font-medium transition-colors ${
+              isActive("/contact") ? "text-indigo-accent" : "text-slate-700 hover:text-indigo-accent"
+            }`}
+          >
             Contact
           </Link>
         </nav>
@@ -111,13 +130,23 @@ export default function Navbar() {
           </CTAButton>
         </div>
 
-        <button
-          className="lg:hidden text-slate-900 min-w-[44px] min-h-[44px] flex items-center justify-center"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="lg:hidden flex items-center">
+          <a
+            href="tel:+919731588244"
+            aria-label="Call Look A Like Solutions"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-slate-700 hover:bg-slate-100 transition-colors"
+          >
+            <Phone className="w-5 h-5" />
+          </a>
+          <button
+            className="text-slate-900 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
         </div>
         <div className="hidden lg:block pb-3">
           <SiteSearch />
@@ -132,17 +161,17 @@ export default function Navbar() {
             </div>
             <p className="text-xs uppercase tracking-wider text-slate-400 mb-2 mt-2">Services</p>
             {serviceLinks.map((s) => (
-              <Link key={s.to} to={s.to} className="block py-2.5 text-sm text-slate-700">
+              <Link key={s.to} to={s.to} className="flex items-center min-h-[44px] text-sm text-slate-700 active:text-indigo-accent">
                 {s.label}
               </Link>
             ))}
             <div className="border-t border-slate-100 my-3" />
             {navLinks.map((l) => (
-              <Link key={l.to} to={l.to} className="block py-2.5 text-sm font-medium text-slate-900">
+              <Link key={l.to} to={l.to} className="flex items-center min-h-[44px] text-sm font-medium text-slate-900">
                 {l.label}
               </Link>
             ))}
-            <Link to="/contact" className="block py-2.5 text-sm font-medium text-slate-900">
+            <Link to="/contact" className="flex items-center min-h-[44px] text-sm font-medium text-slate-900">
               Contact
             </Link>
             <div className="pt-4">

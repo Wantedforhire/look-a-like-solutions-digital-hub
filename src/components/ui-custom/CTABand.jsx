@@ -8,7 +8,7 @@ export default function CTABand({
   primaryTo = "/growth-audit"
 }) {
   return (
-    <section className="relative py-24 px-6 overflow-hidden bg-slate-900">
+    <section className="relative py-16 md:py-24 px-6 overflow-hidden bg-slate-900">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-accent/30 via-slate-900 to-emerald-accent/10" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-accent/20 rounded-full blur-3xl" />
       <ScrollReveal className="relative max-w-4xl mx-auto text-center">

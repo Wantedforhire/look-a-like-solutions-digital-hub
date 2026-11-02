@@ -4,7 +4,7 @@ import CTAButton from "@/components/ui-custom/CTAButton";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-40 pb-24 px-6">
+    <section className="relative overflow-hidden bg-white pt-28 md:pt-40 pb-16 md:pb-24 px-6">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-indigo-accent/8 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-emerald-accent/5 rounded-full blur-[120px]" />
@@ -49,7 +49,7 @@ export default function Hero() {
           className="relative"
         >
           {/* Dashboard-style performance visual — pure Tailwind, no external image */}
-          <div className="glass-cell rounded-3xl p-6 space-y-5">
+          <div className="glass-cell rounded-3xl p-5 sm:p-6 space-y-4 sm:space-y-5">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-semibold text-slate-900">Campaign Performance</p>
@@ -59,20 +59,20 @@ export default function Hero() {
             </div>
 
             {/* Metric tiles */}
-            <div className="grid grid-cols-3 gap-3">
-              <div className="rounded-xl border border-slate-200 p-4 bg-slate-50/50">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="rounded-xl border border-slate-200 p-3 sm:p-4 bg-slate-50/50">
                 <MousePointerClick className="w-5 h-5 text-indigo-accent mb-2" aria-hidden="true" />
-                <p className="text-2xl font-extrabold text-slate-900">4.8%</p>
+                <p className="text-xl sm:text-2xl font-extrabold text-slate-900">4.8%</p>
                 <p className="text-xs text-slate-400">CTR</p>
               </div>
-              <div className="rounded-xl border border-slate-200 p-4 bg-slate-50/50">
+              <div className="rounded-xl border border-slate-200 p-3 sm:p-4 bg-slate-50/50">
                 <Target className="w-5 h-5 text-emerald-accent mb-2" aria-hidden="true" />
-                <p className="text-2xl font-extrabold text-slate-900">₹42</p>
+                <p className="text-xl sm:text-2xl font-extrabold text-slate-900">₹42</p>
                 <p className="text-xs text-slate-400">CPL</p>
               </div>
-              <div className="rounded-xl border border-slate-200 p-4 bg-slate-50/50">
+              <div className="rounded-xl border border-slate-200 p-3 sm:p-4 bg-slate-50/50">
                 <TrendingUp className="w-5 h-5 text-indigo-accent mb-2" aria-hidden="true" />
-                <p className="text-2xl font-extrabold text-slate-900">312</p>
+                <p className="text-xl sm:text-2xl font-extrabold text-slate-900">312</p>
                 <p className="text-xs text-slate-400">Leads</p>
               </div>
             </div>

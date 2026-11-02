@@ -10,7 +10,7 @@ export default function InsightCard({ insight, index = 0 }) {
       >
         <div className="relative h-48 overflow-hidden bg-slate-100">
           {insight.coverImage && (
-            <img src={insight.coverImage} alt={insight.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <img src={insight.coverImage} alt={insight.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           )}
         </div>
         <div className="p-6 flex flex-col flex-1">

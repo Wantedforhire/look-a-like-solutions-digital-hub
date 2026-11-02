@@ -12,7 +12,7 @@ const steps = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="py-24 px-6 bg-ink">
+    <section className="py-16 md:py-24 px-6 bg-ink">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           eyebrow="Our Proven Process"

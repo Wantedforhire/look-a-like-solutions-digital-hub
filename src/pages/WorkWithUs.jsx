@@ -43,7 +43,7 @@ export default function WorkWithUs() {
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Work With Us", path: "/work-with-us" }])} id="schema-breadcrumb" />
 
       {/* Hero */}
-      <section className="pt-40 pb-20 px-6 bg-white">
+      <section className="pt-28 md:pt-40 pb-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <EyebrowLabel className="mb-4">Join Our Project Network</EyebrowLabel>

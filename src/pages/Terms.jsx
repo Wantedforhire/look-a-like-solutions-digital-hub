@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Terms() {
   return (
-    <div className="pt-40 pb-24 px-6 bg-ink">
+    <div className="pt-28 md:pt-40 pb-16 md:pb-24 px-6 bg-ink">
       <MetaTags
         title="Terms & Conditions"
         description="Terms & Conditions governing use of the Look A Like Solutions website and engagement of our digital marketing services. Governing law: India."

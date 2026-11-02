@@ -12,7 +12,7 @@ export default function IndustriesStrip({ industries = [] }) {
   const remaining = industries.filter((ind) => !featured.includes(ind));
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-16 md:py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           eyebrow="Sector Expertise"

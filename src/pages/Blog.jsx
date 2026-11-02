@@ -21,7 +21,7 @@ export default function Blog() {
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-16 px-6 bg-ink text-center">
+      <section className="pt-28 md:pt-40 pb-16 px-6 bg-ink text-center">
         <ScrollReveal className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-pearl">
             Insights &amp; <span className="text-indigo-accent">Growth Strategy</span>
@@ -32,7 +32,7 @@ export default function Blog() {
         </ScrollReveal>
       </section>
 
-      <section className="pb-24 px-6 bg-ink">
+      <section className="pb-16 md:pb-24 px-6 bg-ink">
         <div className="max-w-7xl mx-auto">
           {isLoading ? (
             <p className="text-center text-slate-sub">Loading articles...</p>

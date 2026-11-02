@@ -86,9 +86,22 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+
   body {
     @apply bg-background text-foreground font-body;
     line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Mobile-first media defaults: nothing can overflow the viewport */
+  img,
+  video,
+  iframe {
+    max-width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -137,6 +150,89 @@
   }
   .vector-clip {
     clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+  }
+}
+
+/* Article content (blog + insights) — mobile-first readable typography
+   without pulling in a typography plugin. */
+.prose {
+  color: #334155;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  max-width: 72ch;
+}
+.prose > * + * {
+  margin-top: 1.3em;
+}
+.prose h2 {
+  margin-top: 2.1em;
+  font-size: 1.55rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+.prose h3 {
+  margin-top: 1.7em;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #0f172a;
+}
+.prose strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.3rem;
+}
+.prose ul {
+  list-style: disc;
+}
+.prose ol {
+  list-style: decimal;
+}
+.prose li + li {
+  margin-top: 0.45rem;
+}
+.prose a {
+  color: #6366f1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose img {
+  border-radius: 1rem;
+  margin: 1.6rem 0;
+}
+.prose blockquote {
+  border-left: 3px solid #6366f1;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #475569;
+}
+.prose table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.prose th,
+.prose td {
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .prose {
+    font-size: 1.125rem;
+  }
+  .prose h2 {
+    font-size: 1.85rem;
+  }
+  .prose h3 {
+    font-size: 1.35rem;
   }
 }
 

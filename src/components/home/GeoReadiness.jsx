@@ -11,7 +11,7 @@ const pillars = [
 
 export default function GeoReadiness() {
   return (
-    <section className="relative py-24 px-6 bg-ink overflow-hidden">
+    <section className="relative py-16 md:py-24 px-6 bg-ink overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-accent/10 rounded-full blur-[140px]" />
       <div className="relative max-w-7xl mx-auto">
         <SectionHeading

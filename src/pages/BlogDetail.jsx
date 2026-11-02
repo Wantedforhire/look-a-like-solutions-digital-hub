@@ -5,6 +5,7 @@ import { base44 } from "@/api/base44Client";
 import { ChevronRight } from "lucide-react";
 import { format, isValid } from "date-fns";
 import MetaTags from "@/components/seo/MetaTags";
+import NotFoundMeta from "@/components/seo/NotFoundMeta";
 import SchemaMarkup, { breadcrumbSchema, articleSchema } from "@/components/seo/SchemaMarkup";
 
 import CTAButton from "@/components/ui-custom/CTAButton";
@@ -33,13 +34,14 @@ export default function BlogDetail() {
   }, [redirect, navigate]);
 
   if (isLoading || (!post && redirect)) {
-    return <div className="pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading article...</div>;
+    return <div className="pt-28 md:pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading article...</div>;
   }
 
   if (!post || isError) {
     return (
-      <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
+      <div className="pt-28 md:pt-40 pb-24 text-center min-h-screen bg-white px-6">
         <MetaTags noindex />
+        <NotFoundMeta />
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Article Not Found</h1>
         <CTAButton to="/blog" variant="primary">Browse All Articles</CTAButton>
       </div>
@@ -93,7 +95,14 @@ export default function BlogDetail() {
               </p>
             )}
             {post.coverImage && (
-              <img src={post.coverImage} alt={post.coverImageAlt || post.title} loading="lazy" className="rounded-2xl w-full object-cover mb-10 glass-cell p-2" />
+              <img
+                src={post.coverImage}
+                alt={post.coverImageAlt || post.title}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="rounded-2xl w-full object-cover mb-10 glass-cell p-2"
+              />
             )}
             <SafeHtml
               html={post.content}

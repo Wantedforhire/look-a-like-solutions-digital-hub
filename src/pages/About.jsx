@@ -31,7 +31,7 @@ export default function About() {
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-20 px-6 bg-ink">
+      <section className="pt-28 md:pt-40 pb-20 px-6 bg-ink">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-pearl">
@@ -67,7 +67,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-ink">
+      <section className="py-16 md:py-24 px-6 bg-ink">
         <div className="max-w-7xl mx-auto">
           <SectionHeading eyebrow="Our Values" title="What Drives Us Forward" subtitle="Our core values shape everything we do, from client work to how we support each other." />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -84,7 +84,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-ink">
+      <section className="py-16 md:py-24 px-6 bg-ink">
         <div className="max-w-7xl mx-auto">
           <SectionHeading eyebrow="Recognition" title="Awards &amp; Certifications" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -102,7 +102,7 @@ export default function About() {
       </section>
 
       {/* Work With Us */}
-      <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+      <section className="py-16 md:py-24 px-6 bg-slate-50 border-y border-slate-100">
         <div className="max-w-5xl mx-auto">
           <div className="glass-cell rounded-3xl p-8 sm:p-12 grid lg:grid-cols-2 gap-8 items-center">
             <ScrollReveal>

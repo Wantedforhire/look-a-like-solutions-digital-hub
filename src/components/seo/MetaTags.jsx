@@ -40,18 +40,25 @@ export default function MetaTags({ title, description, path = "/", image, noinde
     const fullTitle = finalTitle ? `${finalTitle} | Look A Like Solutions` : "Look A Like Solutions | Digital Marketing Agency in Bengaluru";
     document.title = fullTitle;
     setMeta("description", finalDescription);
-    setMeta("robots", noindex ? "noindex,follow" : "index,follow");
+    setMeta("robots", noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1");
     setLink("canonical", canonical || `${SITE_URL}${path}`);
     setMeta("og:title", ogTitle || fullTitle, "property");
     setMeta("og:description", ogDescription || finalDescription, "property");
     setMeta("og:site_name", "Look A Like Solutions", "property");
     setMeta("og:url", `${SITE_URL}${path}`, "property");
     setMeta("og:type", "website", "property");
-    if (image) setMeta("og:image", image, "property");
+    setMeta("og:locale", "en_IN", "property");
+    if (image) {
+      setMeta("og:image", image, "property");
+      setMeta("og:image:alt", finalTitle, "property");
+    }
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", fullTitle);
     setMeta("twitter:description", finalDescription);
-    if (image) setMeta("twitter:image", image);
+    if (image) {
+      setMeta("twitter:image", image);
+      setMeta("twitter:image:alt", finalTitle);
+    }
   }, [finalTitle, finalDescription, path, image, noindex, canonical, ogTitle, ogDescription]);
 
   return null;

@@ -18,7 +18,7 @@ const ProcessTimeline = lazy(() => import("@/components/home/ProcessTimeline"));
 const GeoReadiness = lazy(() => import("@/components/home/GeoReadiness"));
 
 const SectionSkeleton = () => (
-  <div className="py-24 px-6">
+  <div className="py-16 md:py-24 px-6">
     <div className="max-w-7xl mx-auto h-64 rounded-2xl bg-slate-100 animate-pulse" />
   </div>
 );

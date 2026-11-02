@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="pt-40 pb-24 px-6 bg-ink">
+    <div className="pt-28 md:pt-40 pb-16 md:pb-24 px-6 bg-ink">
       <MetaTags
         title="Privacy Policy"
         description="Privacy Policy for Look A Like Solutions — how we collect, use, store, and protect your personal information under applicable Indian law."

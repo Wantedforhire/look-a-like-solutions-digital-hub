@@ -26,7 +26,7 @@ export default function Careers() {
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Careers", path: "/careers" }])} id="schema-breadcrumb" />
 
-      <section className="pt-40 pb-16 px-6 bg-white">
+      <section className="pt-28 md:pt-40 pb-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <p className="text-xs uppercase tracking-[0.2em] text-indigo-accent font-semibold mb-4">Careers</p>
@@ -106,7 +106,7 @@ export default function Careers() {
       </section>
 
       {selectedJob && (
-        <section className="pb-24 px-6 bg-white">
+        <section className="pb-16 md:pb-24 px-6 bg-white">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-extrabold text-slate-900">

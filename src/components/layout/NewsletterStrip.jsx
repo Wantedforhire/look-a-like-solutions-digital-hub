@@ -46,23 +46,26 @@ export default function NewsletterStrip() {
             <Check className="w-4 h-4" /> You're subscribed! Check your inbox.
           </div>
         ) : (
-          <form onSubmit={subscribe} className="flex flex-col sm:flex-row items-center gap-3 max-w-lg mx-auto">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              className="w-full px-5 py-3 rounded-full text-sm text-slate-900 bg-white outline-none focus:ring-4 focus:ring-white/30"
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 disabled:opacity-60 whitespace-nowrap"
-            >
-              {loading ? "Subscribing..." : "Subscribe"} <Send className="w-4 h-4" />
-            </button>
-            <p className="text-xs text-indigo-100/80 text-center w-full mt-1">
+          <form onSubmit={subscribe} className="max-w-lg mx-auto">
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                aria-label="Email address"
+                className="w-full px-5 py-3 min-h-[48px] rounded-full text-sm text-slate-900 bg-white outline-none focus:ring-4 focus:ring-white/30"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 disabled:opacity-60 whitespace-nowrap"
+              >
+                {loading ? "Subscribing..." : "Subscribe"} <Send className="w-4 h-4" />
+              </button>
+            </div>
+            <p className="text-xs text-indigo-100/80 text-center mt-3">
               By subscribing you agree to receive marketing emails. You can unsubscribe at any time. See our{" "}
               <Link to="/privacy-policy" className="underline hover:text-white">Privacy Policy</Link>.
             </p>

@@ -7,7 +7,7 @@ const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 
 export default function ContactMap() {
   return (
-    <section className="pb-24 px-6 bg-white">
+    <section className="pb-16 md:pb-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="rounded-3xl border border-slate-200 bg-slate-50/60 p-3 md:p-4">

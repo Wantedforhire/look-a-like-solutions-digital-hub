@@ -1,12 +1,14 @@
 import { useLocation } from "react-router-dom";
 import MetaTags from "@/components/seo/MetaTags";
+import NotFoundMeta from "@/components/seo/NotFoundMeta";
 import CTAButton from "@/components/ui-custom/CTAButton";
 
 export default function NotFound() {
   const location = useLocation();
   return (
     <div className="min-h-screen flex items-center justify-center bg-ink px-6">
-      <MetaTags title="Page Not Found" description="The page you're looking for could not be found." path={location.pathname} />
+      <MetaTags title="Page Not Found" description="The page you're looking for could not be found." path={location.pathname} noindex />
+      <NotFoundMeta />
       <div className="text-center max-w-md">
         <p className="text-7xl font-extrabold text-indigo-accent/40 mb-4">404</p>
         <h1 className="text-2xl font-bold text-pearl mb-3">Page Not Found</h1>

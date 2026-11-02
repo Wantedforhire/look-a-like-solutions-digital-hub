@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import MetaTags from "@/components/seo/MetaTags";
-import SchemaMarkup, { breadcrumbSchema } from "@/components/seo/SchemaMarkup";
+import SchemaMarkup, { breadcrumbSchema, localBusinessSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import ContactForm from "@/components/forms/ContactForm";
 import ContactMap from "@/components/contact/ContactMap";
@@ -9,7 +9,7 @@ const contactMethods = [
   { icon: Phone, label: "Call Us", value: "+91-9731588244", href: "tel:+919731588244" },
   { icon: MessageCircle, label: "Strategy Call (WhatsApp)", value: "Chat with Ramkumar", href: "https://wa.me/919731588244" },
   { icon: Mail, label: "Email", value: "info@lookalikesolutions.com", href: "mailto:info@lookalikesolutions.com" },
-  { icon: MapPin, label: "Location", value: "Bengaluru, Karnataka, India", href: null }
+  { icon: MapPin, label: "Location", value: "Bengaluru, Karnataka, India", href: null, note: "Mon–Sat, 9:30 am – 6:30 pm IST" }
 ];
 
 export default function Contact() {
@@ -21,8 +21,8 @@ export default function Contact() {
         path="/contact"
       />
       <SchemaMarkup schema={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])} id="schema-breadcrumb" />
-
-      <section className="pt-40 pb-16 px-6 bg-white text-center">
+      <SchemaMarkup schema={localBusinessSchema()} id="schema-local-contact" />
+      <section className="pt-28 md:pt-40 pb-14 md:pb-16 px-6 bg-white text-center">
         <ScrollReveal className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900">
             Tell Us What You Are <span className="text-indigo-accent">Trying To Grow</span>
@@ -34,9 +34,9 @@ export default function Contact() {
         </ScrollReveal>
       </section>
 
-      <section className="pb-24 px-6 bg-white">
+      <section className="pb-16 md:pb-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-4 order-last lg:order-none">
             {contactMethods.map((m, i) => (
               <ScrollReveal key={m.label} delay={i * 0.06}>
                 {m.href ? (
@@ -47,6 +47,7 @@ export default function Contact() {
                     <div>
                       <p className="text-xs text-slate-400">{m.label}</p>
                       <p className="text-sm font-semibold text-slate-900">{m.value}</p>
+                      {m.note && <p className="text-xs text-slate-400 mt-0.5">{m.note}</p>}
                     </div>
                   </a>
                 ) : (
@@ -57,6 +58,7 @@ export default function Contact() {
                     <div>
                       <p className="text-xs text-slate-400">{m.label}</p>
                       <p className="text-sm font-semibold text-slate-900">{m.value}</p>
+                      {m.note && <p className="text-xs text-slate-400 mt-0.5">{m.note}</p>}
                     </div>
                   </div>
                 )}
@@ -64,7 +66,7 @@ export default function Contact() {
             ))}
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 order-first lg:order-none">
             <ScrollReveal delay={0.1}>
               <ContactForm />
             </ScrollReveal>

@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { CheckCircle2, ChevronRight, ArrowRight } from "lucide-react";
 import MetaTags from "@/components/seo/MetaTags";
+import NotFoundMeta from "@/components/seo/NotFoundMeta";
 import SchemaMarkup, { breadcrumbSchema, serviceSchema, faqSchema } from "@/components/seo/SchemaMarkup";
 import ScrollReveal from "@/components/ui-custom/ScrollReveal";
 import SectionHeading from "@/components/ui-custom/SectionHeading";
@@ -28,13 +29,14 @@ export default function ServiceDetail() {
   const related = service ? allServices.filter((s) => s.id !== service.id).slice(0, 3) : [];
 
   if (isLoading) {
-    return <div className="pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading service details...</div>;
+    return <div className="pt-28 md:pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading service details...</div>;
   }
 
   if (!service) {
     return (
-      <div className="pt-40 pb-24 text-center min-h-screen bg-white px-6">
+      <div className="pt-28 md:pt-40 pb-24 text-center min-h-screen bg-white px-6">
         <MetaTags noindex />
+        <NotFoundMeta />
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Service Not Found</h1>
         <p className="text-slate-500 mb-8">This service page doesn't exist yet.</p>
         <CTAButton to="/services" variant="primary">Browse All Services</CTAButton>
@@ -80,7 +82,14 @@ export default function ServiceDetail() {
           </ScrollReveal>
           {service.heroImage && (
             <ScrollReveal delay={0.15}>
-              <img src={service.heroImage} alt={`${service.title} — Look A Like Solutions`} loading="lazy" className="rounded-3xl w-full object-cover glass-cell p-2" />
+              <img
+                src={service.heroImage}
+                alt={`${service.title} — Look A Like Solutions`}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="rounded-3xl w-full object-cover glass-cell p-2"
+              />
             </ScrollReveal>
           )}
         </div>
@@ -102,7 +111,7 @@ export default function ServiceDetail() {
       <TrustedInBengaluru />
 
       {service.whoItsFor && (
-        <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+        <section className="py-16 md:py-24 px-6 bg-slate-50 border-y border-slate-100">
           <div className="max-w-3xl mx-auto">
             <SectionHeading eyebrow="Who It's For" title={`Is ${service.title} Right for You?`} align="left" />
             <p className="text-slate-600 leading-relaxed text-lg">{service.whoItsFor}</p>
@@ -111,7 +120,7 @@ export default function ServiceDetail() {
       )}
 
       {service.deliverables?.length > 0 && (
-        <section className="py-24 px-6 bg-white">
+        <section className="py-16 md:py-24 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <SectionHeading eyebrow="What's Included" title="Key Deliverables" align="left" />
             <div className="grid sm:grid-cols-2 gap-4">
@@ -127,7 +136,7 @@ export default function ServiceDetail() {
       )}
 
       {service.businessOutcomes?.length > 0 && (
-        <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+        <section className="py-16 md:py-24 px-6 bg-slate-50 border-y border-slate-100">
           <div className="max-w-6xl mx-auto">
             <SectionHeading eyebrow="Business Outcomes" title="What You Can Expect" align="left" />
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -142,7 +151,7 @@ export default function ServiceDetail() {
       )}
 
       {service.process?.length > 0 && (
-        <section className="py-24 px-6 bg-white">
+        <section className="py-16 md:py-24 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <SectionHeading eyebrow="Our Approach" title={`How We Deliver ${service.title}`} align="left" />
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -158,7 +167,7 @@ export default function ServiceDetail() {
       )}
 
       {service.faqs?.length > 0 && (
-        <section className="py-24 px-6 bg-slate-50 border-y border-slate-100">
+        <section className="py-16 md:py-24 px-6 bg-slate-50 border-y border-slate-100">
           <div className="max-w-3xl mx-auto">
             <SectionHeading eyebrow="FAQs" title={`${service.title} — Common Questions`} />
             <FAQAccordion faqs={service.faqs} />
@@ -167,7 +176,7 @@ export default function ServiceDetail() {
       )}
 
       {related.length > 0 && (
-        <section className="py-24 px-6 bg-white">
+        <section className="py-16 md:py-24 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <SectionHeading eyebrow="Explore More" title="Related Services" align="left" />
             <div className="grid sm:grid-cols-3 gap-6">
@@ -196,7 +205,7 @@ export default function ServiceDetail() {
         </section>
       )}
 
-      <section className="py-24 px-6 bg-slate-50 border-t border-slate-100">
+      <section className="py-16 md:py-24 px-6 bg-slate-50 border-t border-slate-100">
         <div className="max-w-2xl mx-auto">
           <SectionHeading eyebrow="Get Started" title="Request a Proposal" subtitle={`Tell us about your ${service.title.toLowerCase()} goals and we'll get back within one business day.`} />
           <ContactForm defaultService={service.title} />
