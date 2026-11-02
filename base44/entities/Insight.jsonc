@@ -1,6 +1,6 @@
 {
-  "type": "object",
   "name": "Insight",
+  "type": "object",
   "properties": {
     "title": {
       "type": "string"
@@ -17,6 +17,21 @@
     },
     "coverImage": {
       "type": "string"
+    },
+    "gallery": {
+      "type": "array",
+      "description": "Additional images shown with the insight",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          }
+        }
+      }
     },
     "category": {
       "type": "string"

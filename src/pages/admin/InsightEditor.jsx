@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { Field, TextInput, TextArea, Select } from "@/components/admin/FormFields";
 import MediaPicker from "@/components/admin/MediaPicker";
+import GalleryEditor from "@/components/admin/GalleryEditor";
 import Wysiwyg from "@/components/admin/Wysiwyg";
 import { slugify } from "@/lib/adminUtils";
 import { ArrowLeft, Save } from "lucide-react";
@@ -21,7 +22,7 @@ export default function InsightEditor() {
   });
 
   const [form, setForm] = useState({
-    title: "", slug: "", excerpt: "", content: "", coverImage: "", category: "",
+    title: "", slug: "", excerpt: "", content: "", coverImage: "", gallery: [], category: "",
     author: "", publishDate: "", status: "draft", metaTitle: "", metaDescription: "",
   });
 
@@ -61,6 +62,13 @@ export default function InsightEditor() {
             <p className="text-sm font-bold text-slate-900">Content</p>
             <Wysiwyg value={form.content} onChange={set("content")} />
           </div>
+          <div className="glass-cell rounded-2xl p-6 space-y-4">
+            <div>
+              <p className="text-sm font-bold text-slate-900">Additional Images</p>
+              <p className="text-[11px] text-slate-400 mt-0.5">Shown as a gallery under the article. Use the image button in the editor for images inside the text.</p>
+            </div>
+            <GalleryEditor value={form.gallery} onChange={set("gallery")} />
+          </div>
         </div>
         <div className="space-y-5">
           <div className="glass-cell rounded-2xl p-6 space-y-4">
@@ -71,6 +79,7 @@ export default function InsightEditor() {
           <div className="glass-cell rounded-2xl p-6 space-y-4">
             <p className="text-sm font-bold text-slate-900">Cover Image</p>
             <MediaPicker value={form.coverImage} onChange={set("coverImage")} label="" />
+            <p className="text-[11px] text-slate-400">Recommended 1200 × 630 px (JPG, PNG or WebP), max 300 KB for fast loading.</p>
           </div>
           <div className="glass-cell rounded-2xl p-6 space-y-4">
             <p className="text-sm font-bold text-slate-900">SEO</p>

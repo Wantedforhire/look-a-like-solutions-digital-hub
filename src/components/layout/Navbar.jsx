@@ -57,7 +57,7 @@ export default function Navbar() {
 
         <nav className="hidden lg:flex items-center gap-8">
           <div
-            className="relative"
+            className="relative z-[60]"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
@@ -65,7 +65,7 @@ export default function Navbar() {
               Services <ChevronDown className="w-4 h-4" aria-hidden="true" />
             </button>
             {servicesOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[560px]">
+              <div className="absolute z-[60] top-full left-1/2 -translate-x-1/2 pt-4 w-[560px]">
                 <div className="rounded-2xl p-6 grid grid-cols-2 gap-2 bg-white border border-slate-200 shadow-xl">
                   {serviceLinks.map((s) => (
                     <Link

@@ -15,6 +15,7 @@ export default function InsightDetail() {
     queryFn: () => base44.entities.Insight.filter({ slug, status: "published" }),
   });
   const insight = results?.[0];
+  const galleryImages = Array.isArray(insight?.gallery) ? insight.gallery.filter((img) => img?.url) : [];
 
   if (isLoading) {
     return <div className="pt-40 pb-24 text-center text-slate-500 min-h-screen bg-white">Loading...</div>;
@@ -57,6 +58,19 @@ export default function InsightDetail() {
               html={insight.content}
               className="prose prose-slate prose-lg prose-headings:text-slate-900 prose-p:text-slate-600 prose-li:text-slate-600 prose-a:text-indigo-accent max-w-none"
             />
+            {galleryImages.length > 0 && (
+              <div className="mt-10 grid sm:grid-cols-2 gap-4">
+                {galleryImages.map((img, i) => (
+                  <img
+                    key={`${img.url}-${i}`}
+                    src={img.url}
+                    alt={img.alt || insight.title}
+                    loading="lazy"
+                    className="rounded-2xl w-full object-cover"
+                  />
+                ))}
+              </div>
+            )}
           </ScrollReveal>
         </div>
       </article>

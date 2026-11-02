@@ -68,7 +68,7 @@ export default function ResourceManagement() {
               </div>
               <Field label="Description"><TextArea value={form.description} onChange={set("description")} rows={3} /></Field>
               <Field label="PDF / File URL"><TextInput value={form.fileUrl} onChange={set("fileUrl")} placeholder="https://..." /></Field>
-              <Field label="Cover Image"><MediaPicker value={form.coverImage} onChange={set("coverImage")} /></Field>
+              <Field label="Cover Image" hint="Recommended 1200 × 630 px (JPG, PNG or WebP), max 300 KB for fast loading."><MediaPicker value={form.coverImage} onChange={set("coverImage")} label="" /></Field>
               <div className="flex items-center gap-6">
                 <Toggle checked={!!form.featured} onChange={set("featured")} label="Featured" />
                 <Field label="Order" className="flex-1"><TextInput type="number" value={String(form.order || 0)} onChange={(v) => set("order")(Number(v))} /></Field>
